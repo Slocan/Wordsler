@@ -5,19 +5,22 @@ Rectangle {
     height: 100
     color: 'blue';
     property alias text: cardText.text
+    property bool selected: false
 
     Rectangle {
         width: parent.width-6;
         height: parent.height-6;
-        color: 'white';
+        color: (selected)? 'red' : 'white';
         anchors.centerIn: parent
 
         Text {
             id: cardText
             anchors.centerIn: parent
-            text: "A"
+            //text: "A"
             font.pixelSize: 24
         }
     }
+
+
 
 }

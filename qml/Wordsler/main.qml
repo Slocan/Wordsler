@@ -36,7 +36,7 @@ Rectangle {
     Component.onCompleted: {
         Game.initialize();
         for (var i=0; i<=7; i++) {
-            board.pileModel.append( { card: Game.getNextCard() } );
+            board.pileModel.append( { cardText: Game.getNextCard() } );
         }
     }
 

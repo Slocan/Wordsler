@@ -37,12 +37,12 @@ Rectangle {
     }
 
     GridView {
-        id: pile
+        id: choices
         x: 39
-        y: 40
+        y: 195
         width: 496
         height: 105
-        model: pileModel
+        model: choicesModel
         cellWidth: 62; cellHeight: 100
 
         delegate: Card { text: card
@@ -50,15 +50,29 @@ Rectangle {
     }
 
     GridView {
-        id: choices
+        id: pile
         x: 39
-        y: 40
+        y: 54
         width: 496
         height: 105
-        model: choicesModel
+        model: pileModel
         cellWidth: 62; cellHeight: 100
 
-        delegate: Card { text: card
+        delegate: Item {
+            //anchors.fill: parent
+            Card { id: cardObject; text: cardText }
+            MouseArea {
+                anchors.fill: cardObject
+                onClicked: {
+                    if (!cardObject.selected) {
+                        choicesModel.append( { card: cardObject.text } );
+                    } else {
+                        choicesModel.remove( choicesModel.getIndex(cardObject.text ));
+                    }
+                    cardObject.selected = !cardObject.selected;
+                }
+
+            }
         }
     }
 
@@ -69,7 +83,12 @@ Rectangle {
 
     ListModel {
         id: choicesModel
-
+        function getIndex(text) {
+            for (var i=0; i<=count; i++) {
+                if (get(i).card == text) {
+                    return i;
+                }
+            }
+        }
     }
-
 }
