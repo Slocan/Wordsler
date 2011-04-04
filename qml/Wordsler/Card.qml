@@ -4,14 +4,20 @@ Rectangle {
     width: 62
     height: 100
     color: 'blue';
+    property alias text: cardText.text
 
-    Text {
-        id: cardText
-        anchors.fill: parent
-        width: 80
-        height: 40
-        text: "A"
-        font.pixelSize: 24
+    Rectangle {
+        width: parent.width-6;
+        height: parent.height-6;
+        color: 'white';
+        anchors.centerIn: parent
+
+        Text {
+            id: cardText
+            anchors.centerIn: parent
+            text: "A"
+            font.pixelSize: 24
+        }
     }
 
 }

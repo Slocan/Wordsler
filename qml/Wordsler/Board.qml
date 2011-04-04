@@ -4,6 +4,7 @@ Rectangle {
     width: 600
     height: 380
     property alias count: deckTotal.text;
+    property alias pileModel: pileModel
 
     Text {
         id: deckTotal
@@ -35,21 +36,40 @@ Rectangle {
         }
     }
 
-    Grid {
+    GridView {
         id: pile
         x: 39
         y: 40
-        width: 390
+        width: 496
         height: 105
-        columns: 8
+        model: pileModel
+        cellWidth: 62; cellHeight: 100
+
+        delegate: Card { text: card
+        }
     }
 
-    Grid {
+    GridView {
         id: choices
         x: 39
-        y: 188
-        width: 390
-        height: 127
-        columns: 8
+        y: 40
+        width: 496
+        height: 105
+        model: choicesModel
+        cellWidth: 62; cellHeight: 100
+
+        delegate: Card { text: card
+        }
     }
+
+    ListModel {
+        id: pileModel
+
+    }
+
+    ListModel {
+        id: choicesModel
+
+    }
+
 }
