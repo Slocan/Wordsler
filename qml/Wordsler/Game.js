@@ -1,7 +1,8 @@
 /* Game.js */
 
 // Config variables
-var deck_definition = { 'A': 5, 'B': 2, 'C': 3 }
+var deck_definition = { 'A': 5, 'B': 5, 'C': 1, 'G': 8 }
+var score_definition = { 'A': 1, 'B': 3, 'C': 2, 'G': 3 }
 var score = 0;
 var initNumberOfCards = 58;
 var current_deck = [];
@@ -21,7 +22,7 @@ function createDeck(numberOfCards) {
             deck.push(key);
         }
     }
-    console.log(deck);
+    //console.log(deck);
     deck = shuffle(deck);
     return deck.slice(0,numberOfCards);
 }
@@ -33,4 +34,3 @@ function initialize() {
 function getNextCard() {
     return current_deck.pop();
 }
-

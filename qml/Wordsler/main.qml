@@ -4,40 +4,63 @@ import "Game.js" as Game
 Rectangle {
     width: 600
     height: 380
-//    Text {
-//        id: debugText
-//        text: "Hello World"
-//        anchors.centerIn: parent
-//    }
-//    MouseArea {
-//        anchors.fill: parent
-//        onClicked: {
-//            //debugText.text = Game.createDeck(30).toString();
 
-
-
-//            console.log(wordList.checkWord("help"));
-//            console.log(wordList.checkWord("shelf"));
-//            console.log(wordList.checkWord("shelves"));
-//            console.log(wordList.checkWord("hello"));
-//            //console.log(wordList.checkWord("helicopter"));
-//        }
-//    }
+    function getScoreForLetter(letter) {
+        return Game.score_definition[letter];
+    }
 
     WordList {
         id: wordList;
+
+        onStatusChanged: {
+            if ((status==XmlListModel.Ready) && (board.verify==true)) {
+                board.verify = false;
+                if (count == 1) {
+                    //score += 1
+                    board.lastWordText = "Word correct";
+                    board.score += board.getCurrentWordScore();
+                    var newCardsCount = board.removeSelected();
+                    for (var i=0; i<newCardsCount; i++) {
+                        var nextCard = Game.getNextCard();
+                        if (nextCard) {
+                            board.pileModel.append( { cardText: nextCard,
+                                               selected: false } );
+                        }
+                    }
+                    board.updateCount();
+                } else {
+                    board.clearSelected();
+                    board.lastWordText = "Word incorrect";
+                }
+
+                var newCards = board.resetChoices();
+                reset();
+            }
+        }
     }
 
     Board {
         id: board
-        count: Game.current_deck.length + "cards.";
+
+
+        function updateCount() {
+            count= Game.current_deck.length + "cards.";
+        }
+
+        onVerifyChanged: {
+            if (verify == true) {
+                wordList.checkWord(getWord());
+            }
+        }
     }
 
     Component.onCompleted: {
         Game.initialize();
         for (var i=0; i<=7; i++) {
-            board.pileModel.append( { cardText: Game.getNextCard() } );
+            board.pileModel.append( { cardText: Game.getNextCard(),
+                                   selected: false } );
         }
+        board.updateCount();
     }
 
 }

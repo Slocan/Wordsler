@@ -5,12 +5,12 @@ Rectangle {
     height: 100
     color: 'blue';
     property alias text: cardText.text
-    property bool selected: false
+    property bool isSelected: false
 
     Rectangle {
         width: parent.width-6;
         height: parent.height-6;
-        color: (selected)? 'red' : 'white';
+        color: (isSelected)? 'red' : 'white';
         anchors.centerIn: parent
 
         Text {
