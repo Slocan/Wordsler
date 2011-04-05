@@ -2,7 +2,7 @@ import Qt 4.7
 
 XmlListModel {
     id: xmlModel
-    source: "wordlist2.xml"
+    source: "wordlist.xml"
     query: "/words"
 
     function checkWord(word) {
