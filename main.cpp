@@ -2,6 +2,9 @@
 #include "wordlist.h"
 #include "qmlapplicationviewer.h"
 
+// This include is to make the "setContextProperty" work
+#include <QDeclarativeContext>
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -9,8 +12,10 @@ int main(int argc, char *argv[])
     //wordlist->isWord("egg");
 
     QmlApplicationViewer viewer;
-    //viewer.rootContext()->setContextProperty("wordList", wordlist);
+    //Utility *utility = new Utility(qApp, &viewer);
+
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+    viewer.rootContext()->setContextProperty("wordList", wordlist);
     viewer.setMainQmlFile(QLatin1String("qml/Wordsler/main.qml"));
     viewer.showExpanded();
 

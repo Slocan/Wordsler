@@ -9,35 +9,35 @@ Rectangle {
         return Game.score_definition[letter];
     }
 
-    WordList {
-        id: wordList;
+//    WordList {
+//        id: wordList;
 
-        onStatusChanged: {
-            if ((status==XmlListModel.Ready) && (board.verify==true)) {
-                board.verify = false;
-                if (count == 1) {
-                    //score += 1
-                    board.lastWordText = "Word correct";
-                    board.score += board.getCurrentWordScore();
-                    var newCardsCount = board.removeSelected();
-                    for (var i=0; i<newCardsCount; i++) {
-                        var nextCard = Game.getNextCard();
-                        if (nextCard) {
-                            board.pileModel.append( { cardText: nextCard,
-                                               selected: false } );
-                        }
-                    }
-                    board.updateCount();
-                } else {
-                    board.clearSelected();
-                    board.lastWordText = "Word incorrect";
-                }
+//        onStatusChanged: {
+//            if ((status==XmlListModel.Ready) && (board.verify==true)) {
+//                board.verify = false;
+//                if (count == 1) {
+//                    //score += 1
+//                    board.lastWordText = "Word correct";
+//                    board.score += board.getCurrentWordScore();
+//                    var newCardsCount = board.removeSelected();
+//                    for (var i=0; i<newCardsCount; i++) {
+//                        var nextCard = Game.getNextCard();
+//                        if (nextCard) {
+//                            board.pileModel.append( { cardText: nextCard,
+//                                               selected: false } );
+//                        }
+//                    }
+//                    board.updateCount();
+//                } else {
+//                    board.clearSelected();
+//                    board.lastWordText = "Word incorrect";
+//                }
 
-                var newCards = board.resetChoices();
-                reset();
-            }
-        }
-    }
+//                var newCards = board.resetChoices();
+//                reset();
+//            }
+//        }
+//    }
 
     Board {
         id: board
@@ -49,7 +49,8 @@ Rectangle {
 
         onVerifyChanged: {
             if (verify == true) {
-                wordList.checkWord(getWord());
+                //wordList.checkWord(getWord());
+                console.log(wordList.isWord(getWord()));
             }
         }
     }

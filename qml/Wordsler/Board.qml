@@ -134,7 +134,7 @@ Rectangle {
                     //pileModel.setProperty(index,selected, !pileModel.get(index).selected)
                     //pileModel.sync();
                     //isSelected= pileModel.get(index).selected;
-                    console.log(cardObject.isSelected)
+                    //console.log(cardObject.isSelected)
                     //selected = !selected;
                 }
             }
