@@ -22,7 +22,9 @@ symbian:TARGET.UID3 = 0xE6B5A1B5
 # MOBILITY +=
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
+SOURCES += main.cpp wordlist.cpp
+
+HEADERS += wordlist.h
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
