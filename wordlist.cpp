@@ -80,7 +80,7 @@ QStringList WordList::wordsIn(const QString &str)
 }
 
 //Using a C style global array since I'm using C style strings anyways
-const int WORD_MAX=200000;
+const int WORD_MAX=270000;
 char dict[WORD_MAX][LEN_MAX];
 int idx[26*26];
 int numWords;
@@ -88,7 +88,7 @@ int numWords;
 void WordList::init(){
     //Create 'Binary Tree'
     //QFile in(":/words.dict");//Assumed to be in alphabetical order already
-    QFile in("wordlist.xml");
+    QFile in(":/wordlist.txt");
     bool opened = in.open(QFile::Text | QFile::ReadOnly);
     Q_ASSERT(opened);
     int c=0;

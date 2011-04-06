@@ -121,7 +121,7 @@ Rectangle {
         delegate: Item {
             //property alias isSelected: cardObject.isSelected
             //anchors.fill: parent
-            Card { id: cardObject; text: cardText; isSelected: pileModel.get(index).selected }
+            Card { id: cardObject; value: cardValue; text: cardText; isSelected: pileModel.get(index).selected }
             MouseArea {
                 anchors.fill: cardObject
                 onClicked: {

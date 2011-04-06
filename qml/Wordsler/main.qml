@@ -50,7 +50,28 @@ Rectangle {
         onVerifyChanged: {
             if (verify == true) {
                 //wordList.checkWord(getWord());
-                console.log(wordList.isWord(getWord()));
+                //console.log(wordList.isWord(getWord()));
+                board.verify = false;
+                if (wordList.isWord(getWord())) {
+                    //score += 1
+                    board.lastWordText = "Word correct";
+                    board.score += board.getCurrentWordScore();
+                    var newCardsCount = board.removeSelected();
+                    for (var i=0; i<newCardsCount; i++) {
+                        var nextCard = Game.getNextCard();
+                        if (nextCard) {
+                            board.pileModel.append( { cardText: nextCard,
+                                               selected: false,
+                                    cardValue: Game.score_definition[nextCard] } );
+                        }
+                    }
+                    board.updateCount();
+                } else {
+                    board.clearSelected();
+                    board.lastWordText = "Word incorrect";
+                }
+
+                var newCards = board.resetChoices();
             }
         }
     }
@@ -58,8 +79,10 @@ Rectangle {
     Component.onCompleted: {
         Game.initialize();
         for (var i=0; i<=7; i++) {
-            board.pileModel.append( { cardText: Game.getNextCard(),
-                                   selected: false } );
+            var nextCard = Game.getNextCard();
+            board.pileModel.append( { cardText: nextCard,
+                                   selected: false,
+                                   cardValue: Game.score_definition[nextCard]  } );
         }
         board.updateCount();
     }

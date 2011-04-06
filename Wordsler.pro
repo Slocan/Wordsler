@@ -26,6 +26,8 @@ SOURCES += main.cpp wordlist.cpp
 
 HEADERS += wordlist.h
 
+RESOURCES += qml/Wordsler/resource.qrc
+
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
