@@ -12,10 +12,10 @@ Rectangle {
                          "island-paradise-tile.jpg",
                          "waterfall-tile-blue.jpg",
                          "wood-repeating-fill-wavy.jpg"]
-            console.log(backs.length);
-            console.log(Math.random())
+            //console.log(backs.length);
+            //console.log(Math.random())
             var randValue = parseInt(Math.random() * backs.length);
-            console.log(randValue);
+            //console.log(randValue);
             return "images/" + backs[randValue];
         }
 
