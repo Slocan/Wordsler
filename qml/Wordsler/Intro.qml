@@ -5,6 +5,8 @@ Rectangle {
     width: 600
     height: 380
 
+    Background {}
+
     Column {
         width: parent.width
         height: parent.height
@@ -59,8 +61,6 @@ Rectangle {
                 width: (parent.rows==1)? parent.width-highScore.width : parent.width
 
                 Column {
-//                    height: parent.height
-//                    width: parent.width
                     anchors.centerIn: parent
 
                     Rectangle {
@@ -72,8 +72,6 @@ Rectangle {
                         Text {
                             id: text3
                             anchors.centerIn: parent
-                            width: 80
-                            height: 20
                             text: "New Game"
                             font.pixelSize: 20
                         }
@@ -91,15 +89,11 @@ Rectangle {
                     Rectangle {
                         id: rectangle3
                         width: 176
-                        height: 45
+                        height: 50
                         color: "#ffffff"
 
                         Text {
                             id: text4
-                            x: 40
-                            y: 11
-                            width: 80
-                            height: 20
                             anchors.centerIn: parent
                             text: "Time Trial"
                             font.pixelSize: 20
