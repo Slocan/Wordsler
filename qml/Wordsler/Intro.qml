@@ -42,8 +42,8 @@ Rectangle {
             columns: (parent.width>parent.height)? 2 : 1
 
             Item {
-                height: (parent.rows==1)? 210 : 210
-                width: 300
+                height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
+                width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
 
                 Rectangle {
                     id: highScore
@@ -55,8 +55,8 @@ Rectangle {
             }
 
             Item {
-                height: parent.height
-                width: parent.width-highScore.width
+                height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
+                width: (parent.rows==1)? parent.width-highScore.width : parent.width
 
                 Column {
 //                    height: parent.height
