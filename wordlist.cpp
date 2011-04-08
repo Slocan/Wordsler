@@ -97,7 +97,7 @@ void WordList::init(){
     curIdx[0] = ' ';
     curIdx[1] = ' ';
     while(in.readLine(cur,LEN_MAX) > 0){
-            qDebug() << QString(cur).toLower().trimmed();
+            //qDebug() << QString(cur).toLower().trimmed();
             if(cur[0]=='\n' || cur[0]=='\0')
                 continue;
             m_words << QString(cur).toLower().trimmed();

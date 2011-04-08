@@ -11,10 +11,6 @@ Rectangle {
         width: parent.width
         height: parent.height
 
-        function getScoreForLetter(letter) {
-            return Game.score_definition[letter];
-        }
-
         ToolBar.ToolBar {
             id: toolBar; z: 7
             height: 66; /*anchors.top: parent.top;*/
@@ -29,41 +25,70 @@ Rectangle {
             }
         }
 
-        Board {
-            id: board
+        Item {
             width: screen.width
             height: screen.height - toolBar.height
 
-
-            function updateCount() {
-                count= Game.current_deck.length;
+            function getScoreForLetter(letter) {
+                return Game.score_definition[letter];
             }
 
-            onVerifyChanged: {
-                if (verify == true) {
-                    //wordList.checkWord(getWord());
-                    //console.log(wordList.isWord(getWord()));
-                    board.verify = false;
-                    if (wordList.isWord(getWord())) {
-                        //score += 1
-                        board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
-                        board.score += board.getCurrentWordScore();
-                        var newCardsCount = board.removeSelected();
-                        for (var i=0; i<newCardsCount; i++) {
-                            var nextCard = Game.getNextCard();
-                            if (nextCard) {
-                                board.pileModel.append( { cardText: nextCard,
-                                                   selected: false,
-                                        cardValue: Game.score_definition[nextCard] } );
-                            }
-                        }
-                        board.updateCount();
-                    } else {
-                        board.clearSelected();
-                        board.lastWordText = "Word is incorrect";
-                    }
+            Board {
+                id: board
+                visible: false
+                width: screen.width
+                height: screen.height - toolBar.height
 
-                    var newCards = board.resetChoices();
+
+                function updateCount() {
+                    count= Game.current_deck.length;
+                }
+
+                onVerifyChanged: {
+                    if (verify == true) {
+                        //wordList.checkWord(getWord());
+                        //console.log(wordList.isWord(getWord()));
+                        board.verify = false;
+                        if (wordList.isWord(getWord())) {
+                            //score += 1
+                            board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
+                            board.score += board.getCurrentWordScore();
+                            var newCardsCount = board.removeSelected();
+                            for (var i=0; i<newCardsCount; i++) {
+                                var nextCard = Game.getNextCard();
+                                if (nextCard) {
+                                    board.pileModel.append( { cardText: nextCard,
+                                                       selected: false,
+                                            cardValue: Game.score_definition[nextCard] } );
+                                }
+                            }
+                            board.updateCount();
+                        } else {
+                            board.clearSelected();
+                            board.lastWordText = "Word is incorrect";
+                        }
+
+                        var newCards = board.resetChoices();
+                    }
+                }
+            }
+
+            Intro {
+                id: intro
+                width: screen.width
+                height: screen.height - toolBar.height
+
+                function startGame() {
+                    Game.initialize();
+                    for (var i=0; i<=7; i++) {
+                        var nextCard = Game.getNextCard();
+                        board.pileModel.append( { cardText: nextCard,
+                                               selected: false,
+                                               cardValue: Game.score_definition[nextCard]  } );
+                    }
+                    board.updateCount();
+                    intro.visible = false;
+                    board.visible = true;
                 }
             }
         }
@@ -71,14 +96,7 @@ Rectangle {
 
     Component.onCompleted: {
 
-        Game.initialize();
-        for (var i=0; i<=7; i++) {
-            var nextCard = Game.getNextCard();
-            board.pileModel.append( { cardText: nextCard,
-                                   selected: false,
-                                   cardValue: Game.score_definition[nextCard]  } );
-        }
-        board.updateCount();
+
     }
 
 }

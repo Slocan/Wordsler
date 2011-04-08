@@ -4,6 +4,29 @@ Rectangle {
 //    width: 600
 //    height: 380
     property alias count: deckTotal.count;
+
+    Image {
+        function getBackgroundImage() {
+            var backs = ["waterfall-tile.jpg",
+                         "00-lucky-bamboo-background.jpg",
+                         "00-lucky-clover-small.jpg",
+                         "island-paradise-tile.jpg",
+                         "waterfall-tile-blue.jpg",
+                         "wood-repeating-fill-wavy.jpg"]
+            //console.log(backs.length);
+            //console.log(Math.random())
+            var randValue = parseInt(Math.random() * backs.length);
+            //console.log(randValue);
+            return "images/" + backs[randValue];
+        }
+
+        anchors.fill: parent
+        id: background
+        source: getBackgroundImage();
+        fillMode: Image.Tile
+        opacity: 0.5
+    }
+
     property alias pileModel: pileModel
     property bool verify: false
     property alias lastWordText: lastWord.text
@@ -55,15 +78,19 @@ Rectangle {
     }
 
     Column {
+        id: mainColumn
         width: parent.width
         height: parent.height
 
         Item {
             id: barRow
             width: parent.width
-            height: 30
+            height: 45
 
             Row {
+                width: parent.width
+                height: parent.height
+
                 Scoreboard {
                     width: board.width - deckTotal.width
                 }
@@ -75,20 +102,23 @@ Rectangle {
 
         GridView {
             id: pile
-            width: 8*66
-            height: 106
+            width: (parent.width>parent.height)? 8*66 : 4*66
+            height: (parent.width>parent.height)? 106 : 212
             model: pileModel
             cellWidth: 66; cellHeight: 106
+            anchors.horizontalCenter: parent.horizontalCenter
 
             delegate: PileDelegate {}
         }
 
         GridView {
             id: choices
-            width: 496
-            height: 105
+            width: (parent.width>parent.height)? 8*66 : 4*66
+            height: (parent.width>parent.height)? 106 : 212
+
             model: choicesModel
             cellWidth: 62; cellHeight: 100
+            anchors.horizontalCenter: parent.horizontalCenter
 
             delegate: Card { text: card
             }
@@ -150,7 +180,7 @@ Rectangle {
                     anchors.centerIn: parent
                     text: "Validate"
                     horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: 12
+                    font.pixelSize: 20
                 }
 
                 MouseArea {

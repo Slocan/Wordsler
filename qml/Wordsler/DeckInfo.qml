@@ -1,9 +1,14 @@
 import Qt 4.7
 
-Rectangle {
+Item {
     property int count
     width: 140
-    height: 20
+    height: 25
+
+    Rectangle {
+        anchors.fill: parent
+        opacity: 0.5
+    }
 
     Text {
         id: deckText
