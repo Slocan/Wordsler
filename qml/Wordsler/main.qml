@@ -1,82 +1,76 @@
 import Qt 4.7
 import "Game.js" as Game
+import "toolbar" as ToolBar
 
 Rectangle {
+    id: screen
     width: 600
     height: 380
 
-    function getScoreForLetter(letter) {
-        return Game.score_definition[letter];
-    }
+    Column {
+        width: parent.width
+        height: parent.height
 
-//    WordList {
-//        id: wordList;
-
-//        onStatusChanged: {
-//            if ((status==XmlListModel.Ready) && (board.verify==true)) {
-//                board.verify = false;
-//                if (count == 1) {
-//                    //score += 1
-//                    board.lastWordText = "Word correct";
-//                    board.score += board.getCurrentWordScore();
-//                    var newCardsCount = board.removeSelected();
-//                    for (var i=0; i<newCardsCount; i++) {
-//                        var nextCard = Game.getNextCard();
-//                        if (nextCard) {
-//                            board.pileModel.append( { cardText: nextCard,
-//                                               selected: false } );
-//                        }
-//                    }
-//                    board.updateCount();
-//                } else {
-//                    board.clearSelected();
-//                    board.lastWordText = "Word incorrect";
-//                }
-
-//                var newCards = board.resetChoices();
-//                reset();
-//            }
-//        }
-//    }
-
-    Board {
-        id: board
-
-
-        function updateCount() {
-            count= Game.current_deck.length + "cards.";
+        function getScoreForLetter(letter) {
+            return Game.score_definition[letter];
         }
 
-        onVerifyChanged: {
-            if (verify == true) {
-                //wordList.checkWord(getWord());
-                //console.log(wordList.isWord(getWord()));
-                board.verify = false;
-                if (wordList.isWord(getWord())) {
-                    //score += 1
-                    board.lastWordText = "Word correct";
-                    board.score += board.getCurrentWordScore();
-                    var newCardsCount = board.removeSelected();
-                    for (var i=0; i<newCardsCount; i++) {
-                        var nextCard = Game.getNextCard();
-                        if (nextCard) {
-                            board.pileModel.append( { cardText: nextCard,
-                                               selected: false,
-                                    cardValue: Game.score_definition[nextCard] } );
-                        }
-                    }
-                    board.updateCount();
-                } else {
-                    board.clearSelected();
-                    board.lastWordText = "Word incorrect";
-                }
+        ToolBar.ToolBar {
+            id: toolBar; z: 7
+            height: 66; /*anchors.top: parent.top;*/
+            width: screen.width;
+            opacity: 0.9
 
-                var newCards = board.resetChoices();
+            onTaskSwitcherClicked: {
+                utility.taskSwitcher();
+            }
+            onBackClicked: {
+                        Qt.quit();
+            }
+        }
+
+        Board {
+            id: board
+            width: screen.width
+            height: screen.height - toolBar.height
+
+
+            function updateCount() {
+                count= Game.current_deck.length;
+            }
+
+            onVerifyChanged: {
+                if (verify == true) {
+                    //wordList.checkWord(getWord());
+                    //console.log(wordList.isWord(getWord()));
+                    board.verify = false;
+                    if (wordList.isWord(getWord())) {
+                        //score += 1
+                        board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
+                        board.score += board.getCurrentWordScore();
+                        var newCardsCount = board.removeSelected();
+                        for (var i=0; i<newCardsCount; i++) {
+                            var nextCard = Game.getNextCard();
+                            if (nextCard) {
+                                board.pileModel.append( { cardText: nextCard,
+                                                   selected: false,
+                                        cardValue: Game.score_definition[nextCard] } );
+                            }
+                        }
+                        board.updateCount();
+                    } else {
+                        board.clearSelected();
+                        board.lastWordText = "Word is incorrect";
+                    }
+
+                    var newCards = board.resetChoices();
+                }
             }
         }
     }
 
     Component.onCompleted: {
+
         Game.initialize();
         for (var i=0; i<=7; i++) {
             var nextCard = Game.getNextCard();

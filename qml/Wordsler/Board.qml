@@ -1,9 +1,9 @@
 import Qt 4.7
 
 Rectangle {
-    width: 600
-    height: 380
-    property alias count: deckTotal.text;
+//    width: 600
+//    height: 380
+    property alias count: deckTotal.count;
     property alias pileModel: pileModel
     property bool verify: false
     property alias lastWordText: lastWord.text
@@ -27,7 +27,8 @@ Rectangle {
             var t = choicesModel.get(i).card;
             tmp += parent.getScoreForLetter(t);
         }
-        return tmp;
+        // Letter score + extra points for long words
+        return tmp+choicesModel.count-1;
     }
 
     function removeSelected() {
@@ -53,135 +54,119 @@ Rectangle {
         validateArea.enabled = true;
     }
 
-    Text {
-        id: deckTotal
-        x: 523
-        y: 24
-        width: 80
-        height: 20
-        text: "Count"
-        font.pixelSize: 12
-    }
+    Column {
+        width: parent.width
+        height: parent.height
 
-    Rectangle {
-        id: validateButton
-        x: 467
-        y: 315
-        width: 93
-        height: 35
-        color: (verify)? "red" : "#ffffff"
+        Item {
+            id: barRow
+            width: parent.width
+            height: 30
 
-        Text {
-            id: text1
-            x: 7
-            y: 10
-            width: 80
-            height: 20
-            text: "Validate"
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 12
-        }
-
-        MouseArea {
-            id: validateArea
-            anchors.fill: parent
-            onClicked: {
-                if (choicesModel.count>0) {
-                    validateArea.enabled = false;
-                    verify = true;
+            Row {
+                Scoreboard {
+                    width: board.width - deckTotal.width
+                }
+                DeckInfo {
+                    id: deckTotal
                 }
             }
+        }
+
+        GridView {
+            id: pile
+            width: 8*66
+            height: 106
+            model: pileModel
+            cellWidth: 66; cellHeight: 106
+
+            delegate: PileDelegate {}
+        }
+
+        GridView {
+            id: choices
+            width: 496
+            height: 105
+            model: choicesModel
+            cellWidth: 62; cellHeight: 100
+
+            delegate: Card { text: card
+            }
+        }
+
+        ListModel {
+            id: pileModel
 
         }
 
-    }
-
-    GridView {
-        id: choices
-        x: 39
-        y: 195
-        width: 496
-        height: 105
-        model: choicesModel
-        cellWidth: 62; cellHeight: 100
-
-        delegate: Card { text: card
-        }
-    }
-
-    GridView {
-        id: pile
-        x: 39
-        y: 54
-        width: 496
-        height: 105
-        model: pileModel
-        cellWidth: 62; cellHeight: 100
-
-        delegate: Item {
-            //property alias isSelected: cardObject.isSelected
-            //anchors.fill: parent
-            Card { id: cardObject; value: cardValue; text: cardText; isSelected: pileModel.get(index).selected }
-            MouseArea {
-                anchors.fill: cardObject
-                onClicked: {
-                    if (!pileModel.get(index).selected) {
-                        choicesModel.append( { card: cardText } );
-                    } else {
-                        choicesModel.remove( choicesModel.getIndex(cardText));
+        ListModel {
+            id: choicesModel
+            function getIndex(text) {
+                for (var i=count-1; i>=0; i--) {
+                    if (get(i).card == text) {
+                        return i;
                     }
-                    pileModel.get(index).selected = !pileModel.get(index).selected
-                    //pileModel.setProperty(index,selected, !pileModel.get(index).selected)
-                    //pileModel.sync();
-                    //isSelected= pileModel.get(index).selected;
-                    //console.log(cardObject.isSelected)
-                    //selected = !selected;
                 }
             }
-        }
-    }
 
-    ListModel {
-        id: pileModel
-
-    }
-
-    ListModel {
-        id: choicesModel
-        function getIndex(text) {
-            for (var i=count-1; i>=0; i--) {
-                if (get(i).card == text) {
-                    return i;
+            function getWord() {
+                var word = "";
+                for (var i=0; i<count; i++) {
+                    word += get(i).card;
                 }
+                return word;
             }
         }
 
-        function getWord() {
-            var word = "";
-            for (var i=0; i<count; i++) {
-                word += get(i).card;
-            }
-            return word;
+        Item {
+            width: parent.width
+            height: parent.height - pile.height - choices.height - statusRow.height - barRow.height
         }
-    }
 
-    Text {
-        id: lastWord
-        x: 51
-        y: 335
-        width: 80
-        height: 20
-        text: "text"
-        font.pixelSize: 12
-    }
+        Row {
+            id: statusRow
+            width: parent.width
+            Text {
+                id: lastWord
+                width: 80
+                height: 20
+                font.pixelSize: 20
+            }
 
-    Text {
-        id: score
-        x: 263
-        y: 24
-        width: 80
-        height: 20
-        text: "Score: " + parent.score
-        font.pixelSize: 20
+            Item {
+                width: parent.width - lastWord.width - validateButton.width
+                height: 20
+            }
+
+            Rectangle {
+                id: validateButton
+                width: 93
+                height: 35
+                color: (verify)? "red" : "#cacaca"
+                radius: 5
+
+                Text {
+                    id: text1
+                    anchors.centerIn: parent
+                    text: "Validate"
+                    horizontalAlignment: Text.AlignHCenter
+                    font.pixelSize: 12
+                }
+
+                MouseArea {
+                    id: validateArea
+                    anchors.fill: parent
+                    onClicked: {
+                        if (choicesModel.count>0) {
+                            validateArea.enabled = false;
+                            verify = true;
+                        }
+                    }
+
+                }
+
+            }
+        }
+
     }
 }

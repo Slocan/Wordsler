@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/" lang="english">
-        <file>sowpods.txt</file>
-        <file>words.dict</file>
         <file>wordlist.txt</file>
     </qresource>
 </RCC>

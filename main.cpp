@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("wordList", wordlist);
     viewer.setMainQmlFile(QLatin1String("qml/Wordsler/main.qml"));
     viewer.showExpanded();
+#if defined(Q_WS_MAEMO_5)
+        viewer.showFullScreen();
+#endif
 
     return app.exec();
 }
