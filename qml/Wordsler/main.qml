@@ -1,5 +1,6 @@
 import Qt 4.7
 import "Game.js" as Game
+import "storage.js" as Storage
 import "toolbar" as ToolBar
 
 Rectangle {
@@ -39,7 +40,6 @@ Rectangle {
                 width: screen.width
                 height: screen.height - toolBar.height
 
-
                 function updateCount() {
                     count= Game.current_deck.length;
                 }
@@ -71,6 +71,13 @@ Rectangle {
                         var newCards = board.resetChoices();
                     }
                 }
+
+                onEndGame: {
+                    intro.visible = true;
+                    board.visible = false;
+                    Storage.setScore(score);
+                    intro.updateHighScore();
+                }
             }
 
             Intro {
@@ -80,6 +87,7 @@ Rectangle {
 
                 function startGame() {
                     Game.initialize();
+                    board.initialize();
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
                         board.pileModel.append( { cardText: nextCard,
@@ -90,13 +98,17 @@ Rectangle {
                     intro.visible = false;
                     board.visible = true;
                 }
+
+                function updateHighScore() {
+                    highScoreModel=Storage.getScores()
+                }
             }
         }
     }
 
     Component.onCompleted: {
-
-
+        Storage.initialize();
+        intro.updateHighScore();
     }
 
 }

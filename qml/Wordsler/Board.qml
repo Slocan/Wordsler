@@ -4,6 +4,7 @@ Rectangle {
 //    width: 600
 //    height: 380
     property alias count: deckTotal.count;
+    signal endGame;
 
     Background {}
 
@@ -57,6 +58,13 @@ Rectangle {
         validateArea.enabled = true;
     }
 
+    function initialize() {
+        pileModel.clear();
+        choicesModel.clear();
+        lastWord.text = "";
+        score = 0;
+    }
+
     Column {
         id: mainColumn
         width: parent.width
@@ -87,6 +95,7 @@ Rectangle {
             model: pileModel
             cellWidth: 66; cellHeight: 106
             anchors.horizontalCenter: parent.horizontalCenter
+            interactive: false
 
             delegate: PileDelegate {}
         }
@@ -99,6 +108,7 @@ Rectangle {
             model: choicesModel
             cellWidth: 62; cellHeight: 100
             anchors.horizontalCenter: parent.horizontalCenter
+            interactive: false
 
             delegate: Card { text: card
             }
@@ -136,6 +146,33 @@ Rectangle {
         Row {
             id: statusRow
             width: parent.width
+
+            Rectangle {
+                id: endButton
+                width: 93
+                height: 35
+                //color: (verify)? "red" : "#cacaca"
+                radius: 5
+
+                Text {
+                    id: endGame
+                    anchors.centerIn: parent
+                    text: "End Game"
+                    horizontalAlignment: Text.AlignHCenter
+                    font.pixelSize: 20
+                }
+
+                MouseArea {
+                    id: endArea
+                    anchors.fill: parent
+                    onClicked: {
+                        board.endGame();
+                    }
+
+                }
+
+            }
+
             Text {
                 id: lastWord
                 width: 80
@@ -144,7 +181,7 @@ Rectangle {
             }
 
             Item {
-                width: parent.width - lastWord.width - validateButton.width
+                width: parent.width - lastWord.width - validateButton.width - endButton.width
                 height: 20
             }
 

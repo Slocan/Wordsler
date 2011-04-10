@@ -10,7 +10,6 @@ var deck_definition = {'A': 10, 'B': 2, 'C': 2, 'CL': 2, 'D': 4, 'E': 12, 'ER': 
 var score_definition = {'A': 1, 'B': 2, 'C': 2, 'CL': 2, 'D': 1, 'E': 1, 'ER': 2, 'F': 3, 'G': 2, 'H': 3, 'I': 2, 'IN': 2, 'J': 4,
         'K': 3, 'L': 2, 'M': 1, 'N': 1, 'O': 1, 'P': 4, 'Q': 6, 'QU': 5, 'R': 1, 'S': 1, 'T': 1, 'TH': 1, 'U': 1,
         'V': 3, 'W': 5, 'X': 5, 'Y': 3, 'Z': 5 }
-var score = 0;
 var initNumberOfCards = 58;
 var current_deck = [];
 

@@ -88,7 +88,7 @@ int numWords;
 void WordList::init(){
     //Create 'Binary Tree'
     //QFile in(":/words.dict");//Assumed to be in alphabetical order already
-    QFile in(":/wordlist.txt");
+    QFile in(":/wordlist2.txt");
     bool opened = in.open(QFile::Text | QFile::ReadOnly);
     Q_ASSERT(opened);
     int c=0;
@@ -102,6 +102,7 @@ void WordList::init(){
                 continue;
             m_words << QString(cur).toLower().trimmed();
             sprintf(dict[c],"%s", cur);
+
             if(curIdx[0] < cur[0]){//Assumed each of the 26 letters starts at least one word
                 curIdx[0] = cur[0];
                 curIdx[1] = 'a';

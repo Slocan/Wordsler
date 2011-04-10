@@ -1,9 +1,11 @@
-import QtQuick 1.0
+import Qt 4.7
 
 Rectangle {
     id: intro
     width: 600
     height: 380
+
+    property variant highScoreModel
 
     Background {}
 
@@ -27,7 +29,7 @@ Rectangle {
             }
 
             Text {
-                id: text2
+                id: textWelcome
                 anchors.centerIn: parent
                 width: 80
                 height: 20
@@ -47,12 +49,13 @@ Rectangle {
                 height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
                 width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
 
-                Rectangle {
+                HighScores {
                     id: highScore
                     //width: parent.width/2
-                    width: parent.width
+                    width: 250
                     height: parent.height
-                    color: "#bbbbbb"
+                    anchors.centerIn: parent
+                    model: highScoreModel
                 }
             }
 
@@ -63,49 +66,75 @@ Rectangle {
                 Column {
                     anchors.centerIn: parent
 
-                    Rectangle {
-                        id: rectangle2
-                        width: 176
-                        height: 50
-                        color: "#ffffff"
+                    Item {
+                        width: 200
+                        height: 80
 
-                        Text {
-                            id: text3
-                            anchors.centerIn: parent
-                            text: "New Game"
-                            font.pixelSize: 20
-                        }
+                        Rectangle {
+                            id: rectangle2
+                            width: 176
+                            height: 50
+                            color: "#bbbbbb"
+                            radius: 5
+                            border.color: 'black'
 
-                        MouseArea {
-                            id: startButton
-                            anchors.fill: parent
-                            onClicked: {
-                                startGame();
+                            Text {
+                                id: text2
+                                anchors.centerIn: parent
+                                text: "New Game"
+                                font.pixelSize: 20
                             }
 
+                            MouseArea {
+                                id: startButton
+                                anchors.fill: parent
+                                onClicked: {
+                                    startGame();
+                                }
+
+                            }
                         }
                     }
 
-                    Rectangle {
-                        id: rectangle3
-                        width: 176
-                        height: 50
-                        color: "#ffffff"
+                    Item {
+                        width: 200
+                        height: 80
+                        Rectangle {
+                            id: rectangle3
+                            width: 176
+                            height: 50
+                            color: "#bbbbbb"
+                            radius: 5
+                            border.color: 'black'
 
-                        Text {
-                            id: text4
-                            anchors.centerIn: parent
-                            text: "Time Trial"
-                            font.pixelSize: 20
+                            Text {
+                                id: text3
+                                anchors.centerIn: parent
+                                text: "Time Trial"
+                                font.pixelSize: 20
+                            }
                         }
                     }
 
-                    Rectangle {
+                    Item {
+                        width: 200
+                        height: 80
+                        Rectangle {
                             id: rectangle4
                             width: 176
-                            height: 49
-                            color: "#ffffff"
+                            height: 50
+                            color: "#bbbbbb"
+                            radius: 5
+                            border.color: 'black'
+
+                            Text {
+                                id: text4
+                                anchors.centerIn: parent
+                                text: "About"
+                                font.pixelSize: 20
+                            }
                         }
+                    }
                 }
             }
         }
