@@ -10,7 +10,7 @@ ListView {
         Text {
             id: scoreText
             text: date + ": " + score
-            font.pointSize: 20
+            font.pixelSize: 20
 
         }
     }
