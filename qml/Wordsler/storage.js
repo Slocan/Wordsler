@@ -62,7 +62,7 @@ function getScores() {
     var db = getDatabase();
     var listmodel = Qt.createQmlObject('import Qt 4.7; ListModel {}', intro);
     db.transaction(function(tx) {
-    var rs = tx.executeSql('SELECT date, score FROM scores ORDER BY score DESC LIMIT 20;');
+    var rs = tx.executeSql('SELECT date, score FROM scores ORDER BY score DESC LIMIT 12;');
     if (rs.rows.length > 0) {
         for(var i = 0; i < rs.rows.length; i++) {
           listmodel.append({date: rs.rows.item(i).date, score: rs.rows.item(i).score});

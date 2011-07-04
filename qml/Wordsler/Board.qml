@@ -24,6 +24,11 @@ Rectangle {
         return tmp
     }
 
+    function getExtraPoints() {
+        var extra_points = {2: 0, 3: 1, 4: 3, 5: 6, 6: 10, 7: 15, 8: 21 };
+        return extra_points[choicesModel.count];
+    }
+
     function getCurrentWordScore() {
         var tmp = 0;
         for (var i=choicesModel.count-1; i>=0; i--) {
@@ -32,7 +37,7 @@ Rectangle {
             tmp += parent.getScoreForLetter(t);
         }
         // Letter score + extra points for long words
-        return tmp+choicesModel.count-1;
+        return tmp+getExtraPoints();
     }
 
     function removeSelected() {

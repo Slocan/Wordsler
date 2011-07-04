@@ -3,9 +3,11 @@ import "storage.js" as Storage
 
 ListView {
     anchors.centerIn: parent
+    interactive: false
     delegate: Rectangle {
         height: scoreText.height
-        width: scoreText.width
+        width: highScore.width
+
         color: (index%2)? "#bbbbbb" : "#555555"
         Text {
             id: scoreText
