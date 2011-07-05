@@ -70,6 +70,11 @@ Rectangle {
         score = 0;
     }
 
+    function setTimer() {
+        timerfuse.visible = true;
+        timerfuse.startTimer(30);
+    }
+
     Column {
         id: mainColumn
         width: parent.width
@@ -85,8 +90,24 @@ Rectangle {
                 height: parent.height
 
                 Scoreboard {
-                    width: board.width - deckTotal.width
+                    id: scoreboard
+                    //width: board.width - deckTotal.width
                 }
+                Item {
+                    TimerFuse {
+                        id: timerfuse
+                        visible: false
+                        width: parent.width - 30
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        onTimerEnd: board.endGame();
+                    }
+                    height: parent.height
+                    width: board.width - deckTotal.width - scoreboard.width
+
+
+                }
+
                 DeckInfo {
                     id: deckTotal
                 }

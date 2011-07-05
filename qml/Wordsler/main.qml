@@ -99,6 +99,11 @@ Rectangle {
                     board.visible = true;
                 }
 
+                function startTimerGame() {
+                    startGame();
+                    board.setTimer();
+                }
+
                 function updateHighScore() {
                     highScoreModel=Storage.getScores()
                 }

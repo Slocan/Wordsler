@@ -113,6 +113,15 @@ Rectangle {
                                 text: "Time Trial"
                                 font.pixelSize: 20
                             }
+
+                            MouseArea {
+                                id: startTimerButton
+                                anchors.fill: parent
+                                onClicked: {
+                                    startTimerGame();
+                                }
+
+                            }
                         }
                     }
 

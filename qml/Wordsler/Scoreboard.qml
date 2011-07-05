@@ -2,6 +2,7 @@ import Qt 4.7
 
 Item {
     height: 25
+    width: score.width
     Rectangle {
         anchors.fill: parent
         opacity: 0.5
