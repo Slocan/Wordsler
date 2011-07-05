@@ -4,6 +4,7 @@ Rectangle {
 //    width: 600
 //    height: 380
     property alias count: deckTotal.count;
+    property bool isTimerGame: timerfuse.visible
     signal endGame;
 
     Background {}

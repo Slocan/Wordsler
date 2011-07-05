@@ -73,9 +73,15 @@ Rectangle {
                 }
 
                 onEndGame: {
+                    endScore.showScore(score);
+                    if (isTimerGame) {
+                        Storage.setScore(score,"timer");
+                    } else {
+                        Storage.setScore(score,"none");
+                    }
                     intro.visible = true;
                     board.visible = false;
-                    Storage.setScore(score);
+
                     intro.updateHighScore();
                 }
             }
@@ -106,6 +112,7 @@ Rectangle {
 
                 function updateHighScore() {
                     highScoreModel=Storage.getScores()
+                    highScoreModel_tt=Storage.getScores_tt();
                 }
             }
         }
@@ -114,6 +121,13 @@ Rectangle {
     Component.onCompleted: {
         Storage.initialize();
         intro.updateHighScore();
+    }
+
+    EndScore {
+        id: endScore
+        width: parent.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
     }
 
 }

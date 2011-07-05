@@ -6,6 +6,7 @@ Rectangle {
     height: 380
 
     property variant highScoreModel
+    property variant highScoreModel_tt
 
     Background {}
 
@@ -49,13 +50,27 @@ Rectangle {
                 height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
                 width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
 
-                HighScores {
-                    id: highScore
-                    //width: parent.width/2
-                    width: 250
+                Column {
+                    width: parent.width
                     height: parent.height
                     anchors.centerIn: parent
-                    model: highScoreModel
+
+                    HighScores {
+                        id: highScore
+                        //width: parent.width/2
+                        width: 250
+                        height: parent.height/2
+                        //anchors.centerIn: parent
+                        model: highScoreModel
+                    }
+
+                    HighScores {
+                        //x: parent.height/2
+                        width: 250
+                        height: parent.height/2
+                        //anchors.centerIn: parent
+                        model: highScoreModel_tt
+                    }
                 }
             }
 

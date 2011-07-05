@@ -62,7 +62,7 @@ function getScores() {
     var db = getDatabase();
     var listmodel = Qt.createQmlObject('import Qt 4.7; ListModel {}', intro);
     db.transaction(function(tx) {
-    var rs = tx.executeSql('SELECT date, score FROM scores ORDER BY score DESC LIMIT 12;');
+    var rs = tx.executeSql('SELECT date, score FROM scores ORDER BY score DESC LIMIT 6;');
     if (rs.rows.length > 0) {
         for(var i = 0; i < rs.rows.length; i++) {
           listmodel.append({date: rs.rows.item(i).date, score: rs.rows.item(i).score});
@@ -72,18 +72,37 @@ function getScores() {
     return listmodel
 }
 
-function setScore(score) {
+function getScores_tt() {
+    var db = getDatabase();
+    var listmodel = Qt.createQmlObject('import Qt 4.7; ListModel {}', intro);
+    db.transaction(function(tx) {
+    var rs = tx.executeSql('SELECT date, score FROM scores_tt ORDER BY score DESC LIMIT 6;');
+    if (rs.rows.length > 0) {
+        for(var i = 0; i < rs.rows.length; i++) {
+          listmodel.append({date: rs.rows.item(i).date, score: rs.rows.item(i).score});
+        }
+    }
+    })
+    return listmodel
+}
+
+function setScore(score, type) {
     var db = getDatabase();
     var res = "";
     db.transaction(function(tx) {
-          var rs = tx.executeSql('INSERT OR REPLACE INTO scores VALUES (strftime("%Y-%m-%d %H:%M","now"),?);', [score]);
-          if (rs.rowsAffected > 0) {
-             res = "OK";
-          } else {
-             res = "Error";
-          }
-          }
-   );
+                   var rs;
+                   if (type == "timer") {
+                               rs = tx.executeSql('INSERT OR REPLACE INTO scores_tt VALUES (strftime("%Y-%m-%d %H:%M","now"),?);', [score]);
+                   } else {
+                               rs = tx.executeSql('INSERT OR REPLACE INTO scores VALUES (strftime("%Y-%m-%d %H:%M","now"),?);', [score]);
+                   }
+                   if (rs.rowsAffected > 0) {
+                        res = "OK";
+                   } else {
+                        res = "Error";
+                   }
+                });
+    console.log(res)
    return res;
 }
 
@@ -95,6 +114,7 @@ function initialize() {
             // Create the database if it doesn't already exist
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT UNIQUE, value TEXT)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS scores(date TEXT, score INTEGER)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS scores_tt(date TEXT, score INTEGER)');
         }
     );
 }

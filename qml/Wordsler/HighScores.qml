@@ -2,7 +2,7 @@ import Qt 4.7
 import "storage.js" as Storage
 
 ListView {
-    anchors.centerIn: parent
+    //anchors.centerIn: parent
     interactive: false
     delegate: Rectangle {
         height: scoreText.height
