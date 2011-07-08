@@ -25,8 +25,8 @@ function dump() {
        for(var i = 0; i < rs.rows.length; i++) {
                 console.log(rs.rows.item(i).setting+ ", " + rs.rows.item(i).value + "\n");
        }
-       var rs = tx.executeSql('SELECT * FROM scores');
-       for(var i = 0; i < rs.rows.length; i++) {
+       rs = tx.executeSql('SELECT * FROM scores');
+       for(i = 0; i < rs.rows.length; i++) {
                 console.log(rs.rows.item(i).url+ ", " + rs.rows.item(i).unread + "\n");
        }
     });
@@ -86,6 +86,27 @@ function getScores_tt() {
     return listmodel
 }
 
+function getScore(type) {
+
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+                   var rs;
+                   if (type == "timer") {
+                               rs = tx.executeSql('SELECT date,score FROM scores_tt ORDER BY score DESC LIMIT 1;');
+                   } else {
+                               rs = tx.executeSql('SELECT date,score FROM scores ORDER BY score DESC LIMIT 1;');
+                   }
+                   if (rs.rows.length > 0) {
+                        res = rs.rows.item(0).score + " / " + rs.rows.item(0).date;
+                   } else {
+                        res = "No score";
+                   }
+                });
+   return res;
+
+}
+
 function setScore(score, type) {
     var db = getDatabase();
     var res = "";
@@ -102,7 +123,6 @@ function setScore(score, type) {
                         res = "Error";
                    }
                 });
-    console.log(res)
    return res;
 }
 

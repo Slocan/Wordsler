@@ -47,36 +47,45 @@ Rectangle {
             columns: (parent.width>parent.height)? 2 : 1
 
             Item {
+                id: leftPane
                 height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
                 width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
 
-                Column {
+                BestScore {
                     width: parent.width
                     height: parent.height
                     anchors.centerIn: parent
-
-                    HighScores {
-                        id: highScore
-                        //width: parent.width/2
-                        width: 250
-                        height: parent.height/2
-                        //anchors.centerIn: parent
-                        model: highScoreModel
-                    }
-
-                    HighScores {
-                        //x: parent.height/2
-                        width: 250
-                        height: parent.height/2
-                        //anchors.centerIn: parent
-                        model: highScoreModel_tt
-                    }
                 }
+
+//                Column {
+//                    width: parent.width
+//                    height: parent.height
+//                    anchors.centerIn: parent
+
+//                    HighScores {
+//                        id: highScore
+//                        //width: parent.width/2
+//                        width: 250
+//                        height: parent.height/2
+//                        //anchors.centerIn: parent
+//                        model: highScoreModel
+//                    }
+
+//                    HighScores {
+//                        //x: parent.height/2
+//                        width: 250
+//                        height: parent.height/2
+//                        //anchors.centerIn: parent
+//                        model: highScoreModel_tt
+//                    }
+//                }
+
+
             }
 
             Item {
                 height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
-                width: (parent.rows==1)? parent.width-highScore.width : parent.width
+                width: (parent.rows==1)? parent.width-leftPane.width : parent.width
 
                 Column {
                     anchors.centerIn: parent
@@ -97,7 +106,7 @@ Rectangle {
                                 id: text2
                                 anchors.centerIn: parent
                                 text: "New Game"
-                                font.pixelSize: 20
+                                font.pointSize: 20
                             }
 
                             MouseArea {
@@ -126,7 +135,7 @@ Rectangle {
                                 id: text3
                                 anchors.centerIn: parent
                                 text: "Time Trial"
-                                font.pixelSize: 20
+                                font.pointSize: 20
                             }
 
                             MouseArea {
@@ -155,7 +164,7 @@ Rectangle {
                                 id: text4
                                 anchors.centerIn: parent
                                 text: "About"
-                                font.pixelSize: 20
+                                font.pointSize: 20
                             }
                         }
                     }
