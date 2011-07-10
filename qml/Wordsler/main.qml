@@ -82,7 +82,7 @@ Rectangle {
                     intro.visible = true;
                     board.visible = false;
 
-                    intro.updateHighScore();
+                    intro.updateScore();
                 }
             }
 
@@ -110,17 +110,13 @@ Rectangle {
                     board.setTimer();
                 }
 
-                function updateHighScore() {
-                    highScoreModel=Storage.getScores()
-                    highScoreModel_tt=Storage.getScores_tt();
-                }
             }
         }
     }
 
     Component.onCompleted: {
         Storage.initialize();
-        intro.updateHighScore();
+        intro.updateScore();
     }
 
     EndScore {

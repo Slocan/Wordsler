@@ -5,8 +5,9 @@ Rectangle {
     width: 600
     height: 380
 
-    property variant highScoreModel
-    property variant highScoreModel_tt
+    function updateScore() {
+        bestScorePane.updateScores();
+    }
 
     Background {}
 
@@ -17,7 +18,7 @@ Rectangle {
         Item {
             id: title
             width: parent.width
-            height: 120
+            height: 100
             Text {
                 id: text1
                 anchors.centerIn: parent
@@ -52,6 +53,7 @@ Rectangle {
                 width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
 
                 BestScore {
+                    id: bestScorePane
                     width: parent.width
                     height: parent.height
                     anchors.centerIn: parent
@@ -92,7 +94,7 @@ Rectangle {
 
                     Item {
                         width: 200
-                        height: 80
+                        height: 75
 
                         Rectangle {
                             id: rectangle2
@@ -106,7 +108,7 @@ Rectangle {
                                 id: text2
                                 anchors.centerIn: parent
                                 text: "New Game"
-                                font.pointSize: 20
+                                font.pointSize: 16
                             }
 
                             MouseArea {
@@ -122,7 +124,7 @@ Rectangle {
 
                     Item {
                         width: 200
-                        height: 80
+                        height: 75
                         Rectangle {
                             id: rectangle3
                             width: 176
@@ -135,7 +137,7 @@ Rectangle {
                                 id: text3
                                 anchors.centerIn: parent
                                 text: "Time Trial"
-                                font.pointSize: 20
+                                font.pointSize: 16
                             }
 
                             MouseArea {
@@ -151,7 +153,7 @@ Rectangle {
 
                     Item {
                         width: 200
-                        height: 80
+                        height: 75
                         Rectangle {
                             id: rectangle4
                             width: 176
@@ -164,7 +166,7 @@ Rectangle {
                                 id: text4
                                 anchors.centerIn: parent
                                 text: "About"
-                                font.pointSize: 20
+                                font.pointSize: 16
                             }
                         }
                     }

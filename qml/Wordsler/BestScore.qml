@@ -30,7 +30,7 @@ Item {
                 text: "Highest Scores"
                 font.bold: true
                 font.italic: true
-                font.pointSize: 15
+                font.pointSize: 14
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -44,14 +44,14 @@ Item {
                 text: "Regular Mode"
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
-                font.pointSize: 12
+                font.pointSize: 10
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Text {
                 id: highScore
                 horizontalAlignment: Text.AlignHCenter
-                font.pointSize: 12
+                font.pointSize: 10
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -64,13 +64,13 @@ Item {
                 id: text3
                 text: "Time Trial"
                 font.bold: true
-                font.pointSize: 12
+                font.pointSize: 10
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Text {
                 id: highScore_tt
-                font.pointSize: 12
+                font.pointSize: 10
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }

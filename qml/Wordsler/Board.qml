@@ -73,7 +73,7 @@ Rectangle {
 
     function setTimer() {
         timerfuse.visible = true;
-        timerfuse.startTimer(30);
+        timerfuse.startTimer(120);
     }
 
     Column {
