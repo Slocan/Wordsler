@@ -19,7 +19,7 @@ Rectangle {
 
         ToolBar.ToolBar {
             id: toolBar; z: 7
-            height: 66; /*anchors.top: parent.top;*/
+            height: settings.toolBarHeight;
             width: screen.width;
             opacity: 0.9
 

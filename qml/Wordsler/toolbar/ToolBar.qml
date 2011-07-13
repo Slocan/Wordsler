@@ -29,7 +29,7 @@ Item {
             anchors.fill: parent
             Button {
                 id: taskSwitcherButton
-                /*anchors.left: parent.left;*/ anchors.leftMargin: 5; y: 3; width: 116; height: 60
+                /*anchors.left: parent.left;*/ anchors.leftMargin: 5; y: 3; width: 116; height: settings.toolBarHeight-6
                 onClicked: toolbar.taskSwitcherClicked()
                 imageSource: "images/wmTaskLauncherIcon.png"
             }
@@ -40,7 +40,7 @@ Item {
             Button {
                 id: quitButton
                 visible: true
-                /*anchors.right: parent.right;*/ anchors.rightMargin: 5; y: 3; width: 116; height: 60
+                /*anchors.right: parent.right;*/ anchors.rightMargin: 5; y: 3; width: 116; height: settings.toolBarHeight-6
                 onClicked: toolbar.backClicked()
                 imageSource: "images/emblem-unreadable.png"
             }

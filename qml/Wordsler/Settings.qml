@@ -4,14 +4,16 @@ Item {
 
     property int introButtonHeight;
     property int introButtonWidth;
-    property int introFontSize;
+    property int introFontSize:1;
 
     property int statusRowHeight;
     property int statusRowButtonWidth;
-    property int statusRowFontSize;
+    property int statusRowFontSize:1;
 
     property int barRowHeight;
-    property int barRowFontSize;
+    property int barRowFontSize:1;
+
+    property int toolBarHeight;
 
     function setValues(platform) {
         if (platform=="maemo5") {
@@ -23,24 +25,27 @@ Item {
             statusRowFontSize = 22;
             barRowHeight = 45;
             barRowFontSize = 19;
+            toolBarHeight = 66;
         } else if (platform=="symbian") {
             introButtonHeight = 50;
             introButtonWidth = 176;
             introFontSize = 15;
-            statusRowButtonWidth = 120;
+            statusRowButtonWidth = 140;
             statusRowHeight = 35;
-            statusRowFontSize = 20;
-            barRowHeight = 45;
+            statusRowFontSize = 12;
+            barRowHeight = 25;
             barRowFontSize = 10;
+            toolBarHeight = 46;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;
             introFontSize = 15;
-            statusRowButtonWidth = 120;
+            statusRowButtonWidth = 140;
             statusRowHeight = 35;
             statusRowFontSize = 20;
-            barRowHeight = 45;
-            barRowFontSize = 10;
+            barRowHeight = 25;
+            barRowFontSize = 14;
+            toolBarHeight = 46;
         }
 
     }

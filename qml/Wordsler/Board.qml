@@ -84,7 +84,7 @@ Rectangle {
         Item {
             id: barRow
             width: parent.width
-            height: settings.barRowHeight+25;
+            height: settings.barRowHeight+20;
 
             Row {
                 width: parent.width
@@ -166,7 +166,16 @@ Rectangle {
 
         Item {
             width: parent.width
-            height: parent.height - pile.height - choices.height - statusRow.height - barRow.height
+            height: parent.height - pile.height - choices.height - statusRow.height - barRow.height - lastWord.height
+        }
+
+        Text {
+            id: lastWord
+            width: parent.width
+            height: settings.statusRowHeight;
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            font.pointSize: settings.statusRowFontSize-2
         }
 
         Row {
@@ -199,15 +208,8 @@ Rectangle {
 
             }
 
-            Text {
-                id: lastWord
-                width: 80
-                height: settings.statusRowHeight;
-                font.pointSize: settings.statusRowFontSize
-            }
-
             Item {
-                width: parent.width - lastWord.width - validateButton.width - endButton.width
+                width: parent.width - validateButton.width - endButton.width
                 height: 20
             }
 
