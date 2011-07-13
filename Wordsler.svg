@@ -1,46 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="80" width="80">
+<?xml version="1.0"?>
+<!-- Converted with SVG Converter - Version 0.9.5 (Compiled Mon May 30 09:18:17 2011) - Copyright (C) 2011 Nokia -->
+<svg xmlns="http://www.w3.org/2000/svg" width="80" version="1.1" height="80" baseProfile="tiny" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
-  <linearGradient id="hicg_overlay_grad" gradientUnits="userSpaceOnUse" x1="39.9995" y1="5.1816" x2="39.9995" y2="58.8019">
+  <linearGradient id="hicg_overlay_grad" y1="5.1816" x1="39.9995" y2="58.8019" gradientUnits="userSpaceOnUse" x2="39.9995">
    <stop offset="0" style="stop-color:#FFFFFF"/>
    <stop offset="1" style="stop-color:#000000"/>
   </linearGradient>
-  <filter id="hicg_drop_shadow">
-    <feOffset in="SourceAlpha" dx="0" dy="4"/>
-    <feGaussianBlur stdDeviation="4"/>
-	<feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.5 0" result="shadow"/>
-    <feBlend in="SourceGraphic" in2="shadow" mode="normal"/>
-  </filter>
  </defs>
  <g>
-  <path id="hicg_background" fill="#a4a4a4" d="M79,40c0,28.893-10.105,39-39,39S1,68.893,1,40C1,11.106,11.105,1,40,1S79,11.106,79,40z"/>
-  <path id="hicg_highlight" fill="#fff" opacity="0.25" d="M39.999,1C11.105,1,1,11.106,1,40c0,28.893,10.105,39,38.999,39   C68.896,79,79,68.893,79,40C79,11.106,68.896,1,39.999,1z M39.999,78.025C11.57,78.025,1.976,68.43,1.976,40   c0-28.429,9.595-38.024,38.023-38.024c28.43,0,38.024,9.596,38.024,38.024C78.023,68.43,68.429,78.025,39.999,78.025z"/>
-  <path id="hicg_overlay" opacity="0.4" fill="url(#hicg_overlay_grad)" d="M78.977,40c0,28.893-10.1,39-38.977,39S1.023,68.893,1.023,40c0-28.894,10.1-39,38.977-39S78.977,11.106,78.977,40z"/>
+  <path fill="#a4a4a4" id="hicg_background" d="M79,40c0,28.893-10.105,39-39,39S1,68.893,1,40C1,11.106,11.105,1,40,1S79,11.106,79,40z"/>
+  <path stroke-opacity="0.25" fill="#fff" fill-opacity="0.25" id="hicg_highlight" d="M39.999,1C11.105,1,1,11.106,1,40c0,28.893,10.105,39,38.999,39   C68.896,79,79,68.893,79,40C79,11.106,68.896,1,39.999,1z M39.999,78.025C11.57,78.025,1.976,68.43,1.976,40   c0-28.429,9.595-38.024,38.023-38.024c28.43,0,38.024,9.596,38.024,38.024C78.023,68.43,68.429,78.025,39.999,78.025z"/>
+  <path stroke-opacity="0.4" fill="url(#hicg_overlay_grad)" fill-opacity="0.4" id="hicg_overlay" d="M78.977,40c0,28.893-10.1,39-38.977,39S1.023,68.893,1.023,40c0-28.894,10.1-39,38.977-39S78.977,11.106,78.977,40z"/>
  </g>
-<g xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" transform="translate(12, 12) scale(0.875)" filter="url(#hicg_drop_shadow)">
-  <defs xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" id="defs3816">
-    <linearGradient id="linearGradient4334">
-      <stop style="stop-color:#f60000;stop-opacity:1;" offset="0" id="stop4336"/>
-      <stop style="stop-color:#1c00ff;stop-opacity:1;" offset="1" id="stop4338"/>
-    </linearGradient>
-    <linearGradient inkscape:collect="always" xlink:href="#linearGradient4334" id="linearGradient4340" x1="3.6292509" y1="29.864756" x2="65.886893" y2="29.864756" gradientUnits="userSpaceOnUse"/>
-    <linearGradient inkscape:collect="always" xlink:href="#linearGradient4334" id="linearGradient4481" gradientUnits="userSpaceOnUse" x1="3.6292509" y1="29.864756" x2="65.886893" y2="29.864756"/>
-    <filter inkscape:collect="always" id="filter4491">
-      <feGaussianBlur inkscape:collect="always" stdDeviation="1.8962814" id="feGaussianBlur4493"/>
-    </filter>
+ <g transform="translate(12, 12) scale(0.875)">
+  <defs id="defs3816">
+   <linearGradient id="linearGradient4334">
+    <stop offset="0" style="stop-color:#f60000;stop-opacity:1;" id="stop4336"/>
+    <stop offset="1" style="stop-color:#1c00ff;stop-opacity:1;" id="stop4338"/>
+   </linearGradient>
+   <linearGradient id="linearGradient4340" y1="29.864756" x1="3.6292509" y2="29.864756" x2="65.886893" gradientUnits="userSpaceOnUse">
+    <stop offset="0" style="stop-color:#f60000;stop-opacity:1;" id="stop4336"/>
+    <stop offset="1" style="stop-color:#1c00ff;stop-opacity:1;" id="stop4338"/>
+   </linearGradient>
+   <linearGradient id="linearGradient4481" y1="29.864756" x1="3.6292509" y2="29.864756" gradientUnits="userSpaceOnUse" x2="65.886893">
+    <stop offset="0" style="stop-color:#f60000;stop-opacity:1;" id="stop4336"/>
+    <stop offset="1" style="stop-color:#1c00ff;stop-opacity:1;" id="stop4338"/>
+   </linearGradient>
   </defs>
-  <sodipodi:namedview xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="5.5" inkscape:cx="3" inkscape:cy="58.734545" inkscape:current-layer="layer1" showgrid="true" inkscape:document-units="px" inkscape:grid-bbox="true" inkscape:window-width="1440" inkscape:window-height="845" inkscape:window-x="-2" inkscape:window-y="-3" inkscape:window-maximized="1"/>
-  <metadata xmlns="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" id="metadata3819">
-    <rdf:RDF>
-      <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-        <dc:title/>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer">
-    <text xml:space="preserve" style="font-size:67.16034698px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:url(#linearGradient4340);stroke-linecap:round;filter:url(#filter4491);font-family:FreeSerif;-inkscape-font-specification:FreeSerif" x="3.2934492" y="51.725449" id="text3822" sodipodi:linespacing="125%" transform="matrix(0.91445084,0,0,1.0935525,2,2)"><tspan sodipodi:role="line" id="tspan3824" x="3.2934492" y="51.725449" style="stroke:url(#linearGradient4340);stroke-linecap:round">W</tspan></text>
-    <text transform="scale(0.91445084,1.0935525)" sodipodi:linespacing="125%" id="text4423" y="51.725449" x="3.2934492" style="font-size:67.16034698px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#a4a4a4;fill-opacity:1;stroke:url(#linearGradient4481);stroke-width:1;stroke-linecap:round;font-family:FreeSerif;-inkscape-font-specification:FreeSerif" xml:space="preserve"><tspan style="fill:#a4a4a4;fill-opacity:1;stroke:url(#linearGradient4481);stroke-width:1;stroke-linecap:round" y="51.725449" x="3.2934492" id="tspan4425" sodipodi:role="line">W</tspan></text>
+  <metadata id="metadata3819"/>
+  <g id="layer1">
+   <text x="3.2934492" y="51.725449" style="font-size:67.16034698px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:url(#linearGradient4340);stroke-linecap:round;filter:url(#filter4491);font-family:FreeSerif;-inkscape-font-specification:FreeSerif" id="text3822" xml:space="preserve" transform="matrix(0.91445084,0,0,1.0935525,2,2)">
+    <tspan x="3.2934492" y="51.725449" style="stroke:url(#linearGradient4340);stroke-linecap:round" id="tspan3824">W</tspan>
+   </text>
+   <text x="3.2934492" y="51.725449" style="font-size:67.16034698px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#a4a4a4;fill-opacity:1;stroke:url(#linearGradient4481);stroke-width:1;stroke-linecap:round;font-family:FreeSerif;-inkscape-font-specification:FreeSerif" id="text4423" xml:space="preserve" transform="scale(0.91445084,1.0935525)">
+    <tspan x="3.2934492" y="51.725449" style="fill:#a4a4a4;fill-opacity:1;stroke:url(#linearGradient4481);stroke-width:1;stroke-linecap:round" id="tspan4425">W</tspan>
+   </text>
   </g>
-</g></svg>
+ </g>
+</svg>

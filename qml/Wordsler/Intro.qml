@@ -93,13 +93,12 @@ Rectangle {
                     anchors.centerIn: parent
 
                     Item {
-                        width: 200
-                        height: 75
-
+                        width: settings.introButtonWidth+25
+                        height: settings.introButtonHeight+15;
                         Rectangle {
                             id: rectangle2
-                            width: 176
-                            height: 50
+                            width: settings.introButtonWidth;
+                            height: settings.introButtonHeight;
                             color: "#bbbbbb"
                             radius: 5
                             border.color: 'black'
@@ -108,7 +107,7 @@ Rectangle {
                                 id: text2
                                 anchors.centerIn: parent
                                 text: "New Game"
-                                font.pointSize: 16
+                                font.pointSize: settings.introFontSize
                             }
 
                             MouseArea {
@@ -123,12 +122,12 @@ Rectangle {
                     }
 
                     Item {
-                        width: 200
-                        height: 75
+                        width: settings.introButtonWidth+25
+                        height: settings.introButtonHeight+15;
                         Rectangle {
                             id: rectangle3
-                            width: 176
-                            height: 50
+                            width: settings.introButtonWidth;
+                            height: settings.introButtonHeight;
                             color: "#bbbbbb"
                             radius: 5
                             border.color: 'black'
@@ -137,7 +136,7 @@ Rectangle {
                                 id: text3
                                 anchors.centerIn: parent
                                 text: "Time Trial"
-                                font.pointSize: 16
+                                font.pointSize: settings.introFontSize
                             }
 
                             MouseArea {
@@ -152,12 +151,12 @@ Rectangle {
                     }
 
                     Item {
-                        width: 200
-                        height: 75
+                        width: settings.introButtonWidth+25
+                        height: settings.introButtonHeight+15;
                         Rectangle {
                             id: rectangle4
-                            width: 176
-                            height: 50
+                            width: settings.introButtonWidth;
+                            height: settings.introButtonHeight;
                             color: "#bbbbbb"
                             radius: 5
                             border.color: 'black'
@@ -166,7 +165,7 @@ Rectangle {
                                 id: text4
                                 anchors.centerIn: parent
                                 text: "About"
-                                font.pointSize: 16
+                                font.pointSize: settings.introFontSize
                             }
                         }
                     }

@@ -84,7 +84,7 @@ Rectangle {
         Item {
             id: barRow
             width: parent.width
-            height: 45
+            height: settings.barRowHeight+25;
 
             Row {
                 width: parent.width
@@ -105,7 +105,6 @@ Rectangle {
                     }
                     height: parent.height
                     width: board.width - deckTotal.width - scoreboard.width
-
 
                 }
 
@@ -176,8 +175,8 @@ Rectangle {
 
             Rectangle {
                 id: endButton
-                width: 93
-                height: 35
+                width: settings.statusRowButtonWidth;
+                height: settings.statusRowHeight;
                 //color: (verify)? "red" : "#cacaca"
                 radius: 5
 
@@ -186,7 +185,7 @@ Rectangle {
                     anchors.centerIn: parent
                     text: "End Game"
                     horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: 20
+                    font.pointSize: settings.statusRowFontSize
                 }
 
                 MouseArea {
@@ -203,8 +202,8 @@ Rectangle {
             Text {
                 id: lastWord
                 width: 80
-                height: 20
-                font.pixelSize: 20
+                height: settings.statusRowHeight;
+                font.pointSize: settings.statusRowFontSize
             }
 
             Item {
@@ -214,8 +213,8 @@ Rectangle {
 
             Rectangle {
                 id: validateButton
-                width: 93
-                height: 35
+                width: settings.statusRowButtonWidth;
+                height: settings.statusRowHeight;
                 color: (verify)? "red" : "#cacaca"
                 radius: 5
 
@@ -224,7 +223,7 @@ Rectangle {
                     anchors.centerIn: parent
                     text: "Validate"
                     horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: 20
+                    font.pointSize: settings.statusRowFontSize
                 }
 
                 MouseArea {

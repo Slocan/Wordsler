@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/" lang="english">
-        <file>wordlist.txt</file>
         <file>wordlist2.txt</file>
     </qresource>
 </RCC>

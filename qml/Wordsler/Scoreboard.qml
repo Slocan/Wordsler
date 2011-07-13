@@ -1,7 +1,7 @@
 import Qt 4.7
 
 Item {
-    height: 25
+    height: settings.barRowHeight
     width: score.width
     Rectangle {
         anchors.fill: parent
@@ -11,6 +11,6 @@ Item {
     Text {
         id: score
         text: "Score: " + board.score
-        font.pixelSize: 20
+        font.pointSize: settings.barRowFontSize;
     }
 }

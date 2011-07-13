@@ -3,7 +3,7 @@ import Qt 4.7
 Item {
     property int count
     width: 140
-    height: 25
+    height: settings.barRowHeight
 
     Rectangle {
         anchors.fill: parent
@@ -12,7 +12,7 @@ Item {
 
     Text {
         id: deckText
-        font.pixelSize: 20
+        font.pointSize: settings.barRowFontSize
         text: "Cards left: " +parent.count
     }
 }

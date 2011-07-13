@@ -8,6 +8,11 @@ Rectangle {
     width: 600
     height: 380
 
+    Settings {
+        id: settings
+        Component.onCompleted: setValues(utility.getPlatform());
+    }
+
     Column {
         width: parent.width
         height: parent.height

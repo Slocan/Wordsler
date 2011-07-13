@@ -1,8 +1,8 @@
-import QtQuick 1.0
+import Qt 4.7
 
 Rectangle {
     width: 100
-    height: 25
+    height: settings.barRowHeight
 
     id: timerContainer
 
@@ -30,7 +30,7 @@ Rectangle {
         x:3
         y:3
         height: parent.height - 6
-        width: (parent.width-3) * parent.percent/100
+        width: (parent.width-6) * parent.percent/100
     }
 
     Timer {
