@@ -28,10 +28,7 @@ Rectangle {
             width: 80
             height: 20
             text: value
-            font.pointSize: settings.cardFontSize - 10
+            font.pointSize: settings.cardBottomFontSize
         }
     }
-
-
-
 }
