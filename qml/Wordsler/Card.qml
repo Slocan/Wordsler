@@ -1,8 +1,8 @@
 import Qt 4.7
 
 Rectangle {
-    width: 62
-    height: 100
+    width: settings.cardWidth;
+    height: settings.cardHeight; //100
     color: 'blue';
     property alias text: cardText.text
     property bool isSelected: false
@@ -18,7 +18,7 @@ Rectangle {
             id: cardText
             anchors.centerIn: parent
             //text: "A"
-            font.pixelSize: 24
+            font.pointSize: settings.cardFontSize
         }
 
         Text {
@@ -28,7 +28,7 @@ Rectangle {
             width: 80
             height: 20
             text: value
-            font.pixelSize: 12
+            font.pointSize: settings.cardFontSize - 10
         }
     }
 

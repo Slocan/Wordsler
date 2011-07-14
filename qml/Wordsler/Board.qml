@@ -116,10 +116,10 @@ Rectangle {
 
         GridView {
             id: pile
-            width: (parent.width>parent.height)? 8*66 : 4*66
-            height: (parent.width>parent.height)? 106 : 212
+            width: (parent.width>parent.height)? 8*(settings.cardWidth+4) : 4*(settings.cardWidth+4)
+            height: (parent.width>parent.height)? settings.cardHeight+6 : (settings.cardHeight+6)*2
             model: pileModel
-            cellWidth: 66; cellHeight: 106
+            cellWidth: settings.cardWidth+4; cellHeight: settings.cardHeight + 6
             anchors.horizontalCenter: parent.horizontalCenter
             interactive: false
 
@@ -128,11 +128,11 @@ Rectangle {
 
         GridView {
             id: choices
-            width: (parent.width>parent.height)? 8*66 : 4*66
-            height: (parent.width>parent.height)? 106 : 212
+            width: (parent.width>parent.height)? 8*(settings.cardWidth+4) : 4*(settings.cardWidth+4)
+            height: (parent.width>parent.height)? settings.cardHeight+6 : (settings.cardHeight+6)*2
 
             model: choicesModel
-            cellWidth: 62; cellHeight: 100
+            cellWidth: settings.cardWidth; cellHeight: settings.cardHeight
             anchors.horizontalCenter: parent.horizontalCenter
             interactive: false
 
@@ -173,7 +173,7 @@ Rectangle {
             id: lastWord
             width: parent.width
             height: settings.statusRowHeight;
-            verticalAlignment: Text.AlignVCenter
+            verticalAlignment: Text.AlignBottom
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: settings.statusRowFontSize-2
         }
