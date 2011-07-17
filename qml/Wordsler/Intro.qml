@@ -167,10 +167,25 @@ Rectangle {
                                 text: "About"
                                 font.pointSize: settings.introFontSize
                             }
+
+                            MouseArea {
+                                id: aboutButton
+                                anchors.fill: parent
+                                onClicked: {
+                                    aboutpage.source="About.qml";
+                                }
+
+                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    Loader {
+        id: aboutpage
+        width: parent.width
+        height: parent.height
     }
 }

@@ -21,6 +21,8 @@ Item {
     property int cardWidth;
     property int cardHeight;
 
+    property int aboutPageFontSize:1;
+
     function setValues(platform) {
         if (platform=="maemo5") {
             introButtonHeight = 80;
@@ -32,10 +34,11 @@ Item {
             barRowHeight = 45;
             barRowFontSize = 19;
             toolBarHeight = 66;
-            scoreFontSize = 16;
+            scoreFontSize = 26;
             cardFontSize = 22;
             cardWidth = 82;
             cardHeight = 110;
+            aboutPageFontSize = 14;
         } else if (platform=="symbian") {
             introButtonHeight = 50;
             introButtonWidth = 176;
@@ -50,6 +53,7 @@ Item {
             cardFontSize = 22;
             cardWidth = 62;
             cardHeight = 100;
+            aboutPageFontSize = 10;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;
@@ -64,6 +68,7 @@ Item {
             cardFontSize = 22;
             cardWidth = 62;
             cardHeight = 100;
+            aboutPageFontSize = 12;
         }
 
     }
