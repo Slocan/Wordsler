@@ -18,6 +18,7 @@ Item {
     property int scoreFontSize:1;
 
     property int cardFontSize:1;
+    property int cardBottomFontSize:1;
     property int cardWidth;
     property int cardHeight;
 
@@ -36,6 +37,7 @@ Item {
             toolBarHeight = 66;
             scoreFontSize = 26;
             cardFontSize = 22;
+            cardBottomFontSize = 16;
             cardWidth = 82;
             cardHeight = 110;
             aboutPageFontSize = 14;
@@ -50,7 +52,8 @@ Item {
             barRowFontSize = 10;
             toolBarHeight = 46;
             scoreFontSize = 16;
-            cardFontSize = 22;
+            cardFontSize = 11;
+            cardBottomFontSize = 4;
             cardWidth = 62;
             cardHeight = 100;
             aboutPageFontSize = 10;
@@ -65,7 +68,8 @@ Item {
             barRowFontSize = 14;
             toolBarHeight = 46;
             scoreFontSize = 16;
-            cardFontSize = 22;
+            cardFontSize = 16;
+            cardBottomFontSize = 8;
             cardWidth = 62;
             cardHeight = 100;
             aboutPageFontSize = 12;
