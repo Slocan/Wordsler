@@ -232,7 +232,7 @@ Rectangle {
                     id: validateArea
                     anchors.fill: parent
                     onClicked: {
-                        if (choicesModel.count>0) {
+                        if (choicesModel.count>1) {
                             validateArea.enabled = false;
                             verify = true;
                         }

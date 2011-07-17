@@ -9,10 +9,10 @@ Rectangle {
     Column {
         id: column1
         anchors.fill: parent
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        anchors.topMargin: 20
-        anchors.bottomMargin: 20
+        anchors.leftMargin: 15
+        anchors.rightMargin: 15
+        anchors.topMargin: 15
+        anchors.bottomMargin: 15
         height: parent.height
         width: parent.width
 
@@ -32,15 +32,14 @@ Rectangle {
                 <p>Once your word is complete, click on <b>Validate</b> to check its validity. Bonus points are given based on the length of the word.</p>
 
                 <p>In <b>Standard Game mode</b>, there are 58 cards in total. The game ends when you can't find a word, or you run out of cards.</p>
-                <p>At this point, click on <b>End game</b> to complete the game.</p>
                 <p>The <b>Time Trial mode</b> has the same rules, but adds a 2 minute timer at the end of which the game ends.</p>
                 <p>For feedback, or to report issues, please visit <a href='https://github.com/Slocan/Wordsler/issues'>https://github.com/Slocan/Wordsler/issues</a> or email <a href='mailto:wordsler@marcoz.org'>wordsler@marcoz.org</a></p>"
                 wrapMode: Text.WordWrap
                 font.pointSize: settings.aboutPageFontSize
-                anchors.leftMargin: 10
-                anchors.rightMargin: 10
-                anchors.topMargin: 10
-                anchors.bottomMargin: 10
+                anchors.leftMargin: 7
+                anchors.rightMargin: 7
+                anchors.topMargin: 7
+                anchors.bottomMargin: 7
             }
         }
 

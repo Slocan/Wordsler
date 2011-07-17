@@ -56,7 +56,7 @@ Item {
             cardBottomFontSize = 4;
             cardWidth = 62;
             cardHeight = 100;
-            aboutPageFontSize = 10;
+            aboutPageFontSize = 6;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;
