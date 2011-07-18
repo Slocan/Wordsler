@@ -86,6 +86,7 @@ Rectangle {
                     }
                     intro.visible = true;
                     board.visible = false;
+                    board.stopTimer();
 
                     intro.updateScore();
                 }

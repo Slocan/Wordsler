@@ -76,6 +76,11 @@ Rectangle {
         timerfuse.startTimer(120);
     }
 
+    function stopTimer() {
+        timerfuse.visible = false;
+        timerfuse.stopTimer();
+    }
+
     Column {
         id: mainColumn
         width: parent.width

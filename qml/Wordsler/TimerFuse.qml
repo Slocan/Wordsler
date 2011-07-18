@@ -25,6 +25,12 @@ Rectangle {
         timer.start();
     }
 
+    function stopTimer() {
+        if ( timer.running) {
+            timer.stop();
+        }
+    }
+
     Rectangle {
         color: "red"
         x:3
