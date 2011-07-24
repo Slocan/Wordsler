@@ -37,8 +37,8 @@ QString Utility::getPlatform()
         return "maemo5";
     #elif defined(Q_OS_SYMBIAN)
         return "symbian";
-    #elif defined(Q_WS_HARAMATTAN)
-        return "harmattan"
+    #elif defined(MEEGO_EDITION_HARMATTAN)
+        return "harmattan";
     #else
         return "other";
     #endif

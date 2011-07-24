@@ -31,6 +31,14 @@ symbian {
     vendorinfo = "%{\"\"}" ":\"Slocan\""
 }
 
+exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):!contains(MEEGO_EDITION,harmattan): {
+  MEEGO_VERSION_MAJOR     = 1
+  MEEGO_VERSION_MINOR     = 2
+  MEEGO_VERSION_PATCH     = 0
+  MEEGO_EDITION           = harmattan
+  DEFINES += MEEGO_EDITION_HARMATTAN
+}
+
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp wordlist.cpp utility.cpp
 
@@ -44,6 +52,7 @@ qtcAddDeployment()
 
 OTHER_FILES += \
     Game.js \
+    qml/HarmattanMain.qml
 #    qtc_packaging/debian_harmattan/rules \
 #    qtc_packaging/debian_harmattan/README \
 #    qtc_packaging/debian_harmattan/copyright \

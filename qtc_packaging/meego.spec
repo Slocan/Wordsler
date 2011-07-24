@@ -1,6 +1,6 @@
 Name: wordsler
 Summary: Combine letters and score big in this fun word game.
-Version: 0.1.0
+Version: 0.1.1
 Release: 1
 License: <Enter your application's license here>
 Group: <Set your application's group here>

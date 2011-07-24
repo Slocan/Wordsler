@@ -2,7 +2,7 @@ import Qt 4.7
 
 Item {
     property int count
-    width: 140
+    width: deckText.width + 15
     height: settings.barRowHeight
 
     Rectangle {

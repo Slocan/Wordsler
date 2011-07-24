@@ -56,6 +56,22 @@ Item {
             cardWidth = 62;
             cardHeight = 100;
             aboutPageFontSize = 6;
+        } else if (platform=="harmattan") {
+            introButtonHeight = 80;
+            introButtonWidth = 200;
+            introFontSize = 19;
+            statusRowButtonWidth = 150;
+            statusRowHeight = 80;
+            statusRowFontSize = 22;
+            barRowHeight = 33;
+            barRowFontSize = 19;
+            toolBarHeight = 55;
+            scoreFontSize = 26;
+            cardFontSize = 22;
+            cardBottomFontSize = 16;
+            cardWidth = 82;
+            cardHeight = 110;
+            aboutPageFontSize = 14;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;

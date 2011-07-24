@@ -7,6 +7,7 @@ Rectangle {
     id: screen
     width: 600
     height: 380
+    anchors.fill: parent
 
     Settings {
         id: settings
