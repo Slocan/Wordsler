@@ -117,6 +117,20 @@ Rectangle {
                     board.setTimer();
                 }
 
+                function startOnlineGame(online_deck) {
+                    Game.initializeOnline(online_deck);
+                    board.initialize();
+                    for (var i=0; i<=7; i++) {
+                        var nextCard = Game.getNextCard();
+                        board.pileModel.append( { cardText: nextCard,
+                                               selected: false,
+                                               cardValue: Game.score_definition[nextCard]  } );
+                    }
+                    board.updateCount();
+                    intro.visible = false;
+                    board.visible = true;
+                }
+
             }
         }
     }

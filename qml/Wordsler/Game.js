@@ -33,6 +33,10 @@ function createDeck(numberOfCards) {
     return deck.slice(0,numberOfCards);
 }
 
+function initializeOnline(online_deck) {
+    current_deck = online_deck.slice(0,initNumberOfCards);
+}
+
 function initialize() {
     current_deck = createDeck(initNumberOfCards);
 }

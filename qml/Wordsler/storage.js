@@ -52,9 +52,9 @@ function resetAll() {
     var db = getDatabase();
     db.transaction(
         function(tx) {
-                    tx.executeSql('DROP TABLE scores;');
+                    //tx.executeSql('DROP TABLE scores;');
                     tx.executeSql('DROP TABLE settings;');
-                    initialize();
+                    //initialize();
                 });
 }
 
@@ -128,6 +128,7 @@ function setScore(score, type) {
 
 function initialize() {
     var db = getDatabase();
+    resetAll();
 
     db.transaction(
         function(tx) {

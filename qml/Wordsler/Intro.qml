@@ -94,7 +94,7 @@ Rectangle {
 
                     Item {
                         width: settings.introButtonWidth+25
-                        height: settings.introButtonHeight+15;
+                        height: settings.introButtonHeight+5;
                         Rectangle {
                             id: rectangle2
                             width: settings.introButtonWidth;
@@ -123,7 +123,7 @@ Rectangle {
 
                     Item {
                         width: settings.introButtonWidth+25
-                        height: settings.introButtonHeight+15;
+                        height: settings.introButtonHeight+5;
                         Rectangle {
                             id: rectangle3
                             width: settings.introButtonWidth;
@@ -152,7 +152,40 @@ Rectangle {
 
                     Item {
                         width: settings.introButtonWidth+25
-                        height: settings.introButtonHeight+15;
+                        height: settings.introButtonHeight+5;
+                        Rectangle {
+                            id: rectangle5
+                            width: settings.introButtonWidth;
+                            height: settings.introButtonHeight;
+                            color: "#bbbbbb"
+                            radius: 5
+                            border.color: 'black'
+
+                            Text {
+                                id: text5
+                                anchors.centerIn: parent
+                                text: "Challenge"
+                                font.pointSize: settings.introFontSize
+                            }
+
+                            MouseArea {
+                                id: onlineChallengeButton
+                                anchors.fill: parent
+                                onClicked: {
+                                    if (aboutpage.source != "OnlineChallenge.qml") {
+                                        aboutpage.source="OnlineChallenge.qml";
+                                    } else {
+                                        aboutpage.getDeck();
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+
+                    Item {
+                        width: settings.introButtonWidth+25
+                        height: settings.introButtonHeight+5;
                         Rectangle {
                             id: rectangle4
                             width: settings.introButtonWidth;

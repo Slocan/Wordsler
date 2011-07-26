@@ -1,7 +1,7 @@
 Source: wordsler
 Section: user/games
 Priority: optional
-Maintainer: Yves <ymarcoz@unknown>
+Maintainer: Yves <yves@marcoz.org>
 Build-Depends: debhelper (>= 5), libqt4-dev
 Standards-Version: 3.7.3
 Homepage: http://feedingit.marcoz.org
