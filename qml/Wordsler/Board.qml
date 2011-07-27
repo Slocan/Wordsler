@@ -129,6 +129,29 @@ Rectangle {
             interactive: false
 
             delegate: PileDelegate {}
+            MouseArea {
+                property int currentId: -1                // Original position in model
+                property int newIndex                // Current Position in model
+                property int index: pile.indexAt(mouseX, mouseY) // Item underneath cursor
+                id: loc
+                anchors.fill: parent
+                onPressAndHold: currentId = pileModel.get(newIndex = index).gridId
+                onReleased: currentId = -1
+                onMousePositionChanged: {
+                    if (loc.currentId != -1 && index != -1 && index != newIndex) {
+                        //console.log(index + " " +newIndex+ " " + currentId + " "+pileModel.get(index).gridId)
+                        pileModel.move(newIndex, newIndex = index, 1)
+                    }
+                }
+                onClicked: {
+                    if (!pileModel.get(index).selected) {
+                        choicesModel.append( { card: pileModel.get(index).cardText } );
+                    } else {
+                        choicesModel.remove( choicesModel.getIndex(pileModel.get(index).cardText));
+                    }
+                    pileModel.get(index).selected = !pileModel.get(index).selected
+                 }
+            }
         }
 
         GridView {

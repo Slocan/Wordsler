@@ -45,6 +45,7 @@ Rectangle {
                 visible: false
                 width: screen.width
                 height: screen.height - toolBar.height
+                property int uniqueCardId: 0
 
                 function updateCount() {
                     count= Game.current_deck.length;
@@ -63,8 +64,10 @@ Rectangle {
                             for (var i=0; i<newCardsCount; i++) {
                                 var nextCard = Game.getNextCard();
                                 if (nextCard) {
+                                    board.uniqueCardId += 1;
                                     board.pileModel.append( { cardText: nextCard,
                                                        selected: false,
+                                                       gridId: board.uniqueCardId,
                                             cardValue: Game.score_definition[nextCard] } );
                                 }
                             }
@@ -103,8 +106,10 @@ Rectangle {
                     board.initialize();
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
+                        board.uniqueCardId += 1;
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
+                                               gridId: board.uniqueCardId,
                                                cardValue: Game.score_definition[nextCard]  } );
                     }
                     board.updateCount();
@@ -122,8 +127,10 @@ Rectangle {
                     board.initialize();
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
+                        board.uniqueCardId += 1;
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
+                                               gridId: board.uniqueCardId,
                                                cardValue: Game.score_definition[nextCard]  } );
                     }
                     board.updateCount();
