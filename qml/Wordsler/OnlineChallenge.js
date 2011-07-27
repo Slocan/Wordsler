@@ -1,6 +1,6 @@
 function register(username) {
 
-    if (username != "") {
+    if (username !== "") {
         var xhr = new XMLHttpRequest;
 
         var params = "username=" + username;
@@ -56,7 +56,8 @@ function sendScore(challengeId,username,unique_id,score) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.responseText)
+            challengePane.state = "idle";
+            //console.log(xhr.responseText)
         }
     }
     xhr.send(params);

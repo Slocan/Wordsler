@@ -172,11 +172,8 @@ Rectangle {
                                 id: onlineChallengeButton
                                 anchors.fill: parent
                                 onClicked: {
-                                    if (aboutpage.source != "OnlineChallenge.qml") {
-                                        aboutpage.source="OnlineChallenge.qml";
-                                    } else {
-                                        aboutpage.getDeck();
-                                    }
+                                    aboutpage.source = "";
+                                    aboutpage.source="OnlineChallenge.qml";
                                 }
 
                             }
