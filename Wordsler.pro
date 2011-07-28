@@ -22,6 +22,7 @@ VERSION = 1.0.0
 # MOBILITY variable. 
 # CONFIG += mobility
 # MOBILITY +=
+
 maemo5 {
     QT += dbus
 }

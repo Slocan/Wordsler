@@ -150,6 +150,14 @@ Please note that this mode requires an active internet connection."
             }
         }
 
+        MouseArea {
+            id: emptyButton
+            z:-1
+            anchors.fill: parent
+            onClicked: {
+            }
+        }
+
     }
 
     Item {

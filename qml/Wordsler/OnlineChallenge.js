@@ -12,6 +12,7 @@ function register(username) {
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
+                console.log(xhr.responseText);
                 Storage.setSetting("unique_id",xhr.responseText);
                 Storage.setSetting("username",username);
                 challengePane.setUsername();

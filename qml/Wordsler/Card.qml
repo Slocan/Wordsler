@@ -11,7 +11,7 @@ Rectangle {
     Rectangle {
         width: parent.width-6;
         height: parent.height-6;
-        color: (isSelected)? 'red' : 'white';
+        color: (parent.isSelected)? 'red' : 'white';
         anchors.centerIn: parent
 
         Text {

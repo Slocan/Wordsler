@@ -6,13 +6,15 @@ Item {
     id: main
     //parent: loc
     width: pile.cellWidth; height: pile.cellHeight
+    //property bool selected: false
+
     Card {
         /*anchors.centerIn: parent;*/
         id: item;
-        value: x;
-        text: loc.mouseX;
+        value: cardValue;
+        text: cardText;
         isSelected: selected
-        width: pile.cellWidth; height: pile.cellHeight
+        //width: pile.cellWidth; height: pile.cellHeight
 
         Behavior on x { enabled: item.state != "active"; NumberAnimation { duration: 400; easing.type: Easing.OutBack } }
         Behavior on y { enabled: item.state != "active"; NumberAnimation { duration: 400; easing.type: Easing.OutBack } }
