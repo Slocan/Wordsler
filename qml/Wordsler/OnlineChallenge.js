@@ -20,6 +20,8 @@ function register(username) {
             }
         }
         xhr.send(params);
+    } else {
+        registerButton.enabled = true;
     }
 }
 
