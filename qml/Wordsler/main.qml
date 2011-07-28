@@ -47,6 +47,8 @@ Rectangle {
                 height: screen.height - toolBar.height
                 property int uniqueCardId: 0
 
+                property variant wordStackCopy;
+
                 function updateCount() {
                     count= Game.current_deck.length;
                 }
@@ -58,6 +60,9 @@ Rectangle {
                         board.verify = false;
                         if (wordList.isWord(getWord())) {
                             //score += 1
+                            Game.wordStack.push(getWord());
+                            wordStackCopy = Game.wordStack;
+                            console.log(Game.wordStack);
                             board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
                             board.score += board.getCurrentWordScore();
                             var newCardsCount = board.removeSelected();

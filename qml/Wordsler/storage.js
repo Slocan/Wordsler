@@ -128,7 +128,7 @@ function setScore(score, type) {
 
 function initialize() {
     var db = getDatabase();
-    resetAll();
+    //resetAll();
 
     db.transaction(
         function(tx) {

@@ -13,6 +13,8 @@ var score_definition = {'A': 1, 'B': 2, 'C': 2, 'CL': 2, 'D': 1, 'E': 1, 'ER': 2
 var initNumberOfCards = 58;
 var current_deck = [];
 
+var wordStack = [];
+
 
 //+ Jonas Raoni Soares Silva
 //@ http://jsfromhell.com/array/shuffle [v1.0]
@@ -35,10 +37,12 @@ function createDeck(numberOfCards) {
 
 function initializeOnline(online_deck) {
     current_deck = online_deck.slice(0,initNumberOfCards);
+    wordStack=[];
 }
 
 function initialize() {
     current_deck = createDeck(initNumberOfCards);
+    wordStack=[];
 }
 
 function getNextCard() {

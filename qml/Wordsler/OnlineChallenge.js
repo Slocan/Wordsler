@@ -47,10 +47,15 @@ function getChallengeDeck() {
 
 }
 
-function sendScore(challengeId,username,unique_id,score) {
+function sendScore(challengeId,username,unique_id,score,wordStack) {
     var xhr = new XMLHttpRequest;
+    var tmp = "";
+    for (var word in wordStack) {
+        tmp+="&text[]="+wordStack[word]
+    }
 
-    var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score;
+    var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score+tmp;
+    console.log(params);
     var url= "http://feedingit.marcoz.org/wordsler/sendScore.php";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

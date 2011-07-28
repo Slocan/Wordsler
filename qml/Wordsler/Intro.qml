@@ -89,6 +89,7 @@ Rectangle {
                                 id: startButton
                                 anchors.fill: parent
                                 onClicked: {
+                                    aboutpage.source = "";
                                     startGame();
                                 }
 
@@ -118,6 +119,7 @@ Rectangle {
                                 id: startTimerButton
                                 anchors.fill: parent
                                 onClicked: {
+                                    aboutpage.source = "";
                                     startTimerGame();
                                 }
 

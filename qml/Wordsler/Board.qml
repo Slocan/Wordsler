@@ -68,6 +68,7 @@ Rectangle {
         pileModel.clear();
         choicesModel.clear();
         lastWord.text = "";
+
         score = 0;
     }
 
@@ -145,14 +146,12 @@ Rectangle {
                 }
                 onClicked: {
                     var ind = pile.indexAt(mouseX, mouseY);
-                    console.log(ind + " " + index)
                     if (!pileModel.get(ind).selected) {
                         choicesModel.append( { card: pileModel.get(ind).cardText } );
                     } else {
                         choicesModel.remove( choicesModel.getIndex(pileModel.get(ind).cardText));
                     }
                     pileModel.get(ind).selected = !pileModel.get(ind).selected
-                    console.log(pileModel.get(ind).selected);
                  }
             }
         }

@@ -237,7 +237,7 @@ Please note that this mode requires an active internet connection."
         target:  board
         onEndGame: {
             state = "online";
-            OnlineChallenge.sendScore(challengeId,username,unique_id,board.score);
+            OnlineChallenge.sendScore(challengeId,username,unique_id,board.score, board.wordStackCopy);
         }
     }
 }
