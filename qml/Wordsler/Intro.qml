@@ -58,31 +58,6 @@ Rectangle {
                     height: parent.height
                     anchors.centerIn: parent
                 }
-
-//                Column {
-//                    width: parent.width
-//                    height: parent.height
-//                    anchors.centerIn: parent
-
-//                    HighScores {
-//                        id: highScore
-//                        //width: parent.width/2
-//                        width: 250
-//                        height: parent.height/2
-//                        //anchors.centerIn: parent
-//                        model: highScoreModel
-//                    }
-
-//                    HighScores {
-//                        //x: parent.height/2
-//                        width: 250
-//                        height: parent.height/2
-//                        //anchors.centerIn: parent
-//                        model: highScoreModel_tt
-//                    }
-//                }
-
-
             }
 
             Item {
@@ -164,8 +139,9 @@ Rectangle {
                             Text {
                                 id: text5
                                 anchors.centerIn: parent
-                                text: "Challenge"
-                                font.pointSize: settings.introFontSize
+                                text: "Online<BR />Challenge"
+                                horizontalAlignment: Text.AlignHCenter
+                                font.pointSize: settings.introFontSize -2
                             }
 
                             MouseArea {
