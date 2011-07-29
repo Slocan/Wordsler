@@ -25,7 +25,7 @@ Item {
 
     function setValues(platform) {
         if (platform=="maemo5") {
-            introButtonHeight = 80;
+            introButtonHeight = 76;
             introButtonWidth = 200;
             introFontSize = 19;
             statusRowButtonWidth = 150;
@@ -33,7 +33,7 @@ Item {
             statusRowFontSize = 22;
             barRowHeight = 45;
             barRowFontSize = 19;
-            toolBarHeight = 66;
+            toolBarHeight = 0;
             scoreFontSize = 26;
             cardFontSize = 22;
             cardBottomFontSize = 16;

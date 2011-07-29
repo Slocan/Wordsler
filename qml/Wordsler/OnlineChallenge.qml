@@ -150,14 +150,6 @@ Please note that this mode requires an active internet connection."
             }
         }
 
-        MouseArea {
-            id: emptyButton
-            z:-1
-            anchors.fill: parent
-            onClicked: {
-            }
-        }
-
     }
 
     Item {
@@ -165,23 +157,62 @@ Please note that this mode requires an active internet connection."
         visible: false
         anchors.fill: parent
 
-        Text {
-            id: textOnline
-            text: "Your score is being submitted online."
-            font.pointSize: settings.aboutPageFontSize
+        Column {
+            width: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            horizontalAlignment: Text.AlignHCenter
+
+            Text {
+                id: textOnline
+                wrapMode: Text.WordWrap
+                text: "Your score is being submitted online."
+                font.pointSize: settings.aboutPageFontSize
+                anchors.horizontalCenter: parent.horizontalCenter
+                //anchors.verticalCenter: parent.verticalCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Item {
+                width: settings.introButtonWidth+25
+                height: settings.introButtonHeight+5;
+                anchors.horizontalCenter: parent.horizontalCenter
+                Rectangle {
+                    id: rectangle8
+                    width: settings.introButtonWidth;
+                    height: settings.introButtonHeight;
+                    color: "#bbbbbb"
+                    radius: 5
+                    border.color: 'black'
+
+                    Text {
+                        id: text8
+                        anchors.centerIn: parent
+                        text: "Close"
+                        font.pointSize: settings.introFontSize
+                    }
+
+                    MouseArea {
+                        id: closeButton
+                        anchors.fill: parent
+                        onClicked: {
+                            challengePane.state = "idle";
+                        }
+                    }
+                }
+            }
         }
     }
+
+    MouseArea {
+        id: emptyButton
+        z:-1
+        anchors.fill: parent
+        onClicked: {
+        }
+    }
+
     Component.onCompleted: {
         setUsername();
-        //        if (Storage.getSetting("unique_id") == "Unknown") {
-//            state = "NotLoggedIn";
-//        } else {
-//            state = "LoggedIn";
 
-//        }
     }
 
     states: [
@@ -216,7 +247,7 @@ Please note that this mode requires an active internet connection."
         Transition {
            to: "LoggedIn"
            ScriptAction { script: {
-                   console.log("xx");
+                   //console.log("xx");
                    getDeck();
                }
                }
@@ -224,7 +255,7 @@ Please note that this mode requires an active internet connection."
     ]
 
     onDeckChanged: {
-        console.log(deck);
+        //console.log(deck);
         if (deck!="") {
             gameStarted=true;
             startOnlineGame(deck);

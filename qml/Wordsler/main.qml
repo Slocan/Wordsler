@@ -23,6 +23,7 @@ Rectangle {
             height: settings.toolBarHeight;
             width: screen.width;
             opacity: 0.9
+            visible: (utility.getPlatform()=="maemo5")?false:true
 
             onTaskSwitcherClicked: {
                 utility.taskSwitcher();
@@ -62,7 +63,6 @@ Rectangle {
                             //score += 1
                             Game.wordStack.push(getWord());
                             wordStackCopy = Game.wordStack;
-                            console.log(Game.wordStack);
                             board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
                             board.score += board.getCurrentWordScore();
                             var newCardsCount = board.removeSelected();

@@ -33,7 +33,8 @@ int main(int argc, char *argv[])
     viewer.setMainQmlFile(QLatin1String("qml/Wordsler/main.qml"));
 #endif
     viewer.showExpanded();
-#if defined(Q_WS_MAEMO_5) || defined(MEEGO_EDITION_HARMATTAN)
+//#if defined(Q_WS_MAEMO_5) ||
+#if defined(MEEGO_EDITION_HARMATTAN)
         viewer.showFullScreen();
 #endif
 

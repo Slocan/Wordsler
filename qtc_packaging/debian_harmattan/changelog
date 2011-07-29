@@ -1,10 +1,17 @@
-wordsler (0.1.3) unstable; urgency=low
+wordsler (0.2.0) unstable; urgency=low
+
+  * Added online mode
+  * Added support for moving cards with long presses
+
+ -- Yves <ymarcoz@unknown>  Thu, 28 Jul 2011 21:36:52 -0700
+
+wordsler (0.2.0) unstable; urgency=low
 
   * Fixed Harmattan version
 
  -- Yves <ymarcoz@unknown>  Sun, 24 Jul 2011 18:59:14 -0700
 
-wordsler (0.1.3) unstable; urgency=low
+wordsler (0.2.0) unstable; urgency=low
 
   * Initial Release.
 

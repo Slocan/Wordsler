@@ -3,7 +3,7 @@ function register(username) {
     if (username !== "") {
         var xhr = new XMLHttpRequest;
 
-        var params = "username=" + username;
+        var params = "username=" + username + "&platform="+utility.getPlatform();
         var url= "http://feedingit.marcoz.org/wordsler/register.php";
         xhr.open("POST", url);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -12,7 +12,7 @@ function register(username) {
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                console.log(xhr.responseText);
+                //console.log(xhr.responseText);
                 Storage.setSetting("unique_id",xhr.responseText);
                 Storage.setSetting("username",username);
                 challengePane.setUsername();
@@ -40,7 +40,6 @@ function getChallengeDeck() {
             var tab = eval(xhr.responseText);
             challengePane.challengeId = tab[0];
             challengePane.deck = eval(tab[1]);
-            console.log(challengePane.challengeId + " " + challengePane.deck[1])
         }
     }
     xhr.send(params);
@@ -55,7 +54,6 @@ function sendScore(challengeId,username,unique_id,score,wordStack) {
     }
 
     var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score+tmp;
-    console.log(params);
     var url= "http://feedingit.marcoz.org/wordsler/sendScore.php";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -64,8 +62,7 @@ function sendScore(challengeId,username,unique_id,score,wordStack) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            challengePane.state = "idle";
-            //console.log(xhr.responseText)
+            textOnline.text = "Your score has been submitted. Current highscores for the day: <BR />"+xhr.responseText
         }
     }
     xhr.send(params);

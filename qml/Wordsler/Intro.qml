@@ -71,6 +71,7 @@ Rectangle {
                         width: settings.introButtonWidth+25
                         height: settings.introButtonHeight+5;
                         Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
                             id: rectangle2
                             width: settings.introButtonWidth;
                             height: settings.introButtonHeight;
@@ -101,6 +102,7 @@ Rectangle {
                         width: settings.introButtonWidth+25
                         height: settings.introButtonHeight+5;
                         Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
                             id: rectangle3
                             width: settings.introButtonWidth;
                             height: settings.introButtonHeight;
@@ -128,9 +130,11 @@ Rectangle {
                     }
 
                     Item {
+
                         width: settings.introButtonWidth+25
                         height: settings.introButtonHeight+5;
                         Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
                             id: rectangle5
                             width: settings.introButtonWidth;
                             height: settings.introButtonHeight;
@@ -159,9 +163,11 @@ Rectangle {
                     }
 
                     Item {
+
                         width: settings.introButtonWidth+25
                         height: settings.introButtonHeight+5;
                         Rectangle {
+                            anchors.horizontalCenter: parent.horizontalCenter
                             id: rectangle4
                             width: settings.introButtonWidth;
                             height: settings.introButtonHeight;
