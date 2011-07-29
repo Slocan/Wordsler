@@ -43,7 +43,7 @@ Item {
         } else if (platform=="symbian") {
             introButtonHeight = 50;
             introButtonWidth = 176;
-            introFontSize = 15;
+            introFontSize = 11;
             statusRowButtonWidth = 140;
             statusRowHeight = 35;
             statusRowFontSize = 12;

@@ -169,6 +169,7 @@ Please note that this mode requires an active internet connection."
                 anchors.horizontalCenter: parent.horizontalCenter
                 //anchors.verticalCenter: parent.verticalCenter
                 horizontalAlignment: Text.AlignHCenter
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
             Item {

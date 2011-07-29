@@ -33,7 +33,7 @@ Rectangle {
 
                 <p>In <b>Standard Game mode</b>, there are 58 cards in total. The game ends when you can't find a word, or you run out of cards.</p>
                 <p>The <b>Time Trial mode</b> has the same rules, but adds a 2 minute timer at the end of which the game ends.</p>
-                <p>Online Challenge mode allows you to compare your score every day against others (Internet connection required)</p>
+                <p><b>Online Challenge</b> mode allows you to compare your score every day against others (Internet connection required)</p>
                 <p>For feedback, or to report issues, please visit <a href='https://github.com/Slocan/Wordsler/issues'>https://github.com/Slocan/Wordsler/issues</a> or email <a href='mailto:wordsler@marcoz.org'>wordsler@marcoz.org</a></p>"
                 wrapMode: Text.WordWrap
                 font.pointSize: settings.aboutPageFontSize
@@ -41,11 +41,9 @@ Rectangle {
                 anchors.rightMargin: 7
                 anchors.topMargin: 7
                 anchors.bottomMargin: 7
+                onLinkActivated: Qt.openUrlExternally(link)
             }
         }
-
-
-
     }
 
     MouseArea {
