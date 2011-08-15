@@ -31,7 +31,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         text: "Your score is: " + scoreString
         horizontalAlignment: Text.AlignHCenter
-        font.pointSize: settings.scoreFontSize;
+        font.pixelSize: settings.scoreFontSize;
     }
 
     MouseArea {

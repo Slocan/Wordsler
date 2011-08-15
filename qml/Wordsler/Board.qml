@@ -205,12 +205,18 @@ Rectangle {
             height: settings.statusRowHeight;
             verticalAlignment: Text.AlignBottom
             horizontalAlignment: Text.AlignHCenter
-            font.pointSize: settings.statusRowFontSize-2
+            font.pixelSize: settings.statusRowFontSize-2
         }
 
         Row {
             id: statusRow
             width: parent.width
+            height: settings.statusRowHeight +4;
+
+            Item {
+                width: 4
+                height: 20
+            }
 
             Rectangle {
                 id: endButton
@@ -218,13 +224,14 @@ Rectangle {
                 height: settings.statusRowHeight;
                 //color: (verify)? "red" : "#cacaca"
                 radius: 5
+                border.color: "black"
 
                 Text {
                     id: endGame
                     anchors.centerIn: parent
                     text: "End Game"
                     horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: settings.statusRowFontSize
+                    font.pixelSize: settings.statusRowFontSize
                 }
 
                 MouseArea {
@@ -239,7 +246,7 @@ Rectangle {
             }
 
             Item {
-                width: parent.width - validateButton.width - endButton.width
+                width: parent.width - validateButton.width - endButton.width - 8
                 height: 20
             }
 
@@ -249,13 +256,15 @@ Rectangle {
                 height: settings.statusRowHeight;
                 color: (verify)? "red" : "#cacaca"
                 radius: 5
+                border.color: "black"
+                anchors.margins: 5
 
                 Text {
                     id: text1
                     anchors.centerIn: parent
                     text: "Validate"
                     horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: settings.statusRowFontSize
+                    font.pixelSize: settings.statusRowFontSize
                 }
 
                 MouseArea {

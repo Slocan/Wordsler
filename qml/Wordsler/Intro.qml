@@ -83,7 +83,7 @@ Rectangle {
                                 id: text2
                                 anchors.centerIn: parent
                                 text: "New Game"
-                                font.pointSize: settings.introFontSize
+                                font.pixelSize: settings.introFontSize
                             }
 
                             MouseArea {
@@ -114,7 +114,7 @@ Rectangle {
                                 id: text3
                                 anchors.centerIn: parent
                                 text: "Time Trial"
-                                font.pointSize: settings.introFontSize
+                                font.pixelSize: settings.introFontSize
                             }
 
                             MouseArea {
@@ -147,7 +147,7 @@ Rectangle {
                                 anchors.centerIn: parent
                                 text: "Online<BR />Challenge"
                                 horizontalAlignment: Text.AlignHCenter
-                                font.pointSize: settings.introFontSize -2
+                                font.pixelSize: settings.introFontSize -2
                             }
 
                             MouseArea {
@@ -179,7 +179,7 @@ Rectangle {
                                 id: text4
                                 anchors.centerIn: parent
                                 text: "About"
-                                font.pointSize: settings.introFontSize
+                                font.pixelSize: settings.introFontSize
                             }
 
                             MouseArea {

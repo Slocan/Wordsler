@@ -18,7 +18,7 @@ Rectangle {
             id: cardText
             anchors.centerIn: parent
             //text: "A"
-            font.pointSize: settings.cardFontSize
+            font.pixelSize: settings.cardFontSize
         }
 
         Text {
@@ -28,7 +28,7 @@ Rectangle {
             width: 80
             height: 20
             text: value
-            font.pointSize: settings.cardBottomFontSize
+            font.pixelSize: settings.cardBottomFontSize
         }
     }
 }

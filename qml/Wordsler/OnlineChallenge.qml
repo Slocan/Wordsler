@@ -55,7 +55,7 @@ Register for a new Wordsler Online account
 Please note that this mode requires an active internet connection."
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: settings.aboutPageFontSize
+                    font.pixelSize: settings.aboutPageFontSize
                 }
             }
 
@@ -68,7 +68,7 @@ Please note that this mode requires an active internet connection."
                 Text {
                     id: text1
                     text: "Username: "
-                    font.pointSize: settings.aboutPageFontSize
+                    font.pixelSize: settings.aboutPageFontSize
                 }
 
                 Rectangle {
@@ -80,7 +80,7 @@ Please note that this mode requires an active internet connection."
                     TextInput {
                         id: usernameInput
                         text: ""
-                        font.pointSize: settings.aboutPageFontSize
+                        font.pixelSize: settings.aboutPageFontSize
                         width:  150
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -106,7 +106,7 @@ Please note that this mode requires an active internet connection."
                             id: text6
                             anchors.centerIn: parent
                             text: "Register"
-                            font.pointSize: settings.introFontSize
+                            font.pixelSize: settings.introFontSize
                         }
 
                         MouseArea {
@@ -135,7 +135,7 @@ Please note that this mode requires an active internet connection."
                             id: text7
                             anchors.centerIn: parent
                             text: "Cancel"
-                            font.pointSize: settings.introFontSize
+                            font.pixelSize: settings.introFontSize
                         }
 
                         MouseArea {
@@ -165,7 +165,7 @@ Please note that this mode requires an active internet connection."
                 id: textOnline
                 wrapMode: Text.WordWrap
                 text: "Your score is being submitted online."
-                font.pointSize: settings.aboutPageFontSize
+                font.pixelSize: settings.aboutPageFontSize
                 anchors.horizontalCenter: parent.horizontalCenter
                 //anchors.verticalCenter: parent.verticalCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -188,7 +188,7 @@ Please note that this mode requires an active internet connection."
                         id: text8
                         anchors.centerIn: parent
                         text: "Close"
-                        font.pointSize: settings.introFontSize
+                        font.pixelSize: settings.introFontSize
                     }
 
                     MouseArea {
@@ -269,6 +269,7 @@ Please note that this mode requires an active internet connection."
         target:  board
         onEndGame: {
             state = "online";
+            //console.log(username + " " + unique_id)
             OnlineChallenge.sendScore(challengeId,username,unique_id,board.score, board.wordStackCopy);
         }
     }

@@ -36,7 +36,7 @@ Rectangle {
                 <p><b>Online Challenge</b> mode allows you to compare your score every day against others (Internet connection required)</p>
                 <p>For feedback, or to report issues, please visit <a href='https://github.com/Slocan/Wordsler/issues'>https://github.com/Slocan/Wordsler/issues</a> or email <a href='mailto:wordsler@marcoz.org'>wordsler@marcoz.org</a></p>"
                 wrapMode: Text.WordWrap
-                font.pointSize: settings.aboutPageFontSize
+                font.pixelSize: settings.aboutPageFontSize
                 anchors.leftMargin: 7
                 anchors.rightMargin: 7
                 anchors.topMargin: 7
