@@ -53,7 +53,13 @@ qtcAddDeployment()
 
 OTHER_FILES += \
     Game.js \
-    qml/HarmattanMain.qml
+    qml/HarmattanMain.qml \
+    qtc_packaging/debian_fremantle/rules \
+    qtc_packaging/debian_fremantle/README \
+    qtc_packaging/debian_fremantle/copyright \
+    qtc_packaging/debian_fremantle/control \
+    qtc_packaging/debian_fremantle/compat \
+    qtc_packaging/debian_fremantle/changelog
 #    qtc_packaging/debian_harmattan/rules \
 #    qtc_packaging/debian_harmattan/README \
 #    qtc_packaging/debian_harmattan/copyright \

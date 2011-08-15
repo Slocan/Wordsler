@@ -29,6 +29,99 @@ Rectangle {
     }
 
     Item {
+        id: loggedIn
+        visible: false
+        anchors.fill: parent
+        width: parent.width
+
+        Column {
+            id: columnLoggedIn
+            anchors.fill: parent
+            spacing: 15
+        }
+
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: textIntro.height
+            width: parent.width
+            Text {
+                id: textLog
+                width: parent.width
+                wrapMode: Text.Wrap
+                text: "You are logged in as " + username
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: settings.aboutPageFontSize
+            }
+        }
+
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Item {
+                width: settings.introButtonWidth+25
+                height: settings.introButtonHeight+5;
+                Rectangle {
+                    id: rectangleL
+                    width: settings.introButtonWidth;
+                    height: settings.introButtonHeight;
+                    color: "#bbbbbb"
+                    radius: 5
+                    border.color: 'black'
+
+                    Text {
+                        id: textL
+                        anchors.centerIn: parent
+                        text: "Start"
+                        font.pixelSize: settings.introFontSize
+                    }
+
+                    MouseArea {
+                        id: startButton
+                        anchors.fill: parent
+                        onClicked: {
+                            //registerButton.enabled = false;
+                            //OnlineChallenge.register(usernameInput.text);
+                            getDeck();
+//                            gameStarted=true;
+//                            startOnlineGame(deck);
+                        }
+                    }
+                }
+            }
+
+            Item {
+                width: settings.introButtonWidth+25
+                height: settings.introButtonHeight+5;
+                Rectangle {
+                    id: rectangleL2
+                    width: settings.introButtonWidth;
+                    height: settings.introButtonHeight;
+                    color: "#bbbbbb"
+                    radius: 5
+                    border.color: 'black'
+
+                    Text {
+                        id: textL2
+                        anchors.centerIn: parent
+                        text: "Cancel"
+                        font.pixelSize: settings.introFontSize
+                    }
+
+                    MouseArea {
+                        id: cancelButton2
+                        anchors.fill: parent
+                        onClicked: {
+                            challengePane.state = "idle";
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    Item {
         id: askUsername
         visible: false
         anchors.fill: parent
@@ -115,6 +208,7 @@ Please note that this mode requires an active internet connection."
                             onClicked: {
                                 registerButton.enabled = false;
                                 OnlineChallenge.register(usernameInput.text);
+
                             }
                         }
                     }
@@ -225,6 +319,7 @@ Please note that this mode requires an active internet connection."
         State {
             name: "LoggedIn"
             when: ((deck == "") && (user_id != "Unknown"))
+            PropertyChanges { target: logged; visible: true}
             //PropertyChanges { target: signal; color: "red"}
         },
         State {
@@ -244,16 +339,16 @@ Please note that this mode requires an active internet connection."
         }
     ]
 
-    transitions: [
-        Transition {
-           to: "LoggedIn"
-           ScriptAction { script: {
-                   //console.log("xx");
-                   getDeck();
-               }
-               }
-       }
-    ]
+//    transitions: [
+//        Transition {
+//           to: "LoggedIn"
+//           ScriptAction { script: {
+//                   //console.log("xx");
+//                   getDeck();
+//               }
+//               }
+//       }
+//    ]
 
     onDeckChanged: {
         //console.log(deck);

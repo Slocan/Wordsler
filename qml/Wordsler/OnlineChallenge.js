@@ -12,10 +12,16 @@ function register(username) {
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                //console.log(xhr.responseText);
-                Storage.setSetting("unique_id",xhr.responseText);
-                Storage.setSetting("username",username);
-                challengePane.setUsername();
+                if (xhr.responseText !== "") {
+                    //console.log(xhr.responseText);
+                    Storage.setSetting("unique_id",xhr.responseText);
+                    Storage.setSetting("username",username);
+                    challengePane.setUsername();
+                } else {
+                    //Display error
+                    console.log("Error in registration.")
+                }
+
                 //challengePane.visible = false
             }
         }
@@ -37,9 +43,13 @@ function getChallengeDeck() {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            var tab = eval(xhr.responseText);
-            challengePane.challengeId = tab[0];
-            challengePane.deck = eval(tab[1]);
+            try {
+                var tab = eval(xhr.responseText);
+                challengePane.challengeId = tab[0];
+                challengePane.deck = eval(tab[1]);
+            } catch(e) {
+                console.log("Error when connecting to getChallenge.");
+            }
         }
     }
     xhr.send(params);
