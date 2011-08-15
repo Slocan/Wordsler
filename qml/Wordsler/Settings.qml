@@ -43,19 +43,19 @@ Item {
         } else if (platform=="symbian") {
             introButtonHeight = 50;
             introButtonWidth = 176;
-            introFontSize = 11;
+            introFontSize = 25;
             statusRowButtonWidth = 140;
             statusRowHeight = 35;
-            statusRowFontSize = 12;
+            statusRowFontSize = 28;
             barRowHeight = 25;
-            barRowFontSize = 10;
+            barRowFontSize = 24;
             toolBarHeight = 46;
-            scoreFontSize = 16;
-            cardFontSize = 11;
-            cardBottomFontSize = 4;
+            scoreFontSize = 34;
+            cardFontSize = 30;
+            cardBottomFontSize = 14;
             cardWidth = 62;
             cardHeight = 100;
-            aboutPageFontSize = 6;
+            aboutPageFontSize = 16;
         } else if (platform=="harmattan") {
             introButtonHeight = 65;
             introButtonWidth = 200;
