@@ -159,4 +159,8 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
     }
 
+    Notification {
+        id: notification
+    }
+
 }

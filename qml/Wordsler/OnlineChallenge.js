@@ -19,6 +19,7 @@ function register(username) {
                     challengePane.setUsername();
                 } else {
                     //Display error
+                    notification.showNotification("Error when registering. Please try again.")
                     console.log("Error in registration.")
                 }
 
@@ -49,6 +50,7 @@ function getChallengeDeck() {
                 challengePane.deck = eval(tab[1]);
             } catch(e) {
                 console.log("Error when connecting to getChallenge.");
+                notification.showNotification("Error when connection. Please verify your internet connection.")
             }
         }
     }
@@ -64,8 +66,7 @@ function sendScore(challengeId,username,unique_id,score,wordStack) {
     }
 
     var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score+tmp;
-    console.log(params);
-    var url= "http://feedingit.marcoz.org/wordsler/sendScore-dev.php";
+    var url= "http://feedingit.marcoz.org/wordsler/sendScore.php";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Content-length", params.length);
