@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<achievements>
+ <achievement>
+   <index>1</index>
+   <name>games</name>
+   <fullname>Total number of games played. Reach 10, 20 and 30 for achievements.</fullname>
+   <description>You have played a total of %s games.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>50</step>
+   </steps>
+ </achievement>
+</achievements>

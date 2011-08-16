@@ -87,7 +87,6 @@ function getScores_tt() {
 }
 
 function getScore(type) {
-
     var db = getDatabase();
     var res = "";
     db.transaction(function(tx) {
@@ -126,6 +125,36 @@ function setScore(score, type) {
    return res;
 }
 
+function getAchievement(index) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+                   var rs;
+                       rs = tx.executeSql('SELECT value,comment FROM achievements WHERE id=?;',[index]);
+                   if (rs.rows.length > 0) {
+                        res = rw.rows;
+                   } else {
+                       res = new Array("-1", "")
+                   }
+                });
+   return res;
+}
+
+function setAchievement(index, value, comment) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+                   var rs;
+                   rs = tx.executeSql('INSERT OR REPLACE INTO achievements VALUES (?,?,?);', [index,value,comment]);
+                   if (rs.rowsAffected > 0) {
+                        res = "OK";
+                   } else {
+                        res = "Error";
+                   }
+                });
+   return res;
+}
+
 function initialize() {
     var db = getDatabase();
     //resetAll();
@@ -136,6 +165,7 @@ function initialize() {
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT UNIQUE, value TEXT)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS scores(date TEXT, score INTEGER)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS scores_tt(date TEXT, score INTEGER)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS achievements(id INTEGER UNIQUE, value INTEGER, comment TEXT);');
         }
     );
 }

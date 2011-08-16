@@ -20,6 +20,7 @@ function register(username) {
                 } else {
                     //Display error
                     notification.showNotification("Error when registering. Please try again.")
+                    registerButton.enabled = true;
                     console.log("Error in registration.")
                 }
 
@@ -50,7 +51,7 @@ function getChallengeDeck() {
                 challengePane.deck = eval(tab[1]);
             } catch(e) {
                 console.log("Error when connecting to getChallenge.");
-                notification.showNotification("Error when connection. Please verify your internet connection.")
+                notification.showNotification("Error when connecting. Please verify your internet connection.")
             }
         }
     }

@@ -186,7 +186,8 @@ Rectangle {
                                 id: aboutButton
                                 anchors.fill: parent
                                 onClicked: {
-                                    aboutpage.source="About.qml";
+                                    //aboutpage.source="About.qml";
+                                    aboutpage.source="Achievements.qml"
                                 }
 
                             }
