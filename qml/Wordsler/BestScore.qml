@@ -73,6 +73,18 @@ Item {
                 font.pixelSize: settings.introFontSize - 5
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            Item {
+                height: 20
+                width: 1
+            }
+
+            Text {
+                id: link
+                font.pixelSize: settings.introFontSize - 2
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Press to view Achievements!"
+            }
         }
     }
 

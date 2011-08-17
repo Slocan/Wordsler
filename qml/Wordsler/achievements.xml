@@ -3,12 +3,79 @@
  <achievement>
    <index>1</index>
    <name>games</name>
-   <fullname>Total number of games played. Reach 10, 20 and 30 for achievements.</fullname>
-   <description>You have played a total of %s games.</description>
+   <fullname>Total number of games played. Reach 10, 20 and 50 for achievements.</fullname>
+   <caption>You have played a total of %s games.</caption>
+   <description>Play games in any modes to complete.</description>
    <steps>
      <step>10</step>
      <step>20</step>
      <step>50</step>
    </steps>
  </achievement>
+
+ <achievement>
+   <index>2</index>
+   <name>onlinegames</name>
+   <fullname>Total number of online games played. Reach 10, 20 and 50 for achievements.</fullname>
+   <caption>You have played a total of %s online games.</caption>
+   <description>Play games in the online mode to complete.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>50</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>3</index>
+   <name>timergames</name>
+   <fullname>Total number of Time Trial games played. Reach 10, 20 and 50 for achievements.</fullname>
+   <caption>You have played a total of %s Time Trial games.</caption>
+   <description>Play games in the Time Trial mode to complete.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>50</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>4</index>
+   <name>bestscore</name>
+   <fullname>Highest score in a game.</fullname>
+   <caption>Your best score so far has been %c.</caption>
+   <description>Score as high as possible in any mode.</description>
+   <steps>
+     <step>150</step>
+     <step>175</step>
+     <step>190</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>5</index>
+   <name>besttimerscore</name>
+   <fullname>Highest score in a Time Trial game.</fullname>
+   <caption>Your best score in Time Trial mode so far has been %c.</caption>
+   <description>Score as high as possible in Time Trial mode.</description>
+   <steps>
+     <step>90</step>
+     <step>110</step>
+     <step>130</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>6</index>
+   <name>bestword</name>
+   <fullname>Highest scoring word played.</fullname>
+   <caption>Your best word so far has been %c for %s points.</caption>
+   <description>Make high scoring words to complete.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>30</step>
+   </steps>
+ </achievement>
+
 </achievements>

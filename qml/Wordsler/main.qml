@@ -65,6 +65,7 @@ Rectangle {
                             wordStackCopy = Game.wordStack;
                             board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
                             board.score += board.getCurrentWordScore();
+                            board.wordPlayed(board.getCurrentWordScore(), getWord());
                             var newCardsCount = board.removeSelected();
                             for (var i=0; i<newCardsCount; i++) {
                                 var nextCard = Game.getNextCard();
@@ -77,6 +78,7 @@ Rectangle {
                                 }
                             }
                             board.updateCount();
+
                         } else {
                             board.clearSelected();
                             board.lastWordText = "Word is incorrect";
@@ -88,7 +90,7 @@ Rectangle {
 
                 onEndGame: {
                     endScore.showScore(score);
-                    if (isTimerGame) {
+                    if (board.state=="timer") {
                         Storage.setScore(score,"timer");
                     } else {
                         Storage.setScore(score,"none");
@@ -107,6 +109,7 @@ Rectangle {
                 height: screen.height - toolBar.height
 
                 function startGame() {
+                    board.state = "normal"
                     Game.initialize();
                     board.initialize();
                     for (var i=0; i<=7; i++) {
@@ -124,12 +127,14 @@ Rectangle {
 
                 function startTimerGame() {
                     startGame();
+                    board.state = "timer"
                     board.setTimer();
                 }
 
                 function startOnlineGame(online_deck) {
                     Game.initializeOnline(online_deck);
                     board.initialize();
+                    board.state = "online";
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
                         board.uniqueCardId += 1;
@@ -143,6 +148,10 @@ Rectangle {
                     board.visible = true;
                 }
 
+            }
+
+            Achievements {
+                id: achievementPage
             }
         }
     }

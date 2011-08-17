@@ -6,6 +6,7 @@ Rectangle {
     property alias count: deckTotal.count;
     property bool isTimerGame: timerfuse.visible
     signal endGame;
+    signal wordPlayed (string wordScore, string word);
 
     Background {}
 

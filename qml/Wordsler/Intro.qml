@@ -57,6 +57,11 @@ Rectangle {
                     width: parent.width
                     height: parent.height
                     anchors.centerIn: parent
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: achievementPage.visible=true
+                    }
                 }
             }
 
@@ -186,8 +191,7 @@ Rectangle {
                                 id: aboutButton
                                 anchors.fill: parent
                                 onClicked: {
-                                    //aboutpage.source="About.qml";
-                                    aboutpage.source="Achievements.qml"
+                                    aboutpage.source="About.qml";
                                 }
 
                             }

@@ -21,14 +21,14 @@ function getSetting(setting) {
 function dump() {
     var db = getDatabase();
     db.transaction(function(tx) {
-       var rs = tx.executeSql('SELECT * FROM settings');
+       var rs = tx.executeSql('SELECT * FROM achievements');
        for(var i = 0; i < rs.rows.length; i++) {
-                console.log(rs.rows.item(i).setting+ ", " + rs.rows.item(i).value + "\n");
+                console.log(rs.rows.item(i).id+ ", " + rs.rows.item(i).value + ", " + rs.rows.item(i).comment + "\n");
        }
-       rs = tx.executeSql('SELECT * FROM scores');
-       for(i = 0; i < rs.rows.length; i++) {
-                console.log(rs.rows.item(i).url+ ", " + rs.rows.item(i).unread + "\n");
-       }
+//       rs = tx.executeSql('SELECT * FROM scores');
+//       for(i = 0; i < rs.rows.length; i++) {
+//                console.log(rs.rows.item(i).url+ ", " + rs.rows.item(i).unread + "\n");
+//       }
     });
 }
 
@@ -53,7 +53,7 @@ function resetAll() {
     db.transaction(
         function(tx) {
                     //tx.executeSql('DROP TABLE scores;');
-                    tx.executeSql('DROP TABLE settings;');
+                    tx.executeSql('DROP TABLE achievements;');
                     //initialize();
                 });
 }
@@ -132,7 +132,7 @@ function getAchievement(index) {
                    var rs;
                        rs = tx.executeSql('SELECT value,comment FROM achievements WHERE id=?;',[index]);
                    if (rs.rows.length > 0) {
-                        res = rw.rows;
+                       res = new Array(rs.rows.item(0).value, rs.rows.item(0).comment);
                    } else {
                        res = new Array("-1", "")
                    }
@@ -155,8 +155,42 @@ function setAchievement(index, value, comment) {
    return res;
 }
 
+function incrementAchievement(index) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+                   var rs;
+                   rs = tx.executeSql('UPDATE achievements SET value=value+1 WHERE id=?;', [index]);
+                   if (rs.rowsAffected > 0) {
+                        res = "OK";
+                   } else {
+                       rs = tx.executeSql('INSERT OR REPLACE INTO achievements VALUES (?,?,?);', [index,1,""]);
+                       res = "OK";
+                   }
+                });
+   return res;
+}
+
+function updateAchievement(index, value, comment) {
+    var db = getDatabase();
+    var res = "";
+    if (getAchievement(index)[0]<value) {
+        db.transaction(function(tx) {
+                       var rs;
+                       rs = tx.executeSql('INSERT OR REPLACE INTO achievements VALUES (?,?,?);', [index,value,comment]);
+                       if (rs.rowsAffected > 0) {
+                            res = "OK";
+                       } else {
+                           res = "Error";
+                       }
+                    });
+    } else { res="NULL" }
+    return res;
+}
+
 function initialize() {
     var db = getDatabase();
+    //dump()
     //resetAll();
 
     db.transaction(
