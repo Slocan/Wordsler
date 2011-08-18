@@ -6,13 +6,15 @@ Component {
 
     Rectangle {
         //anchors.fill: parent
-        width: screen.width
-        height: cell.height
+        width: parent.width
+        height: Math.max(cell.height,30) + 10
         radius: 5
         border.color: "black"
+        property int value;
 
         function refresh() {
             var ach = Storage.getAchievement(achIndex);
+            value = ach[0];
             if (ach[0] == -1) {
                 desc.text = description;
             } else {
@@ -21,21 +23,39 @@ Component {
             }
         }
         Item {
-            anchors.fill:  parent
+            width: parent.width
+            height: parent.height
             anchors.margins: 5
 
-            Column {
-                id: cell
-                height: 45
+            Row {
+                spacing: 10
                 width: parent.width
+                height: parent.height
 
-
-                Text {
-                    text: fullname
+                Rectangle {
+                    width: 30
+                    height: 30
+                    radius: 30
+                    color: (value>step3) ? "#FDD017" : (value>step2) ? "#C0C0C0" : (value>step1) ? "#9C6963" : "white"
                 }
-                Text {
-                    id: desc
-                    x: 8
+
+                Column {
+                    id: cell
+                    width: parent.width - 45
+
+                    Text {
+                        id: full
+                        text: fullname
+                        wrapMode: Text.WordWrap
+                        width: parent.width
+                    }
+
+                    Text {
+                        id: desc
+                        x: 8
+                        wrapMode: Text.WordWrap
+                        width: parent.width
+                    }
                 }
             }
         }

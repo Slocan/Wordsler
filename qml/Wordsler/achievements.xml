@@ -3,13 +3,13 @@
  <achievement>
    <index>1</index>
    <name>games</name>
-   <fullname>Total number of games played. Reach 10, 20 and 50 for achievements.</fullname>
+   <fullname>Total number of games played. Reach 20, 50 and 80 for achievements.</fullname>
    <caption>You have played a total of %s games.</caption>
    <description>Play games in any modes to complete.</description>
    <steps>
-     <step>10</step>
      <step>20</step>
      <step>50</step>
+     <step>80</step>
    </steps>
  </achievement>
 
@@ -42,7 +42,7 @@
  <achievement>
    <index>4</index>
    <name>bestscore</name>
-   <fullname>Highest score in a game.</fullname>
+   <fullname>Highest score in a game. Reach 150, 175 and 190 to complete.</fullname>
    <caption>Your best score so far has been %s.</caption>
    <description>Score as high as possible in any mode.</description>
    <steps>
@@ -55,7 +55,7 @@
  <achievement>
    <index>5</index>
    <name>besttimerscore</name>
-   <fullname>Highest score in a Time Trial game.</fullname>
+   <fullname>Highest score in a Time Trial game. Reach 90, 110 and 130 to complete.</fullname>
    <caption>Your best score in Time Trial mode so far has been %s.</caption>
    <description>Score as high as possible in Time Trial mode.</description>
    <steps>
@@ -68,11 +68,11 @@
  <achievement>
    <index>6</index>
    <name>bestword</name>
-   <fullname>Highest scoring word played.</fullname>
+   <fullname>Highest scoring word played. Reach 15, 20 and 30 to complete.</fullname>
    <caption>Your best word so far has been %c for %s points.</caption>
    <description>Make high scoring words to complete.</description>
    <steps>
-     <step>10</step>
+     <step>15</step>
      <step>20</step>
      <step>30</step>
    </steps>

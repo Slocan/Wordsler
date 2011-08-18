@@ -10,13 +10,18 @@ Rectangle {
     Column{
         anchors.fill: parent
 
-        Row {
+        Grid {
+            id: grid
             width: parent.width
-            height: settings.introButtonHeight+5
+            //height: (parent.width>parent.height) ? settings.introButtonHeight+5
+
+            columns: (parent.width>parent.height) ? 2 : 1
+            rows: (parent.width<=parent.height) ? 2 : 1
 
             Text {
-                width: parent.width - button.width
-                height: parent.height
+                id: title
+                width: (parent.columns==2) ? parent.width - button.width : parent.width
+                //height: (parent.columns==2) ? parent.height
                 text: "Achievement page"
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -25,10 +30,12 @@ Rectangle {
 
             Item {
                 id: button
-                width: settings.introButtonWidth+25
+                //width: settings.introButtonWidth+25
+                width: (parent.columns==2) ? settings.introButtonWidth+25 : parent.width
                 height: settings.introButtonHeight+5;
-                //anchors.horizontalCenter: parent.horizontalCenter
+                //
                 Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
                     id: closeButton
                     width: settings.introButtonWidth;
                     height: settings.introButtonHeight;
@@ -58,9 +65,10 @@ Rectangle {
             model: xmlModel
             delegate: AchDelegate { }
             //anchors.fill: parent
-            height: parent.height - closeButton.height
+            height: parent.height - grid.height
             width: parent.width
             clip: true
+            spacing: 4
         }
     }
 
