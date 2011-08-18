@@ -7,11 +7,13 @@ Rectangle {
     property bool isTimerGame: timerfuse.visible
     signal endGame (int score);
     signal wordPlayed (string wordScore, string word);
+    signal cardMoved;
 
     Background {}
 
     property alias pileModel: pileModel
     property bool verify: false
+    property bool isValidWord: false
     property alias lastWordText: lastWord.text
     property int score: 0;
 
@@ -153,6 +155,7 @@ Rectangle {
                         choicesModel.remove( choicesModel.getIndex(pileModel.get(ind).cardText));
                     }
                     pileModel.get(ind).selected = !pileModel.get(ind).selected
+                    board.cardMoved();
                  }
             }
         }
@@ -167,8 +170,8 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             interactive: false
 
-            delegate: Card { text: card
-            }
+            delegate: Card { text: card }
+
         }
 
         ListModel {
@@ -255,10 +258,11 @@ Rectangle {
                 id: validateButton
                 width: settings.statusRowButtonWidth;
                 height: settings.statusRowHeight;
-                color: (verify)? "red" : "#cacaca"
+                //color: (verify)? "red" : "#cacaca"
                 radius: 5
                 border.color: "black"
                 anchors.margins: 5
+                color: board.isValidWord ? "#66FF99" : "#cacaca"
 
                 Text {
                     id: text1
@@ -277,11 +281,12 @@ Rectangle {
                             verify = true;
                         }
                     }
-
                 }
 
             }
         }
 
     }
+
+    onCardMoved: isValidWord = wordList.isWord(getWord())
 }

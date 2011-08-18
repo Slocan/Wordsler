@@ -174,7 +174,7 @@ function incrementAchievement(index) {
 function updateAchievement(index, value, comment) {
     var db = getDatabase();
     var res = "";
-    if (getAchievement(index)[0]<value) {
+    if (getAchievement(index)[0]<parseInt(value)) {
         db.transaction(function(tx) {
                        var rs;
                        rs = tx.executeSql('INSERT OR REPLACE INTO achievements VALUES (?,?,?);', [index,value,comment]);

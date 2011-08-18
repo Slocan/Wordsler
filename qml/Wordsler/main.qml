@@ -59,13 +59,15 @@ Rectangle {
                         //wordList.checkWord(getWord());
                         //console.log(wordList.isWord(getWord()));
                         board.verify = false;
-                        if (wordList.isWord(getWord())) {
+                        var word = getWord();
+                        if (wordList.isWord(word)) {
                             //score += 1
-                            Game.wordStack.push(getWord());
+                            var curScore = board.getCurrentWordScore();
+                            Game.wordStack.push(word);
                             wordStackCopy = Game.wordStack;
-                            board.lastWordText = "Last Word: " + getWord() + " / " + board.getCurrentWordScore() + " points.";
-                            board.score += board.getCurrentWordScore();
-                            board.wordPlayed(board.getCurrentWordScore(), getWord());
+                            board.lastWordText = "Last Word: " + word + " / " + curScore + " points.";
+                            board.score += curScore;
+                            board.wordPlayed(curScore, word);
                             var newCardsCount = board.removeSelected();
                             for (var i=0; i<newCardsCount; i++) {
                                 var nextCard = Game.getNextCard();
@@ -78,6 +80,7 @@ Rectangle {
                                 }
                             }
                             board.updateCount();
+                            board.isValidWord = false;
 
                         } else {
                             board.clearSelected();
