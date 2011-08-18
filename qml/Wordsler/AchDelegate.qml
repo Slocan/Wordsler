@@ -20,16 +20,23 @@ Component {
                 desc.text = caption.replace("%s", ach[0]).replace("%c",ach[1]);
             }
         }
+        Item {
+            anchors.fill:  parent
+            anchors.margins: 5
 
-        Column {
-            id: cell
-            height: 45
-            width: parent.width
-            Text {
-                text: fullname
-            }
-            Text {
-                id: desc
+            Column {
+                id: cell
+                height: 45
+                width: parent.width
+
+
+                Text {
+                    text: fullname
+                }
+                Text {
+                    id: desc
+                    x: 8
+                }
             }
         }
 
@@ -40,6 +47,7 @@ Component {
         Connections {
             target: achievementPage
             onAchModified: {
+                // Receive the signal when an achievement has been changed, refresh if necessary
                 if (ach == achIndex) { refresh(); }
             }
         }

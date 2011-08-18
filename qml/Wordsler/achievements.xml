@@ -43,7 +43,7 @@
    <index>4</index>
    <name>bestscore</name>
    <fullname>Highest score in a game.</fullname>
-   <caption>Your best score so far has been %c.</caption>
+   <caption>Your best score so far has been %s.</caption>
    <description>Score as high as possible in any mode.</description>
    <steps>
      <step>150</step>
@@ -56,7 +56,7 @@
    <index>5</index>
    <name>besttimerscore</name>
    <fullname>Highest score in a Time Trial game.</fullname>
-   <caption>Your best score in Time Trial mode so far has been %c.</caption>
+   <caption>Your best score in Time Trial mode so far has been %s.</caption>
    <description>Score as high as possible in Time Trial mode.</description>
    <steps>
      <step>90</step>

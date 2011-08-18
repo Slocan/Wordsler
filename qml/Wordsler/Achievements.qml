@@ -83,25 +83,27 @@ Rectangle {
         target:  board
         onEndGame: {
             // Increment achievement #1 (total games played)
-            Storage.incrementAchievement(1);
-            achievementPage.achModified(1);
+            if (score > 0) {
+                Storage.incrementAchievement(1);
+                achievementPage.achModified(1);
 
-            // Achievement #4, highest game score
-            Storage.updateAchievement(4,score,board.state);
-            achievementPage.achModified(4);
+                // Achievement #4, highest game score
+                Storage.updateAchievement(4,score,board.state);
+                achievementPage.achModified(4);
 
-            // Increment achievement #2 (online games played)
-            if (board.state=="online") {
-                Storage.incrementAchievement(2);
-                achievementPage.achModified(2);
-            }
-            if (board.state=="timer") {
-                Storage.incrementAchievement(3);
-                achievementPage.achModified(3);
+                // Increment achievement #2 (online games played)
+                if (board.state=="online") {
+                    Storage.incrementAchievement(2);
+                    achievementPage.achModified(2);
+                }
+                if (board.state=="timer") {
+                    Storage.incrementAchievement(3);
+                    achievementPage.achModified(3);
 
-                // Achievement #5, highest Time Trial score
-                Storage.updateAchievement(5,score,board.state);
-                achievementPage.achModified(5);
+                    // Achievement #5, highest Time Trial score
+                    Storage.updateAchievement(5,score,board.state);
+                    achievementPage.achModified(5);
+                }
             }
         }
         onWordPlayed: {

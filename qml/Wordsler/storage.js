@@ -200,6 +200,24 @@ function initialize() {
             tx.executeSql('CREATE TABLE IF NOT EXISTS scores(date TEXT, score INTEGER)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS scores_tt(date TEXT, score INTEGER)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS achievements(id INTEGER UNIQUE, value INTEGER, comment TEXT);');
+
+            if (getAchievement(1)[0] == -1) {
+                var rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores;');
+                var val = parseInt(rs.rows.item(0).cnt);
+                var max = parseInt(rs.rows.item(0).max);
+                rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores_tt;');
+                var valtt = parseInt(rs.rows.item(0).cnt);
+                var maxtt = parseInt(rs.rows.item(0).max);
+
+                updateAchievement(1,val+valtt,"");
+
+                if (getAchievement(3)[0] == -1)
+                    updateAchievement(3,valtt,"");
+                if (getAchievement(4)[0] == -1)
+                    updateAchievement(4,Math.max(max,maxtt), "");
+                if (getAchievement(5)[0] == -1)
+                    updateAchievement(5,maxtt, "");
+            }
         }
     );
 }
