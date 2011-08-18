@@ -5,7 +5,7 @@ Rectangle {
 //    height: 380
     property alias count: deckTotal.count;
     property bool isTimerGame: timerfuse.visible
-    signal endGame;
+    signal endGame (int score);
     signal wordPlayed (string wordScore, string word);
 
     Background {}
@@ -108,7 +108,7 @@ Rectangle {
                         width: parent.width - 30
                         anchors.horizontalCenter: parent.horizontalCenter
 
-                        onTimerEnd: board.endGame();
+                        onTimerEnd: board.endGame(board.score);
                     }
                     height: parent.height
                     width: board.width - deckTotal.width - scoreboard.width
@@ -239,7 +239,7 @@ Rectangle {
                     id: endArea
                     anchors.fill: parent
                     onClicked: {
-                        board.endGame();
+                        board.endGame(board.score);
                     }
 
                 }

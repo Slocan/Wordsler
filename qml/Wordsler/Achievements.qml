@@ -56,56 +56,11 @@ Rectangle {
 
         ListView {
             model: xmlModel
-            delegate: achDelegate
+            delegate: AchDelegate { }
             //anchors.fill: parent
             height: parent.height - closeButton.height
             width: parent.width
             clip: true
-        }
-    }
-
-    Component {
-        id: achDelegate
-
-        Rectangle {
-            //anchors.fill: parent
-            width: screen.width
-            height: cell.height
-            radius: 5
-            border.color: "black"
-
-            function refresh() {
-                var ach = Storage.getAchievement(achIndex);
-                if (ach[0] == -1) {
-                    desc.text = description;
-                } else {
-                    // Display the caption with the number and comment displayed
-                    desc.text = caption.replace("%s", ach[0]).replace("%c",ach[1]);
-                }
-            }
-
-            Column {
-                id: cell
-                height: 45
-                width: parent.width
-                Text {
-                    text: fullname
-                }
-                Text {
-                    id: desc
-                }
-            }
-
-            Component.onCompleted: {
-                refresh();
-            }
-
-            Connections {
-                target: achievementPage
-                onAchModified: {
-                    if (ach == index) { refresh(); console.log("refreshing "+ach) }
-                }
-            }
         }
     }
 
@@ -131,16 +86,28 @@ Rectangle {
             Storage.incrementAchievement(1);
             achievementPage.achModified(1);
 
+            // Achievement #4, highest game score
+            Storage.updateAchievement(4,score,board.state);
+            achievementPage.achModified(4);
+
             // Increment achievement #2 (online games played)
             if (board.state=="online") {
                 Storage.incrementAchievement(2);
                 achievementPage.achModified(2);
             }
+            if (board.state=="timer") {
+                Storage.incrementAchievement(3);
+                achievementPage.achModified(3);
+
+                // Achievement #5, highest Time Trial score
+                Storage.updateAchievement(5,score,board.state);
+                achievementPage.achModified(5);
+            }
         }
         onWordPlayed: {
             // Update best word achievement
-            Storage.updateAchievement(3,wordScore,word);
-            achievementPage.achModified(3);
+            Storage.updateAchievement(6,wordScore,word);
+            achievementPage.achModified(6);
         }
     }
 
