@@ -6,10 +6,26 @@ Component {
 
     Rectangle {
         //anchors.fill: parent
-        width: parent.width
-        height: Math.max(cell.height,30) + 10
+        width: parent.width-8
+        height: Math.max(cell.height,settings.medalSize) + 10
+        anchors.horizontalCenter: parent.horizontalCenter
         radius: 5
+        gradient: Gradient {
+            GradientStop {
+                position: 0.00;
+                color: "#ffffff";
+            }
+            GradientStop {
+                position: 0.82;
+                color: "#d7d7d7";
+            }
+            GradientStop {
+                position: 1.00;
+                color: "#f3f3f3";
+            }
+        }
         border.color: "black"
+
         property int value;
 
         function refresh() {
@@ -32,16 +48,24 @@ Component {
                 width: parent.width
                 height: parent.height
 
-                Rectangle {
-                    width: 30
-                    height: 30
-                    radius: 30
-                    color: (value>step3) ? "#FDD017" : (value>step2) ? "#C0C0C0" : (value>step1) ? "#9C6963" : "white"
+                Item {
+                    width: settings.medalSize
+                    height: settings.medalSize
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Rectangle {
+                        width: settings.medalSize
+                        height: settings.medalSize
+                        radius: settings.medalSize
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: (value>=step3) ? "#FDD017" : (value>=step2) ? "#C0C0C0" : (value>=step1) ? "#9C6963" : "white"
+                        opacity: (value>=step1) ? 1.0 : 0.0
+                    }
                 }
 
                 Column {
                     id: cell
-                    width: parent.width - 45
+                    width: parent.width - 15 - settings.medalSize
 
                     Text {
                         id: full
@@ -54,7 +78,7 @@ Component {
                         id: desc
                         x: 8
                         wrapMode: Text.WordWrap
-                        width: parent.width
+                        width: parent.width - 8
                     }
                 }
             }

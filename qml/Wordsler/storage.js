@@ -202,10 +202,10 @@ function initialize() {
             tx.executeSql('CREATE TABLE IF NOT EXISTS achievements(id INTEGER UNIQUE, value INTEGER, comment TEXT);');
 
             if (getAchievement(1)[0] == -1) {
-                var rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores;');
+                var rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores WHERE score>0;');
                 var val = parseInt(rs.rows.item(0).cnt);
                 var max = parseInt(rs.rows.item(0).max);
-                rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores_tt;');
+                rs = tx.executeSql('SELECT count(*) as cnt, MAX(score) as max from scores_tt WHERE score>0;');
                 var valtt = parseInt(rs.rows.item(0).cnt);
                 var maxtt = parseInt(rs.rows.item(0).max);
 

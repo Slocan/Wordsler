@@ -18,14 +18,19 @@ Rectangle {
             columns: (parent.width>parent.height) ? 2 : 1
             rows: (parent.width<=parent.height) ? 2 : 1
 
-            Text {
-                id: title
+            Item {
+                height: settings.introButtonHeight+5;
                 width: (parent.columns==2) ? parent.width - button.width : parent.width
-                //height: (parent.columns==2) ? parent.height
-                text: "Achievement page"
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: settings.introFontSize
+
+                Text {
+                    id: title
+                    width: parent.width
+                    text: "Achievement page"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.pixelSize: settings.introFontSize
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             Item {

@@ -23,6 +23,8 @@ Item {
 
     property int aboutPageFontSize:1;
 
+    property int medalSize;
+
     function setValues(platform) {
         if (platform=="maemo5") {
             introButtonHeight = 76;
@@ -40,6 +42,7 @@ Item {
             cardWidth = 82;
             cardHeight = 110;
             aboutPageFontSize = 18;
+            medalSize = 70;
         } else if (platform=="symbian") {
             introButtonHeight = 50;
             introButtonWidth = 176;
@@ -56,6 +59,7 @@ Item {
             cardWidth = 62;
             cardHeight = 100;
             aboutPageFontSize = 16;
+            medalSize = 30;
         } else if (platform=="harmattan") {
             introButtonHeight = 65;
             introButtonWidth = 200;
@@ -72,6 +76,7 @@ Item {
             cardWidth = 82;
             cardHeight = 110;
             aboutPageFontSize = 18;
+            medalSize = 40;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;
@@ -88,6 +93,7 @@ Item {
             cardWidth = 62;
             cardHeight = 100;
             aboutPageFontSize = 12;
+            medalSize = 30;
         }
 
     }
