@@ -46,14 +46,26 @@ Rectangle {
 
     function removeSelected() {
         var tmp = 0;
+        var cnt = 0;
         for (var i=pileModel.count-1; i>=0; i--) {
             //console.log(pileModel.get(i).cardText);
             if (pileModel.get(i).selected) {
                 //console.log(i);
+
+                // If the first 4 cards are being replaced, we need to workaround a gridview bug
+                if (i<=3) {
+                    cnt += 1;
+                }
                 tmp += 1;
                 pileModel.remove(i);
             }
         }
+
+        if ((cnt==4) && (height>width)) {
+            pile.model = null;
+            pile.model = pileModel;
+        }
+
         validateArea.enabled = true;
         return tmp;
     }
