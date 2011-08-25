@@ -61,6 +61,7 @@ Rectangle {
             }
         }
 
+        // If the first 4 cards are being replaced and we're in portrait mode, we need to workaround a gridview bug
         if ((cnt==4) && (height>width)) {
             pile.model = null;
             pile.model = pileModel;

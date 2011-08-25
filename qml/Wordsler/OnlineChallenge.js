@@ -59,6 +59,34 @@ function getChallengeDeck() {
 
 }
 
+function getIntro() {
+    var xhr = new XMLHttpRequest;
+
+    var params = "username="+username+"&pass="+unique_id
+    var url= "http://feedingit.marcoz.org/wordsler/introLogin.php";
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-length", params.length);
+    xhr.setRequestHeader("Connection", "close");
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            try {
+                console.log(xhr.responseText)
+                var tab = eval(xhr.responseText);
+                var tmp1 = loggedIn.setIntro(tab[1]);
+                var tmp = tab[0]; // Placeholder
+            } catch(e) {
+                console.log("Error when connecting to IntroLogin.");
+                loggedIn.setIntro("Error");
+                notification.showNotification("Error when connecting. Please verify your internet connection.")
+            }
+        }
+    }
+    xhr.send(params);
+
+}
+
 function sendScore(challengeId,username,unique_id,score,wordStack) {
     var xhr = new XMLHttpRequest;
     var tmp = "";

@@ -34,21 +34,40 @@ Rectangle {
         anchors.fill: parent
         width: parent.width
 
+        function setLogin(text) {
+            textLog.text = text;
+            loading.visible = false;
+            textLog.visible = true;
+        }
+
         Column {
             id: columnLoggedIn
             anchors.fill: parent
             spacing: 15
 
 
-            Row {
+            Item {
                 anchors.horizontalCenter: parent.horizontalCenter
-                height: textLog.height
+                height: 150
                 width: parent.width
+
+                Image {
+                    id: loading
+                    visible: true
+                    anchors.centerIn: parent
+                    source: "toolbar/images/loading2.png"
+                    NumberAnimation on rotation {
+                                from: 0; to: 360; running: loading.visible == true; loops: Animation.Infinite; duration: 900
+                            }
+                }
+
                 Text {
                     id: textLog
+                    visible: false
                     width: parent.width
+                    anchors.centerIn: parent
                     wrapMode: Text.Wrap
-                    text: "You are logged in as " + username
+                    //text: "You are logged in as " + username
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: settings.aboutPageFontSize
@@ -342,16 +361,15 @@ Please note that this mode requires an active internet connection."
         }
     ]
 
-//    transitions: [
-//        Transition {
-//           to: "LoggedIn"
-//           ScriptAction { script: {
-//                   //console.log("xx");
-//                   getDeck();
-//               }
-//               }
-//       }
-//    ]
+    transitions: [
+        Transition {
+           to: "LoggedIn"
+           ScriptAction { script: {
+                   OnlineChallenge.getIntro();
+               }
+               }
+       }
+    ]
 
     onDeckChanged: {
         //console.log(deck);
