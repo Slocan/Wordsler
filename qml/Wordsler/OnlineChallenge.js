@@ -23,12 +23,14 @@ function register(username) {
                     registerButton.enabled = true;
                     console.log("Error in registration.")
                 }
+                textIntro.visible = true
 
                 //challengePane.visible = false
             }
         }
         xhr.send(params);
     } else {
+        textIntro.visible = true
         registerButton.enabled = true;
     }
 }
@@ -49,6 +51,7 @@ function getChallengeDeck() {
                 var tab = eval(xhr.responseText);
                 challengePane.challengeId = tab[0];
                 challengePane.deck = eval(tab[1]);
+                loading.visible = false;
             } catch(e) {
                 console.log("Error when connecting to getChallenge.");
                 notification.showNotification("Error when connecting. Please verify your internet connection.")
@@ -72,13 +75,15 @@ function getIntro() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             try {
-                console.log(xhr.responseText)
                 var tab = eval(xhr.responseText);
-                var tmp1 = loggedIn.setIntro(tab[1]);
+                loggedIn.text = tab[1];
+                loggedIn.setLogin();
+                //loggedIn.setIntro("xxx");
                 var tmp = tab[0]; // Placeholder
             } catch(e) {
                 console.log("Error when connecting to IntroLogin.");
-                loggedIn.setIntro("Error");
+                loggedIn.text = "Error";
+                loggedIn.setLogin();
                 notification.showNotification("Error when connecting. Please verify your internet connection.")
             }
         }
@@ -95,7 +100,7 @@ function sendScore(challengeId,username,unique_id,score,wordStack) {
     }
 
     var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score+tmp;
-    var url= "http://feedingit.marcoz.org/wordsler/sendScore.php";
+    var url= "http://feedingit.marcoz.org/wordsler/sendScore-dev.php";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Content-length", params.length);

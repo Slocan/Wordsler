@@ -53,7 +53,7 @@ function resetAll() {
     db.transaction(
         function(tx) {
                     //tx.executeSql('DROP TABLE scores;');
-                    tx.executeSql('DROP TABLE achievements;');
+                    tx.executeSql('DROP TABLE settings;');
                     //initialize();
                 });
 }
