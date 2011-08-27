@@ -33,6 +33,15 @@ Rectangle {
         visible: false
         anchors.fill: parent
         width: parent.width
+        property string text;
+
+        signal setLogin;
+
+        onSetLogin:  {
+            textLog.text = text;
+            loading.visible = false;
+            textLog.visible = true;
+        }
 
         Column {
             id: columnLoggedIn
@@ -40,15 +49,28 @@ Rectangle {
             spacing: 15
 
 
-            Row {
+            Item {
                 anchors.horizontalCenter: parent.horizontalCenter
-                height: textLog.height
+                height: 150
                 width: parent.width
+
+                Image {
+                    id: loading
+                    visible: true
+                    anchors.centerIn: parent
+                    source: "toolbar/images/loading2.png"
+                    NumberAnimation on rotation {
+                                from: 0; to: 360; running: loading.visible == true; loops: Animation.Infinite; duration: 900
+                            }
+                }
+
                 Text {
                     id: textLog
+                    visible: false
                     width: parent.width
+                    anchors.centerIn: parent
                     wrapMode: Text.Wrap
-                    text: "You are logged in as " + username
+                    //text: "You are logged in as " + username
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: settings.aboutPageFontSize
@@ -83,6 +105,8 @@ Rectangle {
                             onClicked: {
                                 //registerButton.enabled = false;
                                 //OnlineChallenge.register(usernameInput.text);
+                                textLog.visible = false
+                                loading.visible = true
                                 getDeck();
     //                            gameStarted=true;
     //                            startOnlineGame(deck);
@@ -137,21 +161,38 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: textIntro.height
                 width: parent.width
-                Text {
-                    id: textIntro
+                Item {
+                    //anchors.horizontalCenter: parent.horizontalCenter
+                    height: textIntro.height
                     width: parent.width
-                    wrapMode: Text.Wrap
-                    text: "Welcome to the Daily Wordsler Challenge!
 
-Compete against your peers using the same set of cards. Every day a new challenge!
-When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
-No personal data other than the username provided below is being transmitted.
+                    Text {
+                        id: textIntro
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        text: "Welcome to the Daily Wordsler Challenge!
 
-Register for a new Wordsler Online account
-Please note that this mode requires an active internet connection."
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: settings.aboutPageFontSize
+    Compete against your peers using the same set of cards. Every day a new challenge!
+    When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
+    No personal data other than the username provided below is being transmitted.
+
+    Register for a new Wordsler Online account
+    Please note that this mode requires an active internet connection."
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        font.pixelSize: settings.aboutPageFontSize
+                    }
+
+                    Image {
+                        id: loading3
+                        visible: !textIntro.visible
+                        anchors.centerIn: parent
+                        source: "toolbar/images/loading2.png"
+                        NumberAnimation on rotation {
+                                    from: 0; to: 360; running: loading3.visible == true; loops: Animation.Infinite; duration: 900
+                                }
+                    }
+
                 }
             }
 
@@ -209,6 +250,7 @@ Please note that this mode requires an active internet connection."
                             id: registerButton
                             anchors.fill: parent
                             onClicked: {
+                                textIntro.visible = false
                                 registerButton.enabled = false;
                                 OnlineChallenge.register(usernameInput.text);
 
@@ -267,6 +309,21 @@ Please note that this mode requires an active internet connection."
                 //anchors.verticalCenter: parent.verticalCenter
                 horizontalAlignment: Text.AlignHCenter
                 onLinkActivated: Qt.openUrlExternally(link)
+            }
+
+            Item {
+                height: 60
+                width: 60
+                id: loading2
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: (textOnline.text == "Your score is being submitted online.")
+                Image {
+                    anchors.centerIn: parent
+                    source: "toolbar/images/loading2.png"
+                    NumberAnimation on rotation {
+                                from: 0; to: 360; running: loading2.visible == true; loops: Animation.Infinite; duration: 900
+                            }
+                }
             }
 
             Item {
@@ -342,16 +399,15 @@ Please note that this mode requires an active internet connection."
         }
     ]
 
-//    transitions: [
-//        Transition {
-//           to: "LoggedIn"
-//           ScriptAction { script: {
-//                   //console.log("xx");
-//                   getDeck();
-//               }
-//               }
-//       }
-//    ]
+    transitions: [
+        Transition {
+           to: "LoggedIn"
+           ScriptAction { script: {
+                   OnlineChallenge.getIntro();
+               }
+               }
+       }
+    ]
 
     onDeckChanged: {
         //console.log(deck);
