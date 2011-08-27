@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
 #if defined(MEEGO_EDITION_HARMATTAN)
     viewer.setMainQmlFile(QLatin1String("qml/Wordsler/HarmattanMain.qml"));
 #else
-    viewer.setMainQmlFile(QLatin1String("qml/Wordsler/main.qml"));
+    //viewer.setMainQmlFile(QLatin1String("qml/Wordsler/main.qml"));
+    viewer.setSource(QUrl("qrc:/main.qml"));
 #endif
     viewer.showExpanded();
 //#if defined(Q_WS_MAEMO_5) ||

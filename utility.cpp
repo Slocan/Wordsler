@@ -39,6 +39,8 @@ QString Utility::getPlatform()
         return "symbian";
     #elif defined(MEEGO_EDITION_HARMATTAN)
         return "harmattan";
+    #elif defined(ANDROID)
+        return "android";
     #else
         return "other";
     #endif
