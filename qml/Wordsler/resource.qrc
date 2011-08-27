@@ -1,5 +1,54 @@
 <RCC>
     <qresource prefix="/" lang="english">
         <file>wordlist2.txt</file>
+        <file>Game.js</file>
+        <file>HarmattanMain.qml</file>
+        <file>HighScores.qml</file>
+        <file>Intro.qml</file>
+        <file>main.qml</file>
+        <file>Notification.qml</file>
+        <file>OnlineChallenge.js</file>
+        <file>BestScore.qml</file>
+        <file>Board.qml</file>
+        <file>Button.qml</file>
+        <file>Card.qml</file>
+        <file>DeckInfo.qml</file>
+        <file>EndScore.qml</file>
+        <file>OnlineChallenge.qml</file>
+        <file>PileDelegate.qml</file>
+        <file>resource.qrc</file>
+        <file>Scoreboard.qml</file>
+        <file>Settings.qml</file>
+        <file>storage.js</file>
+        <file>TimerFuse.qml</file>
+        <file>wordlist2.xml</file>
+        <file>About.qml</file>
+        <file>AchDelegate.qml</file>
+        <file>Achievements.qml</file>
+        <file>achievements.xml</file>
+        <file>Background.qml</file>
+        <file>toolbar/Button.qml</file>
+        <file>toolbar/ToolBar.qml</file>
+        <file>toolbar/images/application-exit.png</file>
+        <file>toolbar/images/checkmark.png</file>
+        <file>toolbar/images/emblem-downloads.png</file>
+        <file>toolbar/images/emblem-system.png</file>
+        <file>toolbar/images/emblem-ubuntuone-synchronized.png</file>
+        <file>toolbar/images/emblem-ubuntuone-updating.png</file>
+        <file>toolbar/images/emblem-unreadable.png</file>
+        <file>toolbar/images/loading.png</file>
+        <file>toolbar/images/loading2.png</file>
+        <file>toolbar/images/toolbutton.png</file>
+        <file>toolbar/images/toolbutton.sci</file>
+        <file>toolbar/images/view-refresh.png</file>
+        <file>toolbar/images/wmBackIcon.png</file>
+        <file>toolbar/images/wmCloseIcon.png</file>
+        <file>toolbar/images/wmTaskLauncherIcon.png</file>
+        <file>images/00-lucky-bamboo-background.jpg</file>
+        <file>images/00-lucky-clover-small.jpg</file>
+        <file>images/island-paradise-tile.jpg</file>
+        <file>images/waterfall-tile-blue.jpg</file>
+        <file>images/waterfall-tile.jpg</file>
+        <file>images/wood-repeating-fill-wavy.jpg</file>
     </qresource>
 </RCC>

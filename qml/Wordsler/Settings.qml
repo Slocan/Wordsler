@@ -77,6 +77,23 @@ Item {
             cardHeight = 110;
             aboutPageFontSize = 18;
             medalSize = 40;
+        } else if (platform=="android") {
+            introButtonHeight = 50;
+            introButtonWidth = 176;
+            introFontSize = 18;
+            statusRowButtonWidth = 140;
+            statusRowHeight = 35;
+            statusRowFontSize = 20;
+            barRowHeight = 25;
+            barRowFontSize = 18;
+            toolBarHeight = 46;
+            scoreFontSize = 22;
+            cardFontSize = 19;
+            cardBottomFontSize = 12;
+            cardWidth = 62;
+            cardHeight = 100;
+            aboutPageFontSize = 12;
+            medalSize = 30;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;
