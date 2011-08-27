@@ -221,6 +221,19 @@ Rectangle {
                         width:  150
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
+                        activeFocusOnPress: false
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                if (!usernameInput.activeFocus) {
+                                    usernameInput.forceActiveFocus()
+                                    usernameInput.openSoftwareInputPanel();
+                                } else {
+                                    usernameInput.focus = false;
+                                }
+                            }
+                            //onPressAndHold: textInput.closeSoftwareInputPanel();
+                        }
                     }
                 }
             }
@@ -252,6 +265,9 @@ Rectangle {
                             onClicked: {
                                 textIntro.visible = false
                                 registerButton.enabled = false;
+                                usernameInput.focus = false;
+                                text6.forceActiveFocus();
+                                usernameInput.closeSoftwareInputPanel()
                                 OnlineChallenge.register(usernameInput.text);
 
                             }

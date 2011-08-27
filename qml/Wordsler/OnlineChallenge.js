@@ -100,7 +100,7 @@ function sendScore(challengeId,username,unique_id,score,wordStack) {
     }
 
     var params = "challengeId=" + challengeId + "&username="+username+"&pass="+unique_id+"&score="+score+tmp;
-    var url= "http://feedingit.marcoz.org/wordsler/sendScore-dev.php";
+    var url= "http://feedingit.marcoz.org/wordsler/sendScore.php";
     xhr.open("POST", url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Content-length", params.length);
