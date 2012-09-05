@@ -1,5 +1,5 @@
 Source: wordsler
-Section: user/games
+Section: user/hidden
 Priority: optional
 Maintainer: Yves <yves@marcoz.org>
 Build-Depends: debhelper (>= 5), libqt4-dev

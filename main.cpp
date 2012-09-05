@@ -10,7 +10,11 @@
 // This include is to make the "setContextProperty" work
 #include <QDeclarativeContext>
 
+#if defined(MEEGO_EDITION_HARMATTAN)
+Q_DECL_EXPORT int main(int argc, char *argv[])
+#else
 int main(int argc, char *argv[])
+#endif
 {
 //#if defined(MEEGO_EDITION_HARMATTAN)
 //    QApplication *app = MDeclarativeCache::qApplication(argc, argv);
@@ -35,7 +39,7 @@ int main(int argc, char *argv[])
 #endif
     viewer.showExpanded();
 //#if defined(Q_WS_MAEMO_5) ||
-#if defined(MEEGO_EDITION_HARMATTAN)
+#if defined(MEEGO_EDITION_HARMATTAN) || defined(BLACKBERRY_PLAYBOOK)
         viewer.showFullScreen();
 #endif
 

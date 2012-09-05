@@ -94,6 +94,23 @@ Item {
             cardHeight = 100;
             aboutPageFontSize = 12;
             medalSize = 30;
+        } else if (platform=="playbook") {
+            introButtonHeight = 80;
+            introButtonWidth = 250;
+            introFontSize = 25;
+            statusRowButtonWidth = 200;
+            statusRowHeight = 80;
+            statusRowFontSize = 28;
+            barRowHeight = 45;
+            barRowFontSize = 23;
+            toolBarHeight = 0;
+            scoreFontSize = 26;
+            cardFontSize = 23;
+            cardBottomFontSize = 14;
+            cardWidth = 62;
+            cardHeight = 100;
+            aboutPageFontSize = 18;
+            medalSize = 40;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;

@@ -41,6 +41,8 @@ QString Utility::getPlatform()
         return "harmattan";
     #elif defined(ANDROID)
         return "android";
+    #elif defined(BLACKBERRY_PLAYBOOK)
+    return "playbook";
     #else
         return "other";
     #endif

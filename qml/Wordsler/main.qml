@@ -23,7 +23,7 @@ Rectangle {
             height: settings.toolBarHeight;
             width: screen.width;
             opacity: 0.9
-            visible: (utility.getPlatform()=="maemo5")?false:true
+            visible: (utility.getPlatform()=="maemo5")||(utility.getPlatform()=="playbook")?false:true
 
             onTaskSwitcherClicked: {
                 utility.taskSwitcher();
