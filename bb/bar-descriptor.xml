@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+    <id>org.marcoz.wordsler</id>
+    <filename>Wordsler</filename>
+    <name>Wordsler</name>
+    <versionNumber>1.0.1</versionNumber>
+    <description>Word game</description>
+    <copyright>2012</copyright>
+
+    <initialWindow>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+        <autoOrients>true</autoOrients>
+        <aspectRatio>landscape</aspectRatio>
+    </initialWindow>
+
+    <env var="QML_IMPORT_PATH" value="app/native/imports"/>
+    <env var="QT_PLUGIN_PATH" value="app/native/plugins"/>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib"/>
+
+    <arg>-platform</arg>
+    <arg>blackberry</arg>
+
+    <publisher>Slocan</publisher>
+    <permission system="true">run_native</permission>
+    <category>core.games</category>
+    <icon><image>Wordsler.png</image></icon>
+    <splashscreen>Wordsler-splash.png</splashscreen>
+    <asset path="Wordsler.png">Wordsler.png</asset>
+    <asset path="Wordsler-splash.png">Wordsler-splash.png</asset>
+    <asset entry="true" path="../Wordsler" type="Qnx/Elf">Wordsler</asset>
+    <asset path="deploy/lib">lib</asset>
+    <asset path="deploy/plugins">plugins</asset>
+
+</qnx>
