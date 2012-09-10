@@ -246,7 +246,7 @@ Rectangle {
                 Text {
                     id: endGame
                     anchors.centerIn: parent
-                    text: "End Game"
+                    text: qsTr("End Game")
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: settings.statusRowFontSize
                 }
@@ -280,7 +280,7 @@ Rectangle {
                 Text {
                     id: text1
                     anchors.centerIn: parent
-                    text: "Validate"
+                    text: qsTr("Validate")
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: settings.statusRowFontSize
                 }

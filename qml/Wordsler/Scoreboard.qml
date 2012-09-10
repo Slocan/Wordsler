@@ -10,7 +10,7 @@ Item {
 
     Text {
         id: score
-        text: "Score: " + board.score
+        text: qsTr("Score: ") + board.score
         font.pixelSize: settings.barRowFontSize;
         anchors.centerIn: parent;
     }

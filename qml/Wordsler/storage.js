@@ -217,6 +217,7 @@ function initialize() {
                     updateAchievement(4,Math.max(max,maxtt), "");
                 if (getAchievement(5)[0] == -1)
                     updateAchievement(5,maxtt, "");
+
             }
         }
     );

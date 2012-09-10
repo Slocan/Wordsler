@@ -38,7 +38,7 @@ Rectangle {
             height: screen.height - toolBar.height
 
             function getScoreForLetter(letter) {
-                return Game.score_definition[letter];
+                return Game.score_definition[Storage.getSetting("language")][letter];
             }
 
             Board {
@@ -65,7 +65,7 @@ Rectangle {
                             var curScore = board.getCurrentWordScore();
                             Game.wordStack.push(word);
                             wordStackCopy = Game.wordStack;
-                            board.lastWordText = "Last Word: " + word + " / " + curScore + " points.";
+                            board.lastWordText = qsTr("Last Word: %1 / %2 points.").arg(word).arg(curScore);
                             board.score += curScore;
                             board.wordPlayed(curScore, word);
                             var newCardsCount = board.removeSelected();
@@ -76,7 +76,7 @@ Rectangle {
                                     board.pileModel.append( { cardText: nextCard,
                                                        selected: false,
                                                        gridId: board.uniqueCardId,
-                                            cardValue: Game.score_definition[nextCard] } );
+                                            cardValue: Game.score_definition[Storage.getSetting("language")][nextCard] } );
                                 }
                             }
                             board.updateCount();
@@ -84,7 +84,7 @@ Rectangle {
 
                         } else {
                             board.clearSelected();
-                            board.lastWordText = "Word is incorrect";
+                            board.lastWordText = qsTr("Word is incorrect");
                         }
 
                         var newCards = board.resetChoices();
@@ -110,10 +110,11 @@ Rectangle {
                 id: intro
                 width: screen.width
                 height: screen.height - toolBar.height
+                property string prettyLanguage: (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
 
                 function startGame() {
                     board.state = "normal"
-                    Game.initialize();
+                    Game.initialize(Storage.getSetting("language"));
                     board.initialize();
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
@@ -121,7 +122,7 @@ Rectangle {
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
                                                gridId: board.uniqueCardId,
-                                               cardValue: Game.score_definition[nextCard]  } );
+                                               cardValue: Game.score_definition[Storage.getSetting("language")][nextCard]  } );
                     }
                     board.updateCount();
                     intro.visible = false;
@@ -144,13 +145,22 @@ Rectangle {
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
                                                gridId: board.uniqueCardId,
-                                               cardValue: Game.score_definition[nextCard]  } );
+                                               cardValue: Game.score_definition[Storage.getSetting("language")][nextCard]  } );
                     }
                     board.updateCount();
                     intro.visible = false;
                     board.visible = true;
                 }
-
+                onEnglish: {
+                    wordList.init("en")
+                    Storage.setSetting("language", "en")
+                    prettyLanguage= (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
+                }
+                onFrench: {
+                    wordList.init("fr")
+                    Storage.setSetting("language", "fr")
+                    prettyLanguage= (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
+                }
             }
 
             Achievements {
@@ -161,6 +171,10 @@ Rectangle {
 
     Component.onCompleted: {
         Storage.initialize();
+        if (Storage.getSetting("language")==="Unknown") {
+            Storage.setSetting("language", (language==="fr")?"fr":"en");
+        }
+        wordList.init(Storage.getSetting("language"));
         intro.updateScore();
     }
 

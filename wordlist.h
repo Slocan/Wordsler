@@ -57,8 +57,8 @@ class WordList : public QObject
        item in the root QML context.
     */
 public:
-    explicit WordList(QObject *parent = 0);
-    Q_INVOKABLE static WordList *instance();
+    explicit WordList(QObject *parent = 0, QString locale = "en");
+    Q_INVOKABLE static WordList *instance(QString locale);
     bool isPartialWord(char*);//Convenience for the C style code
 signals:
 
@@ -72,8 +72,8 @@ public slots:
     //Useful for anagrams or games where you create words from a set of letters
     //This is probably slow, and is not currently put in another thread
     QStringList wordsIn(const QString &str);
+    Q_INVOKABLE void init(QString locale);
 private:
-    void init();
     static WordList* m_instance;
     QSet<QString> m_words;
     void wordsInHelper(const QString &given, const QString &left, QStringList &ret);

@@ -13,7 +13,7 @@ Item {
     Text {
         id: deckText
         font.pixelSize: settings.barRowFontSize
-        text: "Cards left: " +parent.count
+        text: qsTr("Cards left: ") +parent.count
         anchors.centerIn: parent
     }
 }

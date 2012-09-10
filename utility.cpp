@@ -42,7 +42,7 @@ QString Utility::getPlatform()
     #elif defined(ANDROID)
         return "android";
     #elif defined(BLACKBERRY_PLAYBOOK)
-    return "playbook";
+        return "playbook";
     #else
         return "other";
     #endif

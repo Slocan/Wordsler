@@ -4,6 +4,8 @@ Rectangle {
     id: intro
     width: 600
     height: 380
+    signal english
+    signal french
 
     function updateScore() {
         bestScorePane.updateScores();
@@ -47,7 +49,7 @@ Rectangle {
             rows: (parent.width>parent.height)? 1 : 2
             columns: (parent.width>parent.height)? 2 : 1
 
-            Item {
+            Column {
                 id: leftPane
                 height: (parent.rows==1)? parent.height : Math.floor(parent.height/2)
                 width: (parent.rows==1)? Math.floor(parent.width/2) : parent.width
@@ -55,13 +57,17 @@ Rectangle {
                 BestScore {
                     id: bestScorePane
                     width: parent.width
-                    height: parent.height
-                    anchors.centerIn: parent
+                    height: parent.height - languageSelector.height
+                    //anchors.centerIn: parent
 
                     MouseArea {
                         anchors.fill: parent
                         onClicked: achievementPage.visible=true
                     }
+                }
+
+                LanguageSelector {
+                    id: languageSelector
                 }
             }
 
@@ -87,7 +93,7 @@ Rectangle {
                             Text {
                                 id: text2
                                 anchors.centerIn: parent
-                                text: "New Game"
+                                text: qsTr("New Game")
                                 font.pixelSize: settings.introFontSize
                             }
 
@@ -118,7 +124,7 @@ Rectangle {
                             Text {
                                 id: text3
                                 anchors.centerIn: parent
-                                text: "Time Trial"
+                                text: qsTr("Time Trial")
                                 font.pixelSize: settings.introFontSize
                             }
 
@@ -150,7 +156,7 @@ Rectangle {
                             Text {
                                 id: text5
                                 anchors.centerIn: parent
-                                text: "Online<BR />Challenge"
+                                text: qsTr("Online<BR />Challenge")
                                 horizontalAlignment: Text.AlignHCenter
                                 font.pixelSize: settings.introFontSize -2
                             }
@@ -207,4 +213,6 @@ Rectangle {
         width: parent.width
         height: parent.height
     }
+
+    LanguageDialog { id: dialog }
 }

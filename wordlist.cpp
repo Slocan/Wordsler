@@ -46,19 +46,19 @@
 const int LEN_MAX=30;//Rounded to a round number for safety (sentinel and null terminator have room)
 bool wordCheck(char word[LEN_MAX]);
 
-WordList::WordList(QObject *parent) :
+WordList::WordList(QObject *parent, QString locale) :
     QObject(parent)
 {
-    init();
+    //init(locale);
 }
 
 WordList* WordList::m_instance = 0;
-WordList* WordList::instance()
+WordList* WordList::instance(QString locale)
 {
     if(m_instance)
         return m_instance;
     else
-        m_instance = new WordList();
+        m_instance = new WordList(0, locale);
     return m_instance;
 }
 
@@ -80,15 +80,21 @@ QStringList WordList::wordsIn(const QString &str)
 }
 
 //Using a C style global array since I'm using C style strings anyways
-const int WORD_MAX=270000;
+const int WORD_MAX=340000;
 char dict[WORD_MAX][LEN_MAX];
 int idx[26*26];
 int numWords;
 
-void WordList::init(){
+void WordList::init(const QString locale){
     //Create 'Binary Tree'
     //QFile in(":/words.dict");//Assumed to be in alphabetical order already
-    QFile in(":/wordlist2.txt");
+    QFile in;
+
+    if (locale=="fr") {
+        in.setFileName(":/liste_fr.txt");
+    } else {
+        in.setFileName(":/wordlist2.txt");
+    }
     bool opened = in.open(QFile::Text | QFile::ReadOnly);
     Q_ASSERT(opened);
     int c=0;
@@ -96,6 +102,7 @@ void WordList::init(){
     char curIdx[2];//Assumed all words have at least 2 letters
     curIdx[0] = ' ';
     curIdx[1] = ' ';
+    m_words.clear();
     while(in.readLine(cur,LEN_MAX) > 0){
             //qDebug() << QString(cur).toLower().trimmed();
             if(cur[0]=='\n' || cur[0]=='\0')

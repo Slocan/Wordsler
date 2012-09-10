@@ -27,7 +27,7 @@ Item {
 
             Text {
                 id: text1
-                text: "Highest Scores"
+                text: qsTr("Highest Scores")
                 font.bold: true
                 font.italic: true
                 font.pixelSize: settings.introFontSize - 2
@@ -41,7 +41,7 @@ Item {
 
             Text {
                 id: text2
-                text: "Regular Mode"
+                text: qsTr("Regular Mode")
                 font.bold: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: settings.introFontSize - 5
@@ -62,7 +62,7 @@ Item {
 
             Text {
                 id: text3
-                text: "Time Trial"
+                text: qsTr("Time Trial")
                 font.bold: true
                 font.pixelSize: settings.introFontSize - 5
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -83,7 +83,7 @@ Item {
                 id: link
                 font.pixelSize: settings.introFontSize - 2
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Press to view Achievements!"
+                text: qsTr("Press to view Achievements!")
             }
         }
     }

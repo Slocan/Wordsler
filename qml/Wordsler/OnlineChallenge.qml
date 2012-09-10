@@ -170,17 +170,17 @@ Rectangle {
                         id: textIntro
                         width: parent.width
                         wrapMode: Text.Wrap
-                        text: "Welcome to the Daily Wordsler Challenge!
+                        text: qsTr("Welcome to the Daily Wordsler Challenge!
 
     Compete against your peers using the same set of cards. Every day a new challenge!
     When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
     No personal data other than the username provided below is being transmitted.
 
     Register for a new Wordsler Online account
-    Please note that this mode requires an active internet connection."
+    Please note that this mode requires an active internet connection.")
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: settings.aboutPageFontSize
+                        font.pixelSize: 0
                     }
 
                     Image {
@@ -204,7 +204,7 @@ Rectangle {
 
                 Text {
                     id: text1
-                    text: "Username: "
+                    text: qsTr("Username: ")
                     font.pixelSize: settings.aboutPageFontSize
                 }
 
@@ -255,7 +255,7 @@ Rectangle {
                         Text {
                             id: text6
                             anchors.centerIn: parent
-                            text: "Register"
+                            text: qsTr("Register")
                             font.pixelSize: settings.introFontSize
                         }
 
@@ -289,7 +289,7 @@ Rectangle {
                         Text {
                             id: text7
                             anchors.centerIn: parent
-                            text: "Cancel"
+                            text: qsTr("Cancel")
                             font.pixelSize: settings.introFontSize
                         }
 
@@ -319,7 +319,7 @@ Rectangle {
             Text {
                 id: textOnline
                 wrapMode: Text.WordWrap
-                text: "Your score is being submitted online."
+                text: qsTr("Your score is being submitted online.")
                 font.pixelSize: settings.aboutPageFontSize
                 anchors.horizontalCenter: parent.horizontalCenter
                 //anchors.verticalCenter: parent.verticalCenter
@@ -332,7 +332,7 @@ Rectangle {
                 width: 60
                 id: loading2
                 anchors.horizontalCenter: parent.horizontalCenter
-                visible: (textOnline.text == "Your score is being submitted online.")
+                visible: (textOnline.text == qsTr("Your score is being submitted online."))
                 Image {
                     anchors.centerIn: parent
                     source: "toolbar/images/loading2.png"
@@ -357,7 +357,7 @@ Rectangle {
                     Text {
                         id: text8
                         anchors.centerIn: parent
-                        text: "Close"
+                        text: qsTr("Close")
                         font.pixelSize: settings.introFontSize
                     }
 

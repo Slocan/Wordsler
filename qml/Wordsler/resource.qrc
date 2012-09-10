@@ -50,5 +50,10 @@
         <file>images/waterfall-tile-blue.jpg</file>
         <file>images/waterfall-tile.jpg</file>
         <file>images/wood-repeating-fill-wavy.jpg</file>
+        <file>liste_fr.txt</file>
+        <file>qml-translations.en.qm</file>
+        <file>qml-translations.fr.qm</file>
+        <file>LanguageSelector.qml</file>
+        <file>LanguageDialog.qml</file>
     </qresource>
 </RCC>

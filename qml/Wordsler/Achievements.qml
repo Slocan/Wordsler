@@ -25,7 +25,7 @@ Rectangle {
                 Text {
                     id: title
                     width: parent.width
-                    text: "Achievement page"
+                    text: qsTr("Achievement page")
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: settings.introFontSize

@@ -29,9 +29,9 @@ Rectangle {
         id: scoreText
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        text: "Your score is: " + scoreString
+        text: qsTr("Your score is: ") + scoreString
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: settings.scoreFontSize;
+        font.pixelSize: 0
     }
 
     MouseArea {
