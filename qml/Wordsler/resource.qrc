@@ -57,5 +57,6 @@
         <file>LanguageDialog.qml</file>
         <file>QuitButton.qml</file>
         <file>images/closeButton.png</file>
+        <file>fr-achievements.xml</file>
     </qresource>
 </RCC>

@@ -6,7 +6,14 @@
     <message>
         <location filename="About.qml" line="30"/>
         <source>About</source>
-        <translation type="unfinished">A propos</translation>
+        <translation>&lt;p&gt;Le but de ce jeu est de marquer le plus de points possible en &lt;b&gt;trouvant des mots&lt;/b&gt;.&lt;/p&gt;
+                &lt;p&gt;Vous avez 8 lettres a la fois pour trouver des mots en cliquant dessus dans l&apos;ordre choisi. Vous pouvez enlever une lettre en cliquant a nouveau.&lt;/p&gt;
+                &lt;p&gt;Une fois votre mot complet, appuyer sur &lt;b&gt;Valider&lt;/b&gt; pour verifier s&apos;il est valide. Des points de bonus sont accordes en fonction de la longueur du mot.&lt;/p&gt;
+
+                &lt;p&gt;Dans le &lt;b&gt;Mode Normal&lt;/b&gt;, il y a 58 cartes au total. Le jeu fini quand vous ne trouvez plus de mots, ou quand il n&apos;y a plus de cartes.&lt;/p&gt;
+                &lt;p&gt;Le &lt;b&gt;Mode Chrono&lt;/b&gt; a les memes regles, mais avec un limite de 2 minutes, au bout duquel le jeu se termine.&lt;/p&gt;
+                &lt;p&gt;Le &lt;b&gt;Mode En Ligne&lt;/b&gt; vous permet de comparer votre score chaque jour contre d&apos;autres joueurs (connection internet requise).&lt;/p&gt;
+                &lt;p&gt;Pour toutes questions ou pour signaler un probleme, merci de visiter &lt;a href=&quot;http://feedingit.marcoz.org/&quot;&gt;http://feedingit.marcoz.org&lt;/a&gt; ou de contacter par email &lt;a href=&quot;mailto:wordsler@marcoz.org&quot;&gt;wordsler@marcoz.org&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -15,6 +22,11 @@
         <location filename="Achievements.qml" line="28"/>
         <source>Achievement page</source>
         <translation>Page des records</translation>
+    </message>
+    <message>
+        <location filename="Achievements.qml" line="82"/>
+        <source>language</source>
+        <translation>francais</translation>
     </message>
 </context>
 <context>
@@ -35,7 +47,7 @@
         <translation>Contre Le Temps</translation>
     </message>
     <message>
-        <location filename="BestScore.qml" line="86"/>
+        <location filename="BestScore.qml" line="87"/>
         <source>Press to view Achievements!</source>
         <translation>Appuyer pour voir les records!</translation>
     </message>
@@ -72,17 +84,17 @@
 <context>
     <name>Intro</name>
     <message>
-        <location filename="Intro.qml" line="96"/>
+        <location filename="Intro.qml" line="100"/>
         <source>New Game</source>
         <translation>Nouveau Jeu</translation>
     </message>
     <message>
-        <location filename="Intro.qml" line="127"/>
+        <location filename="Intro.qml" line="131"/>
         <source>Time Trial</source>
-        <translation>Contre Le Temps</translation>
+        <translation>Mode Chrono</translation>
     </message>
     <message>
-        <location filename="Intro.qml" line="159"/>
+        <location filename="Intro.qml" line="163"/>
         <source>Online&lt;BR /&gt;Challenge</source>
         <translation>Challenge&lt;BR/&gt;En Ligne</translation>
     </message>
@@ -90,17 +102,24 @@
 <context>
     <name>LanguageDialog</name>
     <message>
-        <location filename="LanguageDialog.qml" line="47"/>
+        <location filename="LanguageDialog.qml" line="53"/>
+        <source>Loading dictionary
+Please wait</source>
+        <translation>Chargement du dictionaire
+Merci de patienter</translation>
+    </message>
+    <message>
+        <location filename="LanguageDialog.qml" line="64"/>
         <source>Choose which language to use in-game</source>
         <translation>Choisir le dictionnaire à utiliser</translation>
     </message>
     <message>
-        <location filename="LanguageDialog.qml" line="60"/>
+        <location filename="LanguageDialog.qml" line="77"/>
         <source>English</source>
         <translation>anglais</translation>
     </message>
     <message>
-        <location filename="LanguageDialog.qml" line="85"/>
+        <location filename="LanguageDialog.qml" line="105"/>
         <source>French</source>
         <translation>français</translation>
     </message>
@@ -116,7 +135,6 @@
 <context>
     <name>OnlineChallenge</name>
     <message>
-        <location filename="OnlineChallenge.qml" line="173"/>
         <source>Welcome to the Daily Wordsler Challenge!
 
     Compete against your peers using the same set of cards. Every day a new challenge!
@@ -125,7 +143,26 @@
 
     Register for a new Wordsler Online account
     Please note that this mode requires an active internet connection.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Bienvenue au Challenge Journalier de Wordsler
+
+    Chaque jour, compare votre score avec le reste du monde en jouant avec la meme serie de lettres
+    Lorsque vous completez une partie dans ce mode, votre score est enovye a http://feedingit.marcoz.org
+    Aucune information personnelle, autre que le nom d&apos;utilisateur n&apos;est transmis
+
+    Enregistrez vous pour un compte Wordsler En Ligne
+    Ce mode de jeu necessite une connection internet active.</translation>
+    </message>
+    <message>
+        <location filename="OnlineChallenge.qml" line="173"/>
+        <source>Welcome</source>
+        <translation>Bienvenue au Challenge Journalier de Wordsler
+
+    Chaque jour, compare votre score avec le reste du monde en jouant avec la meme serie de lettres
+    Lorsque vous completez une partie dans ce mode, votre score est enovye a http://feedingit.marcoz.org
+    Aucune information personnelle, autre que le nom d&apos;utilisateur n&apos;est transmis
+
+    Enregistrez vous pour un compte Wordsler En Ligne
+    Ce mode de jeu necessite une connection internet active.</translation>
     </message>
     <message>
         <location filename="OnlineChallenge.qml" line="200"/>
@@ -176,15 +213,15 @@
     </message>
     <message>
         <location filename="main.qml" line="113"/>
-        <location filename="main.qml" line="157"/>
-        <location filename="main.qml" line="162"/>
+        <location filename="main.qml" line="158"/>
+        <location filename="main.qml" line="164"/>
         <source>French</source>
         <translation>français</translation>
     </message>
     <message>
         <location filename="main.qml" line="113"/>
-        <location filename="main.qml" line="157"/>
-        <location filename="main.qml" line="162"/>
+        <location filename="main.qml" line="158"/>
+        <location filename="main.qml" line="164"/>
         <source>English</source>
         <translation>anglais</translation>
     </message>

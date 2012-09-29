@@ -69,12 +69,12 @@ symbian {
 }
 
 exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):!contains(MEEGO_EDITION,harmattan): {
-  MEEGO_VERSION_MAJOR     = 1
-  MEEGO_VERSION_MINOR     = 2
+  MEEGO_VERSION_MAJOR     = 2
+  MEEGO_VERSION_MINOR     = 0
   MEEGO_VERSION_PATCH     = 0
   MEEGO_EDITION           = harmattan
   DEFINES += MEEGO_EDITION_HARMATTAN
-}
+} # This doesn't seem to work in PR1.2 anymore
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp wordlist.cpp utility.cpp
@@ -133,3 +133,19 @@ OTHER_FILES += \
 #    qtc_packaging/debian_fremantle/control \
 #    qtc_packaging/debian_fremantle/compat \
 #    qtc_packaging/debian_fremantle/changelog
+
+contains(MEEGO_EDITION,harmattan) {
+    desktopfile.files = Wordsler.desktop
+    desktopfile.path = /usr/share/applications
+    INSTALLS += desktopfile
+
+    splash.files = Wordsler-splash-harmattan.png
+    splash.path = /opt/Wordsler/
+    INSTALLS += splash
+}
+
+contains(MEEGO_EDITION,harmattan) {
+    icon.files = Wordsler.png
+    icon.path = /usr/share/icons/hicolor/80x80/apps
+    INSTALLS += icon
+}

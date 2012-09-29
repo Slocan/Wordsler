@@ -170,14 +170,7 @@ Rectangle {
                         id: textIntro
                         width: parent.width
                         wrapMode: Text.Wrap
-                        text: qsTr("Welcome to the Daily Wordsler Challenge!
-
-    Compete against your peers using the same set of cards. Every day a new challenge!
-    When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
-    No personal data other than the username provided below is being transmitted.
-
-    Register for a new Wordsler Online account
-    Please note that this mode requires an active internet connection.")
+                        text: qsTr("Welcome")
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         font.pixelSize: 0

@@ -6,7 +6,7 @@
     <message>
         <location filename="About.qml" line="30"/>
         <source>About</source>
-        <translation type="unfinished">&lt;p&gt;The goal of this game is to score as many points as possible by &lt;b&gt;making words&lt;/b&gt;.&lt;/p&gt;
+        <translation>&lt;p&gt;The goal of this game is to score as many points as possible by &lt;b&gt;making words&lt;/b&gt;.&lt;/p&gt;
                 &lt;p&gt;You are given 8 letters at a time, from which to form words by clicking on them in your choosen order. You can remove a letter by clicking on it again.&lt;/p&gt;
                 &lt;p&gt;Once your word is complete, click on &lt;b&gt;Validate&lt;/b&gt; to check its validity. Bonus points are given based on the length of the word.&lt;/p&gt;
 
@@ -22,6 +22,11 @@
         <location filename="Achievements.qml" line="28"/>
         <source>Achievement page</source>
         <translation>Achievement page</translation>
+    </message>
+    <message>
+        <location filename="Achievements.qml" line="82"/>
+        <source>language</source>
+        <translation>english</translation>
     </message>
 </context>
 <context>
@@ -42,7 +47,7 @@
         <translation>Time Trial</translation>
     </message>
     <message>
-        <location filename="BestScore.qml" line="86"/>
+        <location filename="BestScore.qml" line="87"/>
         <source>Press to view Achievements!</source>
         <translation>Press to view Achievements!</translation>
     </message>
@@ -79,17 +84,17 @@
 <context>
     <name>Intro</name>
     <message>
-        <location filename="Intro.qml" line="96"/>
+        <location filename="Intro.qml" line="100"/>
         <source>New Game</source>
         <translation>New Game</translation>
     </message>
     <message>
-        <location filename="Intro.qml" line="127"/>
+        <location filename="Intro.qml" line="131"/>
         <source>Time Trial</source>
         <translation>Time Trial</translation>
     </message>
     <message>
-        <location filename="Intro.qml" line="159"/>
+        <location filename="Intro.qml" line="163"/>
         <source>Online&lt;BR /&gt;Challenge</source>
         <translation>Online&lt;BR /&gt;Challenge</translation>
     </message>
@@ -97,17 +102,24 @@
 <context>
     <name>LanguageDialog</name>
     <message>
-        <location filename="LanguageDialog.qml" line="47"/>
+        <location filename="LanguageDialog.qml" line="53"/>
+        <source>Loading dictionary
+Please wait</source>
+        <translation>Loading dictionary
+Please wait</translation>
+    </message>
+    <message>
+        <location filename="LanguageDialog.qml" line="64"/>
         <source>Choose which language to use in-game</source>
         <translation>Choose which language to use in-game</translation>
     </message>
     <message>
-        <location filename="LanguageDialog.qml" line="60"/>
+        <location filename="LanguageDialog.qml" line="77"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="LanguageDialog.qml" line="85"/>
+        <location filename="LanguageDialog.qml" line="105"/>
         <source>French</source>
         <translation>French</translation>
     </message>
@@ -123,7 +135,6 @@
 <context>
     <name>OnlineChallenge</name>
     <message>
-        <location filename="OnlineChallenge.qml" line="173"/>
         <source>Welcome to the Daily Wordsler Challenge!
 
     Compete against your peers using the same set of cards. Every day a new challenge!
@@ -132,7 +143,19 @@
 
     Register for a new Wordsler Online account
     Please note that this mode requires an active internet connection.</source>
-        <translation type="unfinished">Welcome to the Daily Wordsler Challenge!
+        <translation type="obsolete">Welcome to the Daily Wordsler Challenge!
+
+    Compete against your peers using the same set of cards. Every day a new challenge!
+    When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
+    No personal data other than the username provided below is being transmitted.
+
+    Register for a new Wordsler Online account
+    Please note that this mode requires an active internet connection.</translation>
+    </message>
+    <message>
+        <location filename="OnlineChallenge.qml" line="173"/>
+        <source>Welcome</source>
+        <translation>Welcome to the Daily Wordsler Challenge!
 
     Compete against your peers using the same set of cards. Every day a new challenge!
     When you complete a game in this mode, you score is submitted online at http://feedingit.marcoz.org .
@@ -190,15 +213,15 @@
     </message>
     <message>
         <location filename="main.qml" line="113"/>
-        <location filename="main.qml" line="157"/>
-        <location filename="main.qml" line="162"/>
+        <location filename="main.qml" line="158"/>
+        <location filename="main.qml" line="164"/>
         <source>French</source>
         <translation>French</translation>
     </message>
     <message>
         <location filename="main.qml" line="113"/>
-        <location filename="main.qml" line="157"/>
-        <location filename="main.qml" line="162"/>
+        <location filename="main.qml" line="158"/>
+        <location filename="main.qml" line="164"/>
         <source>English</source>
         <translation>English</translation>
     </message>

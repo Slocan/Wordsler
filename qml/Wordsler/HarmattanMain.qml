@@ -4,12 +4,17 @@ import com.nokia.meego 1.0
 
 PageStackWindow {
     initialPage: mainPage
+    showStatusBar: true
 
     Page{
         id: mainPage
-        Component.onCompleted: {
-            var main = Qt.createComponent("main.qml");
-            main.createObject(mainPage);
-        }
+        orientationLock: PageOrientation.Automatic
+
+        Main { }
+
+//        Component.onCompleted: {
+//            var main = Qt.createComponent("main.qml");
+//            main.createObject(mainPage);
+//        }
     }
 }

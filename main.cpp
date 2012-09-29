@@ -5,6 +5,8 @@
 #include "utility.h"
 #include "qmlapplicationviewer.h"
 
+#include <qplatformdefs.h>  //MEEGO_EDITION_HARMATTAN
+
 //#if defined(MEEGO_EDITION_HARMATTAN)
 //  #include <MDeclarativeCache>
 //#endif
@@ -24,7 +26,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 //#endif
     QString locale = QLocale::system().name();
-    locale = "fr_FR";
+    //locale = "fr_FR";
     QString language = locale.mid(0,2);
     //language = "fr";
     QTranslator translator;
