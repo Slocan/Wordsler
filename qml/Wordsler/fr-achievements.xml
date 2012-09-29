@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<achievements>
+ <achievement>
+   <index>1</index>
+   <name>games</name>
+   <fullname>Nombre total de parties jouees. Jouez 20, 50 et 80 parties pour une medaille.</fullname>
+   <caption>Vous avez joue %s parties.</caption>
+   <description>Jouez dans n'importe quel mode pour completer.</description>
+   <steps>
+     <step>20</step>
+     <step>50</step>
+     <step>80</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>2</index>
+   <name>onlinegames</name>
+   <fullname>Nombre total de parties jouees en ligne. Jouez 10, 20 et 50 parties pour une medaille.</fullname>
+   <caption>Vous avez joue %s parties en ligne.</caption>
+   <description>Jouez en mode en ligne pour completer.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>50</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>3</index>
+   <name>timergames</name>
+   <fullname>Nombre total de parties jouees en mode chrono. Jouez 10, 20 et 50 parties pour une medaille.</fullname>
+   <caption>Vous avez joue %s parties en mode chrono.</caption>
+   <description>Jouez en mode chrono pour completer.</description>
+   <steps>
+     <step>10</step>
+     <step>20</step>
+     <step>50</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>4</index>
+   <name>bestscore</name>
+   <fullname>Meilleur score dans une partie. Faites un score de 150, 175 et 190 pour reussir.</fullname>
+   <caption>Votre meilleur score est de %s.</caption>
+   <description>Marquer le plus de point possible, dans n'importe quel mode.</description>
+   <steps>
+     <step>150</step>
+     <step>175</step>
+     <step>190</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>5</index>
+   <name>besttimerscore</name>
+   <fullname>Meilleur score en mode chrono. Faites un score de 90, 110 et 130 pour reussir.</fullname>
+   <caption>Votre meilleur score en mode chrono est de %s.</caption>
+   <description>Marquer le plus de point possible en mode chrono.</description>
+   <steps>
+     <step>90</step>
+     <step>110</step>
+     <step>130</step>
+   </steps>
+ </achievement>
+
+ <achievement>
+   <index>6</index>
+   <name>bestword</name>
+   <fullname>Mot comptant le plus de point. Jouez un mot de plus de 15, 20 et 30 point pour reussir.</fullname>
+   <caption>Votre meilleur mot est %c pour %s points.</caption>
+   <description>Marquer le plus de point possible avec un seul mot.</description>
+   <steps>
+     <step>15</step>
+     <step>20</step>
+     <step>30</step>
+   </steps>
+ </achievement>
+
+</achievements>

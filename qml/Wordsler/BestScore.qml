@@ -81,6 +81,7 @@ Item {
 
             Text {
                 id: link
+                visible: utility.getPlatform() !== 'symbian'
                 font.pixelSize: settings.introFontSize - 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Press to view Achievements!")

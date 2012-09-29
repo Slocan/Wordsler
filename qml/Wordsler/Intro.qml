@@ -42,6 +42,10 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 16
             }
+
+            QuitButton {
+                anchors.right: parent.right
+            }
         }
         Grid {
             width: parent.width
@@ -159,14 +163,17 @@ Rectangle {
                                 text: qsTr("Online<BR />Challenge")
                                 horizontalAlignment: Text.AlignHCenter
                                 font.pixelSize: settings.introFontSize -2
+                                font.strikeout: currentDict === "fr"
                             }
 
                             MouseArea {
                                 id: onlineChallengeButton
                                 anchors.fill: parent
                                 onClicked: {
-                                    aboutpage.source = "";
-                                    aboutpage.source="OnlineChallenge.qml";
+                                    if (currentDict === "en") {
+                                        aboutpage.source = "";
+                                        aboutpage.source="OnlineChallenge.qml";
+                                    }
                                 }
 
                             }

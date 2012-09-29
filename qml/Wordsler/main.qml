@@ -18,24 +18,24 @@ Rectangle {
         width: parent.width
         height: parent.height
 
-        ToolBar.ToolBar {
-            id: toolBar; z: 7
-            height: settings.toolBarHeight;
-            width: screen.width;
-            opacity: 0.9
-            visible: (utility.getPlatform()=="maemo5")||(utility.getPlatform()=="playbook")?false:true
+//        ToolBar.ToolBar {
+//            id: toolBar; z: 7
+//            height: settings.toolBarHeight;
+//            width: screen.width;
+//            opacity: 0.9
+//            visible: (utility.getPlatform()=="maemo5")||(utility.getPlatform()=="playbook")?false:true
 
-            onTaskSwitcherClicked: {
-                utility.taskSwitcher();
-            }
-            onBackClicked: {
-                        Qt.quit();
-            }
-        }
+//            onTaskSwitcherClicked: {
+//                utility.taskSwitcher();
+//            }
+//            onBackClicked: {
+//                        Qt.quit();
+//            }
+//        }
 
         Item {
             width: screen.width
-            height: screen.height - toolBar.height
+            height: screen.height
 
             function getScoreForLetter(letter) {
                 return Game.score_definition[Storage.getSetting("language")][letter];
@@ -45,7 +45,7 @@ Rectangle {
                 id: board
                 visible: false
                 width: screen.width
-                height: screen.height - toolBar.height
+                height: screen.height
                 property int uniqueCardId: 0
 
                 property variant wordStackCopy;
@@ -109,12 +109,13 @@ Rectangle {
             Intro {
                 id: intro
                 width: screen.width
-                height: screen.height - toolBar.height
+                height: screen.height
                 property string prettyLanguage: (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
+                property string currentDict: Storage.getSetting("language")
 
                 function startGame() {
                     board.state = "normal"
-                    Game.initialize(Storage.getSetting("language"));
+                    Game.initialize(currentDict);
                     board.initialize();
                     for (var i=0; i<=7; i++) {
                         var nextCard = Game.getNextCard();
@@ -122,7 +123,7 @@ Rectangle {
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
                                                gridId: board.uniqueCardId,
-                                               cardValue: Game.score_definition[Storage.getSetting("language")][nextCard]  } );
+                                               cardValue: Game.score_definition[currentDict][nextCard]  } );
                     }
                     board.updateCount();
                     intro.visible = false;
@@ -145,7 +146,7 @@ Rectangle {
                         board.pileModel.append( { cardText: nextCard,
                                                selected: false,
                                                gridId: board.uniqueCardId,
-                                               cardValue: Game.score_definition[Storage.getSetting("language")][nextCard]  } );
+                                               cardValue: Game.score_definition[currentDict][nextCard]  } );
                     }
                     board.updateCount();
                     intro.visible = false;
@@ -155,11 +156,13 @@ Rectangle {
                     wordList.init("en")
                     Storage.setSetting("language", "en")
                     prettyLanguage= (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
+                    currentDict = Storage.getSetting("language")
                 }
                 onFrench: {
                     wordList.init("fr")
                     Storage.setSetting("language", "fr")
                     prettyLanguage= (Storage.getSetting("language")==="fr")?qsTr("French"):qsTr("English")
+                    currentDict = Storage.getSetting("language")
                 }
             }
 
@@ -175,6 +178,7 @@ Rectangle {
             Storage.setSetting("language", (language==="fr")?"fr":"en");
         }
         wordList.init(Storage.getSetting("language"));
+        intro.currentDict = Storage.getSetting("language")
         intro.updateScore();
     }
 

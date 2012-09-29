@@ -79,7 +79,7 @@ Rectangle {
 
     XmlListModel {
         id: xmlModel
-        source: "achievements.xml"
+        source: qsTr("language")==="english"? "achievements.xml":"fr-achievements.xml"
         query: "/achievements/achievement"
 
         XmlRole { name: "achIndex"; query: "index/string()" }

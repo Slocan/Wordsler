@@ -55,5 +55,7 @@
         <file>qml-translations.fr.qm</file>
         <file>LanguageSelector.qml</file>
         <file>LanguageDialog.qml</file>
+        <file>QuitButton.qml</file>
+        <file>images/closeButton.png</file>
     </qresource>
 </RCC>
