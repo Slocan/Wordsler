@@ -111,6 +111,23 @@ Item {
             cardHeight = 100;
             aboutPageFontSize = 18;
             medalSize = 40;
+        } else if (platform=="bb10") {
+            introButtonHeight = 100;
+            introButtonWidth = 300;
+            introFontSize = 35;
+            statusRowButtonWidth = 200;
+            statusRowHeight = 80;
+            statusRowFontSize = 28;
+            barRowHeight = 45;
+            barRowFontSize = 33;
+            toolBarHeight = 0;
+            scoreFontSize = 36;
+            cardFontSize = 33;
+            cardBottomFontSize = 24;
+            cardWidth = 82;
+            cardHeight = 110;
+            aboutPageFontSize = 28;
+            medalSize = 40;
         } else {
             introButtonHeight = 50;
             introButtonWidth = 176;

@@ -21,7 +21,6 @@
         <file>Settings.qml</file>
         <file>storage.js</file>
         <file>TimerFuse.qml</file>
-        <file>wordlist2.xml</file>
         <file>About.qml</file>
         <file>AchDelegate.qml</file>
         <file>Achievements.qml</file>

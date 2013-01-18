@@ -4,6 +4,7 @@
 #include "wordlist.h"
 #include "utility.h"
 #include "qmlapplicationviewer.h"
+#include <QFontDatabase>
 
 #include <qplatformdefs.h>  //MEEGO_EDITION_HARMATTAN
 
@@ -24,6 +25,10 @@ int main(int argc, char *argv[])
 //    QApplication *app = MDeclarativeCache::qApplication(argc, argv);
 //#else
     QApplication app(argc, argv);
+#if defined(BLACKBERRY_BB10)
+    app.setFont(QFont("DejaVu Sans"));
+#endif
+
 //#endif
     QString locale = QLocale::system().name();
     //locale = "fr_FR";
@@ -55,7 +60,7 @@ int main(int argc, char *argv[])
 #endif
     viewer.showExpanded();
 //#if defined(Q_WS_MAEMO_5) ||
-#if defined(MEEGO_EDITION_HARMATTAN) || defined(BLACKBERRY_PLAYBOOK)
+#if defined(MEEGO_EDITION_HARMATTAN) || defined(BLACKBERRY_PLAYBOOK) || defined(BLACKBERRY_BB10)
         viewer.showFullScreen();
 #endif
 

@@ -43,6 +43,7 @@ Item {
                 id: text2
                 text: qsTr("Regular Mode")
                 font.bold: true
+                font.italic: true
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: settings.introFontSize - 5
                 anchors.horizontalCenter: parent.horizontalCenter

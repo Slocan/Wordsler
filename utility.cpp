@@ -43,6 +43,8 @@ QString Utility::getPlatform()
         return "android";
     #elif defined(BLACKBERRY_PLAYBOOK)
         return "playbook";
+    #elif defined(BLACKBERRY_BB10)
+        return "bb10";
     #else
         return "other";
     #endif
